@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "_doc": "Moteur d'accords. Livré COMPLET : la taxonomie des plats et les règles de profil sont figées ici. Ce qui reste à produire (lots L1-CH/FR/IT) est le renseignement du champ 'accords' dans kb/cepages.json et kb/regions.json, avec les ids définis ci-dessous. Consommé par app/accords.js ET par scripts/query.mjs — une seule implémentation. Spécification complète et vecteurs de test : docs/SPEC_MOTEURS.md §2.",
+
+  "ponderation": {
+    "_doc": "Score de base sur 100. Les trois sources s'additionnent, plafonnées à 100. CHANGEMENT v2 : le plafond du profil passe de 20 à 35 et le seuil d'affichage de 40 à 30. En v1, le plafond du profil (20) était INFÉRIEUR au seuil (40) : les règles de profil ne pouvaient donc JAMAIS faire apparaître un vin, ce qui vidait de son sens le champ 'profil' des cépages. À 35, elles le peuvent — tout en restant sous les 50 de l'appellation, donc sans jamais pouvoir dominer une source explicite.",
+    "appellation": 50,
+    "cepage": 30,
+    "profil": 35,
+    "seuilAffichage": 30,
+    "_calcul": [
+      "base = 0",
+      "si wine.appellationId liste le plat                        → base += 50",
+      "si au moins un id de wine.cepageIds liste le plat          → base += 30",
+      "pour chaque règle de profil satisfaite citant le plat      → base += regle.poids, cumul plafonné à 35",
+      "base = min(base, 100)                                      ← AVANT le facteur",
+      "score = round(base × kb/garde.json > facteurAccords[max des drapeaux actifs])",
+      "si une antiRegle s'applique                                → score = 0, vin EXCLU",
+      "afficher si score >= seuilAffichage"
+    ],
+    "_tri": "score décroissant ; à égalité : drapeau apogee/urgent d'abord, puis wine.note décroissante, puis wine.ref croissante. Déterministe — l'app et query.mjs DOIVENT trier identiquement."
+  },
+
+  "repli": {
+    "_doc": "Si AUCUN vin n'atteint seuilAffichage, on n'affiche pas un écran vide : on montre les meilleurs candidats en les étiquetant honnêtement. Un écran vide est un échec ; une suggestion étiquetée ne l'est pas. Les vins exclus par une antiRegle (score 0) ne remontent JAMAIS, même ici.",
+    "actifSi": "aucun vin avec score >= seuilAffichage",
+    "nombre": 5,
+    "scoreMinimum": 1,
+    "intitule": "Aucun accord établi — suggestions d'après le profil des vins"
+  },
+
+  "plats": [
+    { "id": "aperitif",                "nom": "Apéritif",                  "famille": "Ouverture" },
+    { "id": "apero_sale",              "nom": "Amuse-bouches salés",       "famille": "Ouverture" },
+    { "id": "charcuterie",             "nom": "Charcuterie",               "famille": "Ouverture" },
+    { "id": "foie_gras",               "nom": "Foie gras",                 "famille": "Ouverture" },
+
+    { "id": "crustaces",               "nom": "Crustacés, fruits de mer",  "famille": "Mer" },
+    { "id": "poissons_delicats",       "nom": "Poissons délicats",         "famille": "Mer" },
+    { "id": "poissons_gras",           "nom": "Poissons gras, en sauce",   "famille": "Mer" },
+    { "id": "sushi",                   "nom": "Sushi, poisson cru",        "famille": "Mer" },
+
+    { "id": "volaille_rotie",          "nom": "Volaille rôtie",            "famille": "Viandes" },
+    { "id": "viandes_blanches",        "nom": "Viandes blanches",          "famille": "Viandes" },
+    { "id": "porc",                    "nom": "Porc",                      "famille": "Viandes" },
+    { "id": "agneau",                  "nom": "Agneau",                    "famille": "Viandes" },
+    { "id": "viandes_rouges_grillees", "nom": "Viandes rouges grillées",   "famille": "Viandes", "_ex": "côte de bœuf, entrecôte" },
+    { "id": "viandes_rouges_mijotees", "nom": "Viandes rouges mijotées",   "famille": "Viandes", "_ex": "daube, bourguignon, osso buco" },
+    { "id": "gibier",                  "nom": "Gibier",                    "famille": "Viandes" },
+    { "id": "barbecue",                "nom": "Barbecue, grillades",       "famille": "Viandes" },
+
+    { "id": "fondue",                  "nom": "Fondue",                    "famille": "Cuisine alpine" },
+    { "id": "raclette",                "nom": "Raclette",                  "famille": "Cuisine alpine" },
+    { "id": "cuisine_alpine",          "nom": "Papet, rösti, plats du terroir", "famille": "Cuisine alpine" },
+
+    { "id": "pates_tomate",            "nom": "Pâtes à la tomate",         "famille": "Cuisine italienne" },
+    { "id": "pates_creme",             "nom": "Pâtes crémeuses",           "famille": "Cuisine italienne" },
+    { "id": "risotto",                 "nom": "Risotto",                   "famille": "Cuisine italienne" },
+    { "id": "pizza",                   "nom": "Pizza",                     "famille": "Cuisine italienne" },
+    { "id": "truffe",                  "nom": "Truffe",                    "famille": "Cuisine italienne" },
+
+    { "id": "champignons",             "nom": "Champignons",               "famille": "Végétal" },
+    { "id": "legumes_verts",           "nom": "Légumes verts, salades",    "famille": "Végétal" },
+
+    { "id": "cuisine_epicee",          "nom": "Cuisine épicée",            "famille": "Épices" },
+    { "id": "cuisine_asiatique",       "nom": "Cuisine asiatique",         "famille": "Épices" },
+
+    { "id": "fromages_pate_dure",      "nom": "Fromages à pâte dure",      "famille": "Fromages", "_ex": "gruyère, comté, parmesan" },
+    { "id": "fromages_pate_molle",     "nom": "Fromages à pâte molle",     "famille": "Fromages", "_ex": "brie, vacherin" },
+    { "id": "fromages_bleus",          "nom": "Bleus",                     "famille": "Fromages" },
+    { "id": "fromages_chevre",         "nom": "Chèvre",                    "famille": "Fromages" },
+
+    { "id": "desserts_fruits",         "nom": "Desserts aux fruits",       "famille": "Desserts" },
+    { "id": "desserts_chocolat",       "nom": "Desserts au chocolat",      "famille": "Desserts" }
+  ],
+
+  "profilDefautParCouleur": {
+    "_doc": "AJOUT v2, ET IL EST STRUCTURANT. Utilisé quand AUCUN cépage n'est résolu (wine.cepageIds vide : vin espagnol, cépage inconnu du KB, saisie libre). Sans lui, tanin vaut undefined, 'undefined >= 3' est faux, l'antiRegle raclette ne se déclenche pas — et le tannat arrive sur la raclette. Le défaut Rouge porte donc tanin 3 : le vin inconnu est écarté par précaution. C'est le bon sens du doute, pas une estimation.",
+    "Rouge":        { "corps": 3, "tanin": 3, "acidite": 3, "sucre": 0, "aromatique": 3 },
+    "Blanc":        { "corps": 3, "tanin": 0, "acidite": 4, "sucre": 0, "aromatique": 3 },
+    "Rosé":         { "corps": 2, "tanin": 1, "acidite": 4, "sucre": 0, "aromatique": 3 },
+    "Effervescent": { "corps": 2, "tanin": 0, "acidite": 4, "sucre": 1, "aromatique": 3 },
+    "Liquoreux":    { "corps": 4, "tanin": 0, "acidite": 3, "sucre": 4, "aromatique": 4 },
+    "Jaune":        { "corps": 4, "tanin": 0, "acidite": 5, "sucre": 0, "aromatique": 4 }
+  },
+
+  "reglesProfil": {
+    "_doc": "Filet de sécurité : elles s'appliquent quand ni l'appellation ni le cépage ne mentionnent le plat. Elles ne doivent JAMAIS suffire à faire remonter un vin en TÊTE — d'où le plafond de 35, inférieur aux 50 de l'appellation. Conditions évaluées sur le profil du CÉPAGE DOMINANT (cepageIds[0]), ou à défaut sur profilDefautParCouleur, plus la couleur du vin. Poids cumulés, plafond 35.",
+    "regles": [
+      { "si": { "tanin": ">=4", "corps": ">=4" },                       "plats": ["viandes_rouges_grillees", "barbecue", "gibier", "agneau"], "poids": 10 },
+      { "si": { "tanin": ">=4", "acidite": ">=4" },                     "plats": ["viandes_rouges_mijotees", "fromages_pate_dure"],           "poids": 8 },
+      { "si": { "tanin": "<=2", "corps": "<=3", "couleurVin": ["Rouge"] }, "plats": ["charcuterie", "volaille_rotie", "pizza", "pates_tomate"], "poids": 8 },
+      { "si": { "couleurVin": ["Blanc"], "acidite": ">=4", "sucre": "<=1" }, "plats": ["fondue", "raclette", "crustaces", "poissons_delicats", "fromages_chevre"], "poids": 10 },
+      { "si": { "couleurVin": ["Blanc"], "corps": ">=4", "sucre": "<=1" },   "plats": ["poissons_gras", "viandes_blanches", "risotto", "pates_creme"], "poids": 8 },
+      { "si": { "couleurVin": ["Blanc"], "aromatique": ">=4" },              "plats": ["cuisine_epicee", "cuisine_asiatique"],                  "poids": 8 },
+      { "si": { "couleurVin": ["Effervescent"] },                            "plats": ["aperitif", "apero_sale", "crustaces", "sushi"],         "poids": 10 },
+      { "si": { "couleurVin": ["Rosé"] },                                    "plats": ["aperitif", "charcuterie", "legumes_verts", "barbecue"],  "poids": 10 },
+      { "si": { "couleurVin": ["Liquoreux"] },                               "plats": ["foie_gras", "fromages_bleus", "desserts_fruits"],        "poids": 12 },
+      { "si": { "couleurVin": ["Jaune"] },                                   "plats": ["fromages_pate_dure", "volaille_rotie", "champignons", "cuisine_asiatique"], "poids": 12 }
+    ]
+  },
+
+  "antiRegles": {
+    "_doc": "Exclusions dures. Elles ramènent le score à 0, quel que soit le reste, et EXCLUENT le vin même du repli. Sans elles, l'arithmétique proposera un jour un tannat sur une raclette. Un mauvais accord suggéré avec aplomb détruit la confiance dans l'outil bien plus qu'un accord manquant. Évaluées sur le même profil que reglesProfil (cépage dominant, ou profilDefautParCouleur).",
+    "regles": [
+      { "plats": ["fondue", "raclette"],       "si": { "tanin": ">=3" },                         "raison": "Le tanin sur du fromage fondu donne une amertume métallique." },
+      { "plats": ["desserts_chocolat", "desserts_fruits"], "si": { "couleurVin": ["Blanc", "Rosé", "Effervescent"], "sucre": "<=1" }, "raison": "Un vin sec sur un dessert sucré paraît acide et creux." },
+      { "plats": ["crustaces", "poissons_delicats", "sushi"], "si": { "tanin": ">=3" },          "raison": "Tanin et iode : arrière-goût métallique." },
+      { "plats": ["gibier", "viandes_rouges_grillees"], "si": { "couleurVin": ["Effervescent"] }, "raison": "Structure insuffisante." }
+    ]
+  },
+
+  "service": {
+    "_doc": "CASCADE EXPLICITE, du plus spécifique au plus générique. Un assemblage n'utilise QUE son cépage dominant : une moyenne de deux températures de service ne veut rien dire.",
+    "_cascade": {
+      "tempC":    ["cepage.service.tempC (dominant)", "service[couleur].tempC"],
+      "verre":    ["cepage.service.verre (dominant)", "service[couleur].verre"],
+      "carafage": ["cepage.service.carafage (dominant)", "service._parTier[tier].carafage", "service[couleur].carafage"]
+    },
+    "Rouge":        { "tempC": [16, 18], "carafage": "30-60 min", "verre": "ballon" },
+    "Blanc":        { "tempC": [8, 11],  "carafage": null,        "verre": "tulipe" },
+    "Rosé":         { "tempC": [8, 10],  "carafage": null,        "verre": "tulipe" },
+    "Effervescent": { "tempC": [6, 8],   "carafage": null,        "verre": "flûte large" },
+    "Liquoreux":    { "tempC": [8, 10],  "carafage": null,        "verre": "petit ballon" },
+    "Jaune":        { "tempC": [14, 16], "carafage": "2-4 h",     "verre": "ballon" },
+    "_parTier": {
+      "_doc": "Le carafage dépend surtout de la structure : un vin de grande garde encore jeune en demande davantage. N'intervient que si le cépage dominant ne renseigne pas de carafage.",
+      "grandeGarde": { "carafage": "60-120 min" },
+      "garde":       { "carafage": "60 min" },
+      "moyen":       { "carafage": "30 min" },
+      "leger":       { "carafage": null },
+      "primeur":     { "carafage": null }
+    }
+  }
+}

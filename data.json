@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-13T10:00:00Z",
+  "updatedBy": "graine",
+  "zones": [
+    {
+      "id": "z1",
+      "nom": "Ma cave",
+      "rows": 7,
+      "cols": 12,
+      "rowLabels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "disabledSlots": [],
+      "couleur": "#8E2438",
+      "ordre": 1
+    }
+  ],
+  "wines": [
+    {
+      "id": "w_1",
+      "ref": 1,
+      "producteur": "Domaine Gantenbein",
+      "nom": "Pinot Noir",
+      "pays": "CH",
+      "region": "Grisons",
+      "appellation": "Graubünden AOC",
+      "appellationId": null,
+      "sousRegion": "Bündner Herrschaft",
+      "couleur": "Rouge",
+      "millesime": 2019,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "prixReference": 65,
+      "valeur": 90,
+      "gardeDe": 2025,
+      "gardeA": 2049,
+      "apogee": 2034,
+      "gardeSource": "auto",
+      "gardeExplication": "Cépage Pinot Noir (vin de garde), relevé d'un cran (prix > 40 CHF) + millésime 2019 — appellation inconnue du référentiel",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "metsSource": "auto",
+      "note": null,
+      "commentaire": null,
+      "archive": false
+    },
+    {
+      "id": "w_2",
+      "ref": 2,
+      "producteur": "Marie-Thérèse Chappaz",
+      "nom": "Fendant de Fully",
+      "pays": "CH",
+      "region": "Valais",
+      "appellation": "Fendant",
+      "appellationId": "ch-valais-fendant",
+      "sousRegion": "Fully",
+      "couleur": "Blanc",
+      "millesime": 2024,
+      "cepages": [
+        "Chasselas"
+      ],
+      "cepageIds": [
+        "chasselas"
+      ],
+      "prixReference": 22,
+      "valeur": 22,
+      "gardeDe": 2025,
+      "gardeA": 2028,
+      "apogee": 2026,
+      "gardeSource": "auto",
+      "gardeExplication": "Appellation Fendant (garde courte) + millésime 2024",
+      "mets": [
+        "fondue",
+        "raclette",
+        "aperitif",
+        "cuisine_alpine",
+        "poissons_delicats",
+        "fromages_pate_dure"
+      ],
+      "metsSource": "auto",
+      "note": null,
+      "commentaire": "Sur la fondue de samedi.",
+      "archive": false
+    }
+  ],
+  "bottles": [
+    {
+      "id": "b_1",
+      "wineId": "w_1",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": "Domaine",
+        "occasion": null,
+        "date": "2022-04-12",
+        "prix": 65,
+        "note": null
+      }
+    },
+    {
+      "id": "b_2",
+      "wineId": "w_1",
+      "format": "magnum",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "cadeau",
+        "source": "Marc Dupraz",
+        "occasion": "Anniversaire 40 ans",
+        "date": "2024-03-12",
+        "prix": null,
+        "note": "Rapporté de son voyage dans les Grisons."
+      }
+    },
+    {
+      "id": "b_3",
+      "wineId": "w_2",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": "Cave de Fully",
+        "occasion": null,
+        "date": "2026-05-30",
+        "prix": 22,
+        "note": null
+      }
+    }
+  ],
+  "tastings": [
+    {
+      "id": "t_1",
+      "wineId": "w_1",
+      "bottleId": "b_0",
+      "date": "2026-06-14",
+      "avecQui": "Marc et Julie",
+      "occasion": "Anniversaire",
+      "note": 17,
+      "commentaire": "Encore un peu fermé, à attendre deux ans.",
+      "par": "graine"
+    }
+  ]
+}

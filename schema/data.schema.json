@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ma-cave/schema/data.schema.json",
+  "title": "Ma Cave — données",
+  "description": "Contrat unique entre l'app web, les skills Claude Code et les scripts. Toute écriture dans data.json DOIT valider contre ce schéma. Ce schéma FAIT FOI : le PRD §4.1 l'explique, ne le redéfinit pas. Voir aussi docs/DECISIONS.md.",
+  "type": "object",
+  "required": ["schemaVersion", "updatedAt", "zones", "wines", "bottles", "tastings"],
+  "additionalProperties": false,
+
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "updatedBy": { "type": "string", "maxLength": 60 },
+
+    "zones":    { "type": "array", "items": { "$ref": "#/$defs/zone" } },
+    "wines":    { "type": "array", "items": { "$ref": "#/$defs/wine" } },
+    "bottles":  { "type": "array", "items": { "$ref": "#/$defs/bottle" } },
+    "tastings": { "type": "array", "items": { "$ref": "#/$defs/tasting" } }
+  },
+
+  "$defs": {
+
+    "couleur": {
+      "description": "Couleur du VIN (pas du cépage).",
+      "enum": ["Rouge", "Blanc", "Rosé", "Effervescent", "Liquoreux", "Jaune"]
+    },
+
+    "pays": {
+      "description": "FR, CH, IT sont couverts par le KB. XX = autre pays, saisie libre, retombe sur les règles génériques (defautParCouleur + profilDefautParCouleur).",
+      "enum": ["FR", "CH", "IT", "XX"]
+    },
+
+    "format": {
+      "description": "clavelin = 62 cl, format exclusif du vin jaune du Jura. Le format influence la fenêtre de garde EFFECTIVE de la bouteille (gardeEffective), jamais la fenêtre canonique stockée sur le vin.",
+      "enum": ["standard", "magnum", "demi", "clavelin"],
+      "default": "standard"
+    },
+
+    "tier": { "enum": ["primeur", "leger", "moyen", "garde", "grandeGarde"] },
+
+    "source": {
+      "description": "auto = produit par le moteur (garde.js / accords.js). manuel = saisi par un humain. Un calcul n'écrase JAMAIS une valeur manuelle (invariant 4).",
+      "enum": ["auto", "manuel"]
+    },
+
+    "zone": {
+      "type": "object",
+      "required": ["id", "nom", "rows", "cols", "ordre"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^z[0-9a-z_]+$" },
+        "nom": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "rows": { "type": "integer", "minimum": 1, "maximum": 60 },
+        "cols": { "type": "integer", "minimum": 1, "maximum": 60 },
+        "rowLabels": {
+          "description": "Défaut : A, B, C… Longueur = rows si fourni.",
+          "type": "array",
+          "items": { "type": "string", "maxLength": 4 }
+        },
+        "colLabels": {
+          "description": "Défaut : 1, 2, 3… Longueur = cols si fourni.",
+          "type": "array",
+          "items": { "type": "string", "maxLength": 4 }
+        },
+        "disabledSlots": {
+          "description": "Cases inexistantes physiquement. FORMAT IMPOSÉ : slotKey(row, col) = `${row}|${col}`, ex. ['A|3', 'A|4']. Le séparateur '|' n'est pas décoratif : une concaténation nue ('A3') devient ambiguë dès qu'un rowLabel fait plus d'un caractère ('A1'+'2' == 'A'+'12'). Aucune bouteille ne peut être placée sur ces cases.",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[^|]{1,4}\\|[^|]{1,4}$" }
+        },
+        "couleur": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "ordre": { "type": "integer", "minimum": 0 }
+      }
+    },
+
+    "wine": {
+      "type": "object",
+      "required": ["id", "ref", "producteur", "nom", "pays", "couleur", "archive"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Alloué par ops.js AU MOMENT où l'opération est appliquée sur le document rechargé — jamais par l'appelant. Voir DECISIONS.md D9.",
+          "type": "string", "pattern": "^w_[0-9a-z]+$"
+        },
+        "ref": {
+          "description": "Entier lisible, unique, strictement croissant. Jamais réattribué, même après suppression (invariant 3). Alloué par ops.js, comme id.",
+          "type": "integer", "minimum": 1
+        },
+        "producteur": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "nom": { "type": "string", "maxLength": 160 },
+        "pays": { "$ref": "#/$defs/pays" },
+        "region": { "type": ["string", "null"], "maxLength": 80 },
+
+        "appellation": {
+          "description": "TEXTE D'AFFICHAGE — ce qui est écrit sur l'étiquette ('Barolo DOCG'). Les moteurs ne le lisent JAMAIS.",
+          "type": ["string", "null"], "maxLength": 120
+        },
+        "appellationId": {
+          "description": "Id de kb/regions.json ('it-barolo'), résolu à la saisie par app/kb.js. null = appellation hors référentiel (vin espagnol, faute de frappe) : l'app AVERTIT mais accepte, et la garde retombe sur le cépage. C'EST CE CHAMP, jamais 'appellation', que lisent garde.js et accords.js. Voir DECISIONS.md D6.",
+          "type": ["string", "null"], "maxLength": 60
+        },
+
+        "sousRegion": { "type": ["string", "null"], "maxLength": 80 },
+        "couleur": { "$ref": "#/$defs/couleur" },
+        "millesime": {
+          "description": "null pour un vin non millésimé (champagne BSA). La fenêtre de garde est alors relative à la date d'acquisition, avec mention explicite.",
+          "type": ["integer", "null"], "minimum": 1900, "maximum": 2100
+        },
+
+        "cepages": {
+          "description": "TEXTE D'AFFICHAGE, tel que lu sur l'étiquette ou saisi ('Pinot Noir', 'Heida'). Les moteurs ne le lisent JAMAIS.",
+          "type": "array",
+          "items": { "type": "string", "maxLength": 60 }
+        },
+        "cepageIds": {
+          "description": "Ids de kb/cepages.json ('pinot-noir'), résolus à la saisie (nom OU synonyme, normalisation sans accents). ORDONNÉS : le PREMIER est le cépage dominant — c'est lui qui décide du tier de garde, du profil d'accord et des données de service. Tableau vide = aucun cépage résolu → profilDefautParCouleur.",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+        },
+
+        "prixReference": {
+          "description": "Prix de référence à l'unité, en CHF. SEULE base du modificateur de prix du moteur de garde (jamais acquisition.prix, qui vaut null pour un cadeau). null → aucun modificateur. N'est PAS le montant dépensé.",
+          "type": ["number", "null"], "minimum": 0
+        },
+        "valeur": {
+          "description": "Valeur estimée à l'unité, en CHF. Saisie manuelle uniquement. Défaut = prixReference. Sert au calcul de la valeur de la cave, y compris pour les bouteilles reçues en cadeau.",
+          "type": ["number", "null"], "minimum": 0
+        },
+
+        "gardeDe": {
+          "description": "Fenêtre CANONIQUE (format standard). La fenêtre réelle d'une bouteille (magnum, demi, vin non millésimé) est calculée à l'affichage par gardeEffective() et n'est JAMAIS stockée.",
+          "type": ["integer", "null"], "minimum": 1900, "maximum": 2150
+        },
+        "gardeA": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2150 },
+        "apogee": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2150 },
+        "gardeSource": { "$ref": "#/$defs/source" },
+        "gardeExplication": {
+          "description": "Phrase courte affichée à l'utilisateur, ex. « appellation Barolo (grande garde) + millésime 2019 ». OBLIGATOIRE si gardeSource = auto : une estimation non expliquée n'est pas exploitable — c'est précisément ce qui manque à l'Excel.",
+          "type": ["string", "null"], "maxLength": 200
+        },
+
+        "mets": {
+          "description": "Ids de plats de kb/accords.json.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "metsSource": { "$ref": "#/$defs/source" },
+
+        "note": {
+          "description": "Note du vin sur 20, demi-points admis. (Tranché : /20, jamais /100.)",
+          "type": ["number", "null"], "minimum": 0, "maximum": 20, "multipleOf": 0.5
+        },
+        "commentaire": { "type": ["string", "null"], "maxLength": 1000 },
+        "archive": {
+          "description": "true = vin qu'on ne rachètera pas. Masqué des vues de stock, conservé pour l'historique. À NE PAS CONFONDRE avec « vin sans bouteille » : un vin à 0 bouteille reste visible dans le catalogue filtré 'tout', archive=true le masque même là.",
+          "type": "boolean", "default": false
+        }
+      }
+    },
+
+    "slot": {
+      "type": ["object", "null"],
+      "description": "null = bouteille en cave mais pas encore rangée (bandeau « N bouteilles à ranger »).",
+      "required": ["zone", "row", "col"],
+      "additionalProperties": false,
+      "properties": {
+        "zone": { "type": "string" },
+        "row":  { "type": "string", "maxLength": 4 },
+        "col":  { "type": "string", "maxLength": 4 }
+      }
+    },
+
+    "acquisition": {
+      "description": "PROVENANCE. Portée par la BOUTEILLE, pas par le vin : on peut avoir acheté 3 bouteilles d'un vin et s'en être fait offrir une 4e.",
+      "type": "object",
+      "required": ["type", "date"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "enum": ["achat", "cadeau", "heritage", "echange", "production"] },
+        "source": {
+          "description": "Si type=achat : caviste, domaine, salon… Si type=cadeau : LA PERSONNE qui l'a offerte. Si type=heritage : d'où elle vient (ex. « Cave de Papa »).",
+          "type": ["string", "null"], "maxLength": 120
+        },
+        "occasion": { "type": ["string", "null"], "maxLength": 120 },
+        "date": {
+          "description": "Sert aussi d'année de base pour la garde d'un vin non millésimé.",
+          "type": "string", "format": "date"
+        },
+        "prix": {
+          "description": "Montant réellement payé, en CHF. null si non acheté — un cadeau n'entre PAS dans le « montant dépensé ». Ne jamais mettre 0 pour dire « gratuit » : 0 et null ne veulent pas dire la même chose. N'influence JAMAIS la garde.",
+          "type": ["number", "null"], "minimum": 0
+        },
+        "note": { "type": ["string", "null"], "maxLength": 300 }
+      }
+    },
+
+    "bottle": {
+      "type": "object",
+      "required": ["id", "wineId", "format", "slot", "acquisition"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^b_[0-9a-z]+$" },
+        "wineId": { "type": "string", "pattern": "^w_[0-9a-z]+$" },
+        "format": { "$ref": "#/$defs/format" },
+        "slot": { "$ref": "#/$defs/slot" },
+        "acquisition": { "$ref": "#/$defs/acquisition" }
+      }
+    },
+
+    "tasting": {
+      "type": "object",
+      "required": ["id", "wineId", "date"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^t_[0-9a-z]+$" },
+        "wineId": { "type": "string", "pattern": "^w_[0-9a-z]+$" },
+        "bottleId": {
+          "description": "Référence HISTORIQUE. La bouteille n'existe plus dans bottles[] — c'est normal et attendu. validate-data.mjs NE DOIT PAS vérifier cette clé étrangère (elle échouerait sur la graine, qui est correcte).",
+          "type": ["string", "null"]
+        },
+        "date": { "type": "string", "format": "date" },
+        "avecQui": { "type": ["string", "null"], "maxLength": 200 },
+        "occasion": { "type": ["string", "null"], "maxLength": 120 },
+        "note": { "type": ["number", "null"], "minimum": 0, "maximum": 20, "multipleOf": 0.5 },
+        "commentaire": { "type": ["string", "null"], "maxLength": 2000 },
+        "par": { "type": ["string", "null"], "maxLength": 60 }
+      }
+    }
+  }
+}

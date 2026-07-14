@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ma-cave/schema/kb.cepages.schema.json",
+  "title": "KB — cépages",
+  "description": "Statique. Jamais écrit par l'app. Étendu par commit humain ou par un agent, région par région (lots L1-CH, L1-FR, L1-IT).",
+  "type": "object",
+  "required": [
+    "version",
+    "cepages"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer"
+    },
+    "cepages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cepage"
+      }
+    },
+    "_doc": {
+      "type": "string",
+      "description": "Commentaire éditorial. Autorisé au niveau racine uniquement."
+    }
+  },
+  "$defs": {
+    "cepage": {
+      "type": "object",
+      "required": [
+        "id",
+        "nom",
+        "couleur",
+        "pays",
+        "profil",
+        "tierGarde",
+        "accords"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Identifiant stable, minuscules, sans accent, tirets. Ex. 'petite-arvine', 'nebbiolo'. C'est lui qui est stocké dans data.json (wine.cepageIds) et lu par les moteurs — jamais le texte libre wine.cepages. Référencé aussi par kb/regions.json.",
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "nom": {
+          "type": "string",
+          "minLength": 2
+        },
+        "synonymes": {
+          "description": "INDISPENSABLE : le même cépage change de nom d'un pays à l'autre, et c'est ce qui permet de reconnaître un cépage lu sur une étiquette. Nebbiolo = Spanna = Chiavennasca ; Savagnin = Heida = Païen ; Marsanne = Ermitage ; Grenache = Cannonau ; Müller-Thurgau = Riesling-Sylvaner. UN CÉPAGE = UN SEUL id : jamais un doublon par pays.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "couleur": {
+          "description": "Couleur du RAISIN, pas du vin. Un cépage noir peut faire du blanc (Pinot Noir en Champagne).",
+          "enum": [
+            "noir",
+            "blanc",
+            "gris"
+          ]
+        },
+        "pays": {
+          "description": "Pays où il est significativement planté, parmi ceux couverts.",
+          "type": "array",
+          "items": {
+            "enum": [
+              "FR",
+              "CH",
+              "IT"
+            ]
+          },
+          "minItems": 1
+        },
+        "profil": {
+          "description": "Échelle 0-5. C'est le filet de sécurité du moteur d'accords : quand ni l'appellation ni le cépage ne listent le plat, ce sont ces cinq nombres qui décident — et ce sont eux que lisent les antiRègles. Les renseigner sérieusement, ce ne sont pas des remplissages. NE PAS GONFLER : un Chasselas est à aromatique 1, et c'est pour ça qu'il va sur la fondue.",
+          "type": "object",
+          "required": [
+            "corps",
+            "tanin",
+            "acidite",
+            "sucre",
+            "aromatique"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "corps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "tanin": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "0 pour tout cépage blanc."
+            },
+            "acidite": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "sucre": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "Sucre du vin TYPIQUEMENT produit. 0 pour un sec."
+            },
+            "aromatique": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5,
+              "description": "Intensité aromatique. Gewurztraminer = 5, Chasselas = 1."
+            }
+          }
+        },
+        "aromes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "3 à 6 descripteurs. Affichés sur la fiche vin."
+        },
+        "tierGarde": {
+          "description": "Palier de garde par défaut du cépage, utilisé quand l'appellation n'en impose pas. Voir kb/garde.json et docs/SPEC_MOTEURS.md §1.",
+          "enum": [
+            "primeur",
+            "leger",
+            "moyen",
+            "garde",
+            "grandeGarde"
+          ]
+        },
+        "accords": {
+          "description": "Ids de plats de kb/accords.json. Deuxième source du barème, derrière l'appellation. Voir kb/accords.json > ponderation — aucun chiffre n'est recopié ici.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "service": {
+          "description": "Surcharge les défauts par couleur de kb/accords.json > service. Seul le cépage DOMINANT d'un vin est consulté : un assemblage n'a pas de température moyenne.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tempC": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "[min, max] en °C."
+            },
+            "carafage": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "null = inutile. Sinon une durée, ex. '60-90 min'."
+            },
+            "verre": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "_note": {
+          "type": "string",
+          "description": "Commentaire éditorial destiné au relecteur et aux agents. N'est jamais affiché dans l'app.",
+          "maxLength": 500
+        }
+      }
+    }
+  }
+}

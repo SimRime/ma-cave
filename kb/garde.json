@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "_doc": "Moteur de garde. Livré COMPLET : ce fichier n'a pas à être étendu, seulement calibré. Toutes les valeurs sont des ANNÉES À AJOUTER À L'ANNÉE DE BASE (millésime, ou année d'acquisition pour un vin non millésimé). Consommé par app/garde.js et par scripts/query.mjs — une seule implémentation, jamais deux. Spécification complète et vecteurs de test : docs/SPEC_MOTEURS.md §1.",
+
+  "tiers": {
+    "primeur":     { "de": 0, "a": 2,  "apogee": 1,  "libelle": "à boire jeune" },
+    "leger":       { "de": 1, "a": 4,  "apogee": 2,  "libelle": "garde courte" },
+    "moyen":       { "de": 2, "a": 8,  "apogee": 4,  "libelle": "garde moyenne" },
+    "garde":       { "de": 4, "a": 15, "apogee": 8,  "libelle": "vin de garde" },
+    "grandeGarde": { "de": 6, "a": 30, "apogee": 15, "libelle": "grande garde" }
+  },
+
+  "ordreTiers": ["primeur", "leger", "moyen", "garde", "grandeGarde"],
+
+  "resolution": {
+    "_doc": "Cascade, premier trouvé gagne. On lit les IDENTIFIANTS, jamais le texte libre : wine.appellation et wine.cepages sont de l'affichage.",
+    "etapes": [
+      "1. wine.appellationId → kb/regions.json > appellation.tierGarde",
+      "2. wine.cepageIds[0] (le dominant) → kb/cepages.json > cepage.tierGarde",
+      "3. wine.couleur → defautParCouleur ci-dessous"
+    ]
+  },
+
+  "defautParCouleur": {
+    "Rouge": "moyen",
+    "Blanc": "leger",
+    "Rosé": "primeur",
+    "Effervescent": "leger",
+    "Liquoreux": "grandeGarde",
+    "Jaune": "grandeGarde"
+  },
+
+  "modificateurs": {
+    "_doc": "Appliqués APRÈS la résolution du tier, DANS CET ORDRE : prix, puis format.",
+
+    "prix": {
+      "_doc": "Base = wine.prixReference UNIQUEMENT. Jamais bottle.acquisition.prix : un cadeau vaut null et la garde changerait selon la bouteille consultée. prixReference null → AUCUN modificateur.",
+      "champ": "wine.prixReference",
+      "siNull": "aucun modificateur",
+      "prixEleve": { "seuilCHF": 40, "decalageTier": 1,  "_doc": "Un vin cher est généralement issu d'une sélection qui se garde davantage. Proxy imparfait mais utile en l'absence d'autre signal." },
+      "prixBas":   { "seuilCHF": 10, "decalageTier": -1 },
+      "borne": "Le décalage ne sort JAMAIS de ordreTiers. Un Barolo à 60 CHF reste grandeGarde."
+    },
+
+    "format": {
+      "_doc": "Appliqué UNIQUEMENT par gardeEffective(wine, bottle) — le format est une propriété de la BOUTEILLE, pas du vin. La fenêtre canonique stockée dans data.json est toujours celle du format standard. Multiplie 'a' et 'apogee', JAMAIS 'de' : un magnum ne devient pas buvable plus tard, il tient plus longtemps. Arrondi : Math.round sur le nombre d'années, après le facteur (30 × 1.25 = 37.5 → 38).",
+      "arrondi": "Math.round",
+      "standard": { "facteurA": 1.0,  "facteurApogee": 1.0 },
+      "magnum":   { "facteurA": 1.25, "facteurApogee": 1.25, "_doc": "Moins d'oxygène par unité de volume : le vin vieillit plus lentement." },
+      "demi":     { "facteurA": 0.75, "facteurApogee": 0.75 },
+      "clavelin": { "facteurA": 1.0,  "facteurApogee": 1.0,  "_doc": "Neutre : le clavelin est le format normal du vin jaune, dont le tier grandeGarde tient déjà compte." }
+    }
+  },
+
+  "sansMillesime": {
+    "_doc": "Champagne BSA, vin de France non millésimé. L'année de base est celle de l'ACQUISITION. Dans gardeEffective : la date d'acquisition de CETTE bouteille. Dans calculerGardeVin : l'acquisition la plus ANCIENNE parmi les bouteilles du vin (déterministe). Ni millésime ni bouteille → retourner null, statut 'inconnu'. Ne jamais inventer une année.",
+    "base": "acquisition.date",
+    "baseVin": "acquisition.date la plus ancienne",
+    "mention": "Fenêtre estimée depuis l'achat (vin non millésimé)"
+  },
+
+  "statuts": {
+    "_doc": "DES DRAPEAUX, PAS UNE VALEUR UNIQUE. Plusieurs peuvent être actifs en même temps ('à l'apogée, et la fenêtre se ferme') et on les affiche tous. Évalués sur la fenêtre EFFECTIVE de la bouteille. Le statut d'un VIN = celui de sa bouteille la plus urgente.",
+    "inconnu":   { "condition": "gardeDe == null || gardeA == null",   "libelle": "garde inconnue" },
+    "tropJeune": { "condition": "annee < gardeDe",                     "libelle": "encore fermé" },
+    "aBoire":    { "condition": "gardeDe <= annee && annee <= gardeA", "libelle": "dans sa fenêtre" },
+    "apogee":    { "condition": "apogee != null && Math.abs(annee - apogee) <= 1", "libelle": "à l'apogée" },
+    "urgent":    { "condition": "gardeA - 1 <= annee && annee <= gardeA", "libelle": "à boire vite" },
+    "depasse":   { "condition": "annee > gardeA",                      "libelle": "fenêtre dépassée" }
+  },
+
+  "facteurAccords": {
+    "_doc": "Pondération du score d'accord (kb/accords.json) selon la garde. RÈGLE : facteur = le MAXIMUM des facteurs des drapeaux actifs. apogee et urgent valent tous deux 1.0, donc leur coexistence ne crée aucune ambiguïté. Aucun drapeau (garde inconnue) → 0.85 : un vin dont on ignore la garde ne doit être ni favorisé ni écarté, et surtout jamais produire NaN.",
+    "apogee": 1.0,
+    "urgent": 1.0,
+    "aBoire": 0.9,
+    "inconnu": 0.85,
+    "depasse": 0.7,
+    "tropJeune": 0.6
+  }
+}

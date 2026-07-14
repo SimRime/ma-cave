@@ -1,0 +1,158 @@
+{
+  "version": 2,
+  "_doc": "AMORCE — 12 entrées de référence, une par cas de figure. Les lots L1-CH, L1-FR et L1-IT étendent ce fichier pays par pays en respectant EXACTEMENT cette forme. Ne pas modifier les entrées existantes : elles servent d'étalon et sont relues par le commanditaire. Schéma : schema/kb.cepages.schema.json.",
+
+  "cepages": [
+    {
+      "id": "chasselas",
+      "nom": "Chasselas",
+      "synonymes": ["Fendant", "Gutedel", "Dorin", "Perlan"],
+      "couleur": "blanc",
+      "pays": ["CH", "FR"],
+      "profil": { "corps": 2, "tanin": 0, "acidite": 3, "sucre": 0, "aromatique": 1 },
+      "aromes": ["fleur blanche", "amande", "pierre à fusil", "tilleul"],
+      "tierGarde": "leger",
+      "accords": ["fondue", "raclette", "aperitif", "cuisine_alpine", "poissons_delicats", "fromages_pate_dure"],
+      "service": { "tempC": [10, 12], "carafage": null, "verre": "tulipe" },
+      "_note": "Cas d'école du cépage discret : aromatique 1, et c'est justement pourquoi il ne combat pas le fromage fondu. Un profil faible n'est pas un cépage sans intérêt — NE PAS GONFLER LES CHIFFRES."
+    },
+    {
+      "id": "petite-arvine",
+      "nom": "Petite Arvine",
+      "synonymes": [],
+      "couleur": "blanc",
+      "pays": ["CH"],
+      "profil": { "corps": 3, "tanin": 0, "acidite": 5, "sucre": 0, "aromatique": 4 },
+      "aromes": ["pamplemousse", "rhubarbe", "glycine", "note saline"],
+      "tierGarde": "moyen",
+      "accords": ["crustaces", "poissons_delicats", "aperitif", "fromages_chevre", "cuisine_asiatique"],
+      "service": { "tempC": [10, 12], "carafage": null, "verre": "tulipe" }
+    },
+    {
+      "id": "savagnin",
+      "nom": "Savagnin",
+      "synonymes": ["Heida", "Païen", "Traminer"],
+      "couleur": "blanc",
+      "pays": ["FR", "CH"],
+      "profil": { "corps": 4, "tanin": 0, "acidite": 5, "sucre": 0, "aromatique": 4 },
+      "aromes": ["noix", "curry", "pomme verte", "levure"],
+      "tierGarde": "grandeGarde",
+      "accords": ["fromages_pate_dure", "volaille_rotie", "champignons", "cuisine_asiatique", "poissons_gras"],
+      "service": { "tempC": [14, 16], "carafage": "2-4 h", "verre": "ballon" },
+      "_note": "Même cépage des deux côtés de la frontière, sous deux noms : Savagnin dans le Jura, Heida/Païen en Valais. C'est exactement ce que sert le champ synonymes — sans lui, une étiquette valaisanne « Heida » ne serait pas reconnue."
+    },
+    {
+      "id": "syrah",
+      "nom": "Syrah",
+      "synonymes": ["Shiraz"],
+      "couleur": "noir",
+      "pays": ["FR", "CH"],
+      "profil": { "corps": 4, "tanin": 4, "acidite": 3, "sucre": 0, "aromatique": 4 },
+      "aromes": ["poivre noir", "violette", "mûre", "olive noire", "lard fumé"],
+      "tierGarde": "garde",
+      "accords": ["viandes_rouges_grillees", "gibier", "barbecue", "agneau", "viandes_rouges_mijotees"],
+      "service": { "tempC": [16, 18], "carafage": "60 min", "verre": "ballon" }
+    },
+    {
+      "id": "nebbiolo",
+      "nom": "Nebbiolo",
+      "synonymes": ["Spanna", "Chiavennasca", "Picotener"],
+      "couleur": "noir",
+      "pays": ["IT"],
+      "profil": { "corps": 4, "tanin": 5, "acidite": 5, "sucre": 0, "aromatique": 4 },
+      "aromes": ["rose fanée", "cerise", "goudron", "truffe", "cuir"],
+      "tierGarde": "grandeGarde",
+      "accords": ["gibier", "viandes_rouges_mijotees", "truffe", "fromages_pate_dure", "champignons", "risotto"],
+      "service": { "tempC": [17, 18], "carafage": "90-120 min", "verre": "grand ballon" },
+      "_note": "Tanin 5 ET acidité 5 : la combinaison qui appelle le gras et le collagène. Les antiRegles l'écarteront d'office des crustacés et de la raclette (vecteur A2 de SPEC_MOTEURS.md), ce qui est le comportement voulu."
+    },
+    {
+      "id": "grenache",
+      "nom": "Grenache",
+      "synonymes": ["Cannonau", "Garnacha", "Grenache Noir"],
+      "couleur": "noir",
+      "pays": ["FR", "IT"],
+      "profil": { "corps": 4, "tanin": 3, "acidite": 2, "sucre": 0, "aromatique": 3 },
+      "aromes": ["griotte", "garrigue", "poivre", "figue"],
+      "tierGarde": "garde",
+      "accords": ["viandes_rouges_mijotees", "barbecue", "agneau", "charcuterie", "pizza"],
+      "service": { "tempC": [16, 17], "carafage": "45 min", "verre": "ballon" },
+      "_note": "Le Cannonau sarde et le Grenache du Rhône sont le même cépage. UN SEUL id, deux pays, les synonymes font le lien — ne PAS créer une entrée 'cannonau' séparée."
+    },
+    {
+      "id": "viognier",
+      "nom": "Viognier",
+      "synonymes": [],
+      "couleur": "blanc",
+      "pays": ["FR"],
+      "profil": { "corps": 4, "tanin": 0, "acidite": 2, "sucre": 0, "aromatique": 5 },
+      "aromes": ["abricot", "pêche blanche", "violette", "miel"],
+      "tierGarde": "moyen",
+      "accords": ["poissons_gras", "viandes_blanches", "cuisine_asiatique", "fromages_pate_molle"],
+      "service": { "tempC": [11, 13], "carafage": null, "verre": "tulipe large" }
+    },
+    {
+      "id": "marsanne",
+      "nom": "Marsanne",
+      "synonymes": ["Ermitage"],
+      "couleur": "blanc",
+      "pays": ["FR", "CH"],
+      "profil": { "corps": 4, "tanin": 0, "acidite": 2, "sucre": 0, "aromatique": 3 },
+      "aromes": ["amande", "acacia", "cire", "coing"],
+      "tierGarde": "moyen",
+      "accords": ["viandes_blanches", "poissons_gras", "risotto", "pates_creme"],
+      "service": { "tempC": [11, 13], "carafage": null, "verre": "tulipe" },
+      "_note": "S'appelle ERMITAGE en Valais — le synonyme est déjà renseigné. Un agent traitant la Suisse ne doit PAS créer une entrée 'ermitage' séparée."
+    },
+    {
+      "id": "roussanne",
+      "nom": "Roussanne",
+      "synonymes": [],
+      "couleur": "blanc",
+      "pays": ["FR"],
+      "profil": { "corps": 4, "tanin": 0, "acidite": 3, "sucre": 0, "aromatique": 3 },
+      "aromes": ["poire", "tisane", "abricot sec", "miel"],
+      "tierGarde": "garde",
+      "accords": ["viandes_blanches", "poissons_gras", "risotto", "fromages_pate_molle"],
+      "service": { "tempC": [11, 13], "carafage": null, "verre": "tulipe" }
+    },
+    {
+      "id": "mourvedre",
+      "nom": "Mourvèdre",
+      "synonymes": ["Monastrell"],
+      "couleur": "noir",
+      "pays": ["FR"],
+      "profil": { "corps": 5, "tanin": 5, "acidite": 3, "sucre": 0, "aromatique": 4 },
+      "aromes": ["cuir", "poivre", "mûre", "sous-bois"],
+      "tierGarde": "grandeGarde",
+      "accords": ["gibier", "viandes_rouges_mijotees", "agneau", "fromages_pate_dure"],
+      "service": { "tempC": [16, 18], "carafage": "90 min", "verre": "grand ballon" }
+    },
+    {
+      "id": "pinot-noir",
+      "nom": "Pinot Noir",
+      "synonymes": ["Blauburgunder", "Spätburgunder", "Clevner"],
+      "couleur": "noir",
+      "pays": ["FR", "CH", "IT"],
+      "profil": { "corps": 3, "tanin": 2, "acidite": 4, "sucre": 0, "aromatique": 4 },
+      "aromes": ["griotte", "framboise", "sous-bois", "épices douces"],
+      "tierGarde": "garde",
+      "accords": ["volaille_rotie", "champignons", "viandes_blanches", "charcuterie", "fromages_pate_molle"],
+      "service": { "tempC": [14, 16], "carafage": "30 min", "verre": "grand ballon" },
+      "_note": "Cépage rouge à tanin 2 : les antiRègles ne l'écartent donc PAS des poissons gras ni de la raclette, et c'est correct. Un rouge n'est pas disqualifié par sa couleur mais par sa structure."
+    },
+    {
+      "id": "barbera",
+      "nom": "Barbera",
+      "synonymes": [],
+      "couleur": "noir",
+      "pays": ["IT"],
+      "profil": { "corps": 3, "tanin": 2, "acidite": 5, "sucre": 0, "aromatique": 3 },
+      "aromes": ["cerise noire", "prune", "violette"],
+      "tierGarde": "moyen",
+      "accords": ["pates_tomate", "charcuterie", "pizza", "viandes_blanches"],
+      "service": { "tempC": [15, 17], "carafage": null, "verre": "ballon" },
+      "_note": "Acidité 5, tanin 2 : le rouge qui passe sur la tomate là où un tannique échoue. C'est le genre de nuance que le profil DOIT capturer — et c'est le vecteur A4 de SPEC_MOTEURS.md."
+    }
+  ]
+}

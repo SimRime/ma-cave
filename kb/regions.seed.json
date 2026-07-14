@@ -1,0 +1,306 @@
+{
+  "version": 2,
+  "_doc": "AMORCE — une région par pays, traitée à fond, comme étalon. Les lots L1-CH, L1-FR et L1-IT étendent ce fichier région par région, en respectant EXACTEMENT cette forme. Ne pas modifier les entrées existantes. Périmètre cible : PRD §5.1. Schéma : schema/kb.regions.schema.json.",
+  "_forme": "Une appellation qui produit plusieurs couleurs dont les gardes divergent donne DEUX entrées, avec le MÊME nom et des couleurs disjointes (voir fr-crozes-hermitage-rouge / -blanc, et ch-valais-petite-arvine / -fletri). Jamais une moyenne : la résolution se fait sur le couple (nom normalisé, couleur du vin).",
+  "pays": [
+    {
+      "code": "CH",
+      "nom": "Suisse",
+      "regions": [
+        {
+          "id": "ch-valais",
+          "nom": "Valais",
+          "sousRegions": [
+            "Vétroz",
+            "Fully",
+            "Chamoson",
+            "Sierre",
+            "Salgesch",
+            "Visperterminen"
+          ],
+          "appellations": [
+            {
+              "id": "ch-valais-fendant",
+              "nom": "Fendant",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "fondue",
+                "raclette",
+                "aperitif",
+                "cuisine_alpine"
+              ],
+              "note": "Le Chasselas valaisan. Appellation monocépage : le nom du vin ne dit pas le cépage, mais le KB le sait — c'est tout l'intérêt."
+            },
+            {
+              "id": "ch-valais-petite-arvine",
+              "nom": "Petite Arvine du Valais",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "petite-arvine"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "crustaces",
+                "poissons_delicats",
+                "aperitif"
+              ],
+              "note": "Le sec. Le flétri fait l'objet d'une entrée séparée : même appellation, autre couleur, autre garde."
+            },
+            {
+              "id": "ch-valais-petite-arvine-fletri",
+              "nom": "Petite Arvine du Valais",
+              "sousRegion": null,
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "petite-arvine"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Flétri (surmaturé). MÊME nom que l'entrée sèche, couleurs disjointes, tier tout autre. C'EST LA FORME À REPRODUIRE : un liquoreux n'a rien à voir avec un sec, et les moyenner ferait mentir les deux."
+            },
+            {
+              "id": "ch-valais-heida",
+              "nom": "Heida / Païen",
+              "sousRegion": "Visperterminen",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "savagnin"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "fromages_pate_dure",
+                "volaille_rotie",
+                "champignons"
+              ],
+              "note": "Savagnin. Une étiquette « Heida » doit résoudre vers le cépage savagnin via ses synonymes."
+            },
+            {
+              "id": "ch-valais-syrah",
+              "nom": "Syrah du Valais",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier",
+                "agneau"
+              ],
+              "note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "IT",
+      "nom": "Italie",
+      "regions": [
+        {
+          "id": "it-piemonte",
+          "nom": "Piémont",
+          "sousRegions": [
+            "Langhe",
+            "Roero",
+            "Monferrato",
+            "Alto Piemonte"
+          ],
+          "appellations": [
+            {
+              "id": "it-barolo",
+              "nom": "Barolo",
+              "sousRegion": "Langhe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "truffe",
+                "fromages_pate_dure"
+              ],
+              "note": "DOCG. Élevage minimum 38 mois. Une fenêtre de 6 à 30 ans après le millésime n'a rien d'excessif. Une étiquette « Barolo DOCG » doit résoudre vers cet id : la mention DOCG est retirée à la normalisation."
+            },
+            {
+              "id": "it-barbaresco",
+              "nom": "Barbaresco",
+              "sousRegion": "Langhe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "truffe",
+                "risotto"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-barbera-dasti",
+              "nom": "Barbera d'Asti",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "barbera"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "pizza",
+                "viandes_blanches"
+              ],
+              "note": "Même région, même pays, un tier tout autre que le Barolo. Ne JAMAIS déduire le tier de la région : il se décide appellation par appellation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "FR",
+      "nom": "France",
+      "regions": [
+        {
+          "id": "fr-rhone",
+          "nom": "Rhône",
+          "sousRegions": [
+            "Nord",
+            "Sud"
+          ],
+          "appellations": [
+            {
+              "id": "fr-cote-rotie",
+              "nom": "Côte Rôtie",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah",
+                "viognier"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_grillees",
+                "agneau"
+              ],
+              "note": "Syrah, avec jusqu'à 20 % de Viognier co-fermenté. Les deux cépages sont listés, le DOMINANT en premier : c'est lui qui décide du tier de garde, du profil d'accord et des données de service."
+            },
+            {
+              "id": "fr-condrieu",
+              "nom": "Condrieu",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "viognier"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "poissons_gras",
+                "viandes_blanches",
+                "cuisine_asiatique",
+                "fromages_pate_molle"
+              ],
+              "note": null
+            },
+            {
+              "id": "fr-crozes-hermitage-rouge",
+              "nom": "Crozes-Hermitage",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "barbecue",
+                "charcuterie"
+              ],
+              "note": "DEUX entrées pour une seule appellation, parce que le rouge et le blanc ne se gardent pas pareil. C'EST LA FORME À REPRODUIRE — jamais une moyenne. Même nom, couleurs disjointes : la résolution se fait sur (nom normalisé, couleur du vin)."
+            },
+            {
+              "id": "fr-crozes-hermitage-blanc",
+              "nom": "Crozes-Hermitage",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "marsanne",
+                "roussanne"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "poissons_gras",
+                "viandes_blanches",
+                "risotto"
+              ],
+              "note": null
+            },
+            {
+              "id": "fr-gigondas",
+              "nom": "Gigondas",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rouge",
+                "Rosé"
+              ],
+              "cepages": [
+                "grenache",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "agneau",
+                "barbecue",
+                "gibier"
+              ],
+              "note": "Deux couleurs sous UNE SEULE entrée, et c'est correct : le rosé est marginal et sa garde ne diverge pas assez pour justifier une scission. Le critère n'est pas « deux couleurs » mais « deux gardes »."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

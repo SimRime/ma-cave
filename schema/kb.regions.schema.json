@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ma-cave/schema/kb.regions.schema.json",
+  "title": "KB — pays, régions, appellations",
+  "description": "Statique. Jamais écrit par l'app. La source la plus spécifique des deux moteurs : une appellation qui renseigne tierGarde et accords l'emporte sur le cépage, qui l'emporte sur le profil. Voir docs/SPEC_MOTEURS.md.",
+  "type": "object",
+  "required": [
+    "version",
+    "pays"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer"
+    },
+    "pays": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pays"
+      }
+    },
+    "_doc": {
+      "type": "string"
+    },
+    "_forme": {
+      "type": "string",
+      "description": "Rappel de la forme canonique, à l'usage des agents des lots L1."
+    }
+  },
+  "$defs": {
+    "pays": {
+      "type": "object",
+      "required": [
+        "code",
+        "nom",
+        "regions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "FR",
+            "CH",
+            "IT"
+          ]
+        },
+        "nom": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/region"
+          }
+        }
+      }
+    },
+    "region": {
+      "type": "object",
+      "required": [
+        "id",
+        "nom",
+        "appellations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(fr|ch|it)-[a-z0-9-]+$"
+        },
+        "nom": {
+          "type": "string"
+        },
+        "sousRegions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Ex. pour Vaud : Lavaux, Chablais, La Côte, Bonvillars, Côtes de l'Orbe, Vully."
+        },
+        "appellations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/appellation"
+          }
+        }
+      }
+    },
+    "appellation": {
+      "type": "object",
+      "required": [
+        "id",
+        "nom",
+        "couleurs",
+        "cepages",
+        "tierGarde"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Identifiant stable. C'est lui qui est stocké dans data.json (wine.appellationId) et lu par garde.js et accords.js — jamais le texte libre wine.appellation.",
+          "type": "string",
+          "pattern": "^(fr|ch|it)-[a-z0-9-]+$"
+        },
+        "nom": {
+          "description": "PLUSIEURS appellations peuvent porter le MÊME nom avec des couleurs disjointes (un Crozes-Hermitage rouge et un blanc ne se gardent pas pareil). La résolution depuis une étiquette se fait donc sur le COUPLE (nom normalisé, couleur du vin) — jamais sur le nom seul. Normalisation : NFD sans accents, minuscules, mentions AOC|AOP|AC|DOC|DOCG|IGP|DOP retirées, espaces et tirets compressés.",
+          "type": "string"
+        },
+        "sousRegion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "couleurs": {
+          "description": "Couleurs de vin produites sous cette entrée. Sert à valider une saisie, à filtrer les propositions et à désambiguïser deux entrées de même nom.",
+          "type": "array",
+          "items": {
+            "enum": [
+              "Rouge",
+              "Blanc",
+              "Rosé",
+              "Effervescent",
+              "Liquoreux",
+              "Jaune"
+            ]
+          },
+          "minItems": 1
+        },
+        "cepages": {
+          "description": "Ids de kb/cepages.json, LE DOMINANT EN PREMIER (c'est lui qui décide du tier, du profil et du service). C'EST LA CLÉ DE LA SAISIE PAR ÉTIQUETTE : une étiquette française ne mentionne presque jamais les cépages, mais 'Gigondas' suffit à déduire Grenache/Syrah/Mourvèdre. Tout id cité ici DOIT exister dans kb/cepages.json — scripts/validate-kb.mjs le vérifie.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "minItems": 1
+        },
+        "tierGarde": {
+          "description": "Se décide APPELLATION PAR APPELLATION, jamais par région (Barolo et Barbera d'Asti sont voisins et n'ont rien à voir). Si deux couleurs d'une même appellation divergent nettement, créer DEUX entrées de même nom plutôt que de moyenner. Le critère de scission n'est pas « deux couleurs » mais « deux gardes ».",
+          "enum": [
+            "primeur",
+            "leger",
+            "moyen",
+            "garde",
+            "grandeGarde"
+          ]
+        },
+        "accords": {
+          "description": "Ids de plats de kb/accords.json. C'est la source la PLUS LOURDE du barème (voir kb/accords.json > ponderation). À ne renseigner que si l'appellation appelle vraiment un accord précis (Barolo → gibier, truffe ; Fendant → fondue, raclette). LAISSER VIDE PLUTÔT QUE D'INVENTER : le cépage prendra le relais, et un accord inventé à ce niveau pollue tout le classement.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        }
+      }
+    }
+  }
+}
