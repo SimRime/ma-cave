@@ -1,0 +1,12 @@
+{
+  "name": "Ma Cave",
+  "short_name": "Ma Cave",
+  "description": "Gestion de cave à vin — où est chaque bouteille, quand la boire, avec quoi la servir.",
+  "lang": "fr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf7f5",
+  "theme_color": "#8E2438"
+}

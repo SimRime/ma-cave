@@ -1,0 +1,143 @@
+/* styles.css — mobile-first, cible 380 px. Aucune dépendance, aucune police externe.
+   Cibles d'action ≥ 44 px (PRD §7.4). La couleur ne porte jamais seule une information. */
+
+:root {
+  --bg: #faf7f5;
+  --fg: #241a1c;
+  --muted: #6b5d60;
+  --line: #e4dad6;
+  --card: #ffffff;
+  --wine: #8E2438;
+  --wine-ink: #ffffff;
+  --ok: #1f7a4d;
+  --warn: #9a5b00;
+  --err-bg: #fbeaea;
+  --info-bg: #f4ece6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171314;
+    --fg: #f2e9e9;
+    --muted: #a89a9c;
+    --line: #362d2f;
+    --card: #201a1b;
+    --err-bg: #3a1f22;
+    --info-bg: #2a2220;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.45;
+}
+
+.appbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: env(safe-area-inset-top) 12px 0;
+  min-height: 52px;
+  background: var(--wine);
+  color: var(--wine-ink);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.appbar__brand { font-weight: 700; letter-spacing: 0.02em; }
+
+.tabs { display: flex; gap: 4px; margin-left: auto; }
+.tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--wine-ink);
+  text-decoration: none;
+  opacity: 0.8;
+  border-bottom: 3px solid transparent;
+}
+.tab--active { opacity: 1; border-bottom-color: var(--wine-ink); font-weight: 600; }
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+.banner--hidden { display: none; }
+.banner--info { background: var(--info-bg); }
+.banner--error { background: var(--err-bg); }
+.banner a { color: var(--wine); }
+
+.view { padding: 12px; max-width: 640px; margin: 0 auto; }
+h1 { font-size: 1.35rem; margin: 8px 0; }
+h2 { font-size: 1.1rem; margin: 0 0 8px; }
+h3 { font-size: 1rem; margin: 16px 0 8px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 12px 0;
+}
+
+label { display: block; font-size: 0.9rem; color: var(--muted); margin: 12px 0 4px; }
+input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+.btn {
+  min-height: 44px;
+  padding: 0 16px;
+  font-size: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+.btn--primary { background: var(--wine); color: var(--wine-ink); border-color: var(--wine); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.help { font-size: 0.85rem; color: var(--muted); margin: 8px 0 0; }
+.muted { color: var(--muted); }
+.status { min-height: 1.2em; margin: 8px 0 0; font-size: 0.9rem; }
+.status--ok { color: var(--ok); }
+.status--warn { color: var(--warn); }
+
+.diag { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 0; }
+.diag dt { color: var(--muted); }
+.diag dd { margin: 0; word-break: break-word; }
+
+.journal { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+.journal li { padding: 6px 0; border-bottom: 1px solid var(--line); }
+.journal code { background: var(--info-bg); padding: 1px 5px; border-radius: 4px; }
+.journal time { display: block; font-size: 0.8rem; }
+
+.grid-list { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.grid-list th, .grid-list td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+.grid-list th { color: var(--muted); font-weight: 600; }
+
+.wines { list-style: none; padding: 0; margin: 0; }
+.wine { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.wine__title { font-weight: 600; }
+.wine__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; font-size: 0.9rem; align-items: center; }
+.tag { border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; font-size: 0.85rem; }
+.tag--empty { color: var(--warn); border-color: var(--warn); }
