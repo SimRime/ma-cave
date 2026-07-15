@@ -2279,6 +2279,108 @@
               "note": "VDN de Muscat, aromatique et fruité, à boire plutôt jeune. Modélisé en Liquoreux (décision L1-FR)."
             }
           ]
+        },
+        {
+          "id": "fr-provence-corse",
+          "nom": "Provence-Corse",
+          "sousRegions": [
+            "Provence",
+            "Corse"
+          ],
+          "appellations": [
+            {
+              "id": "fr-cotes-de-provence",
+              "nom": "Côtes de Provence",
+              "sousRegion": "Provence",
+              "couleurs": [
+                "Rosé"
+              ],
+              "cepages": [
+                "grenache",
+                "cinsault",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "L'archétype du rosé sec pâle, à boire jeune. Les accords rosé viennent des règles de profil (couleurVin Rosé) ; la référence de service est la couleur Rosé, non le cépage dominant."
+            },
+            {
+              "id": "fr-bandol",
+              "nom": "Bandol",
+              "sousRegion": "Provence",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "mourvedre",
+                "grenache",
+                "cinsault"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "agneau"
+              ],
+              "note": "Le fief du Mourvèdre : rouge puissant et tannique de grande garde (le rosé de Bandol, réputé, n'est pas modélisé ici). Cépage dominant Mourvèdre."
+            },
+            {
+              "id": "fr-cassis",
+              "nom": "Cassis",
+              "sousRegion": "Provence",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "marsanne",
+                "clairette"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "crustaces",
+                "poissons_delicats",
+                "poissons_gras"
+              ],
+              "note": "Rareté provençale : une appellation d'abord blanche (à ne pas confondre avec la crème de cassis). Le vin de la bouillabaisse."
+            },
+            {
+              "id": "fr-patrimonio",
+              "nom": "Patrimonio",
+              "sousRegion": "Corse",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "charcuterie",
+                "gibier"
+              ],
+              "note": "Nielluccio (= Sangiovese) sur les calcaires du Cap Corse. Une étiquette « Niellucciu » doit résoudre vers le cépage sangiovese via ses synonymes."
+            },
+            {
+              "id": "fr-corse-vermentino",
+              "nom": "Vin de Corse Vermentino",
+              "sousRegion": "Corse",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "vermentino"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "crustaces",
+                "aperitif"
+              ],
+              "note": "Vermentino insulaire, salin et frais. Même cépage que le Rolle provençal et le Vermentino sarde (un seul id)."
+            }
+          ]
         }
       ]
     }
