@@ -1736,6 +1736,190 @@
               "note": "Style « vendanges tardives » (surmaturation), le plus souvent en Gewurztraminer ou Pinot Gris. Liquoreux de grande garde. Cépage dominant Gewurztraminer par défaut."
             }
           ]
+        },
+        {
+          "id": "fr-loire",
+          "nom": "Loire",
+          "sousRegions": [
+            "Pays Nantais",
+            "Anjou-Saumur",
+            "Touraine",
+            "Centre-Loire"
+          ],
+          "appellations": [
+            {
+              "id": "fr-muscadet",
+              "nom": "Muscadet Sèvre et Maine",
+              "sousRegion": "Pays Nantais",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "melon"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Melon de Bourgogne, élevé sur lie. Le blanc iodé des huîtres. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-sancerre-blanc",
+              "nom": "Sancerre",
+              "sousRegion": "Centre-Loire",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "sauvignon-blanc"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "fromages_chevre",
+                "crustaces",
+                "poissons_delicats"
+              ],
+              "note": "Sauvignon Blanc de référence. L'accord crottin de Chavignol est canonique. Blanc et rouge se gardent différemment : deux entrées."
+            },
+            {
+              "id": "fr-sancerre-rouge",
+              "nom": "Sancerre",
+              "sousRegion": "Centre-Loire",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Le Sancerre rouge, en Pinot Noir. Moins connu que le blanc mais réel."
+            },
+            {
+              "id": "fr-pouilly-fume",
+              "nom": "Pouilly-Fumé",
+              "sousRegion": "Centre-Loire",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "sauvignon-blanc"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "fromages_chevre",
+                "poissons_delicats"
+              ],
+              "note": "Sauvignon (« Blanc Fumé ») de la rive opposée à Sancerre, réputé plus fumé et minéral. À ne pas confondre avec Pouilly-Fuissé (Chardonnay bourguignon)."
+            },
+            {
+              "id": "fr-vouvray-sec",
+              "nom": "Vouvray",
+              "sousRegion": "Touraine",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chenin"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Chenin de Touraine, du sec au moelleux. Ici le sec/demi-sec (Blanc). Le moelleux fait l'objet d'une entrée séparée : même nom, couleur disjointe, garde tout autre."
+            },
+            {
+              "id": "fr-vouvray-moelleux",
+              "nom": "Vouvray",
+              "sousRegion": "Touraine",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "chenin"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "desserts_fruits",
+                "fromages_bleus"
+              ],
+              "note": "Vouvray moelleux, Chenin surmaturé, quasi immortel. MÊME nom que le sec, couleur disjointe : la résolution se fait sur (nom, couleur)."
+            },
+            {
+              "id": "fr-savennieres",
+              "nom": "Savennières",
+              "sousRegion": "Anjou-Saumur",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chenin"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Le grand Chenin SEC d'Anjou (Coulée de Serrant), austère et de longue garde."
+            },
+            {
+              "id": "fr-chinon",
+              "nom": "Chinon",
+              "sousRegion": "Touraine",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-franc"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "charcuterie",
+                "volaille_rotie"
+              ],
+              "note": "Cabernet Franc (« Breton ») de Touraine, sur les rillettes et la charcuterie."
+            },
+            {
+              "id": "fr-bourgueil",
+              "nom": "Bourgueil",
+              "sousRegion": "Touraine",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-franc"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Cabernet Franc voisin de Chinon, souvent plus tannique et de garde."
+            },
+            {
+              "id": "fr-saumur-champigny",
+              "nom": "Saumur-Champigny",
+              "sousRegion": "Anjou-Saumur",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-franc"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Cabernet Franc fruité et souple, à boire plus jeune que Chinon/Bourgueil."
+            },
+            {
+              "id": "fr-quarts-de-chaume",
+              "nom": "Quarts-de-Chaume",
+              "sousRegion": "Anjou-Saumur",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "chenin"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "desserts_fruits",
+                "fromages_bleus"
+              ],
+              "note": "Seul Grand Cru de Loire, liquoreux botrytisé de Chenin (Coteaux du Layon). Grande garde."
+            }
+          ]
         }
       ]
     }
