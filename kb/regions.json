@@ -271,6 +271,193 @@
               "note": "Malvoisie flétrie (surmaturée). MÊME nom que l'entrée sèche, couleur disjointe, grande garde. La résolution se fait sur (nom, couleur du vin)."
             }
           ]
+        },
+        {
+          "id": "ch-vaud",
+          "nom": "Vaud",
+          "sousRegions": [
+            "Lavaux",
+            "Chablais",
+            "La Côte",
+            "Bonvillars",
+            "Côtes de l'Orbe",
+            "Vully"
+          ],
+          "appellations": [
+            {
+              "id": "ch-vaud-dezaley",
+              "nom": "Dézaley",
+              "sousRegion": "Lavaux",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Grand Cru de Lavaux. L'un des rares Chasselas qui se garde (d'où le tier moyen, au-dessus du Chasselas générique). Accords laissés au cépage."
+            },
+            {
+              "id": "ch-vaud-calamin",
+              "nom": "Calamin",
+              "sousRegion": "Lavaux",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Grand Cru voisin du Dézaley, même tier relevé."
+            },
+            {
+              "id": "ch-vaud-epesses",
+              "nom": "Epesses",
+              "sousRegion": "Lavaux",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-vaud-saint-saphorin",
+              "nom": "Saint-Saphorin",
+              "sousRegion": "Lavaux",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-vaud-villette",
+              "nom": "Villette",
+              "sousRegion": "Lavaux",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-vaud-yvorne",
+              "nom": "Yvorne",
+              "sousRegion": "Chablais",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Chablais réputé, Chasselas plus structuré que la moyenne."
+            },
+            {
+              "id": "ch-vaud-aigle",
+              "nom": "Aigle",
+              "sousRegion": "Chablais",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-vaud-la-cote",
+              "nom": "La Côte",
+              "sousRegion": "La Côte",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-vaud-bonvillars",
+              "nom": "Bonvillars",
+              "sousRegion": "Bonvillars",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "À cheval sur Vaud et les Trois-Lacs (Neuchâtel). Rattaché ici une seule fois pour éviter un id en double."
+            },
+            {
+              "id": "ch-vaud-cotes-de-lorbe",
+              "nom": "Côtes de l'Orbe",
+              "sousRegion": "Côtes de l'Orbe",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-vaud-vully",
+              "nom": "Vully",
+              "sousRegion": "Vully",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Vully vaudois. Le Vully fribourgeois voisin est une entrée distincte sous Fribourg."
+            },
+            {
+              "id": "ch-vaud-salvagnin",
+              "nom": "Salvagnin",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "viandes_blanches",
+                "cuisine_alpine"
+              ],
+              "note": "Rouge vaudois d'assemblage Pinot Noir (dominant) + Gamay — l'équivalent vaudois de la Dôle valaisanne."
+            }
+          ]
         }
       ]
     },
