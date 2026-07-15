@@ -951,6 +951,225 @@
                 "gibier"
               ],
               "note": "Deux couleurs sous UNE SEULE entrée, et c'est correct : le rosé est marginal et sa garde ne diverge pas assez pour justifier une scission. Le critère n'est pas « deux couleurs » mais « deux gardes »."
+            },
+            {
+              "id": "fr-hermitage-rouge",
+              "nom": "Hermitage",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "viandes_rouges_grillees"
+              ],
+              "note": "Le sommet de la Syrah septentrionale, grande garde. Rouge et blanc ne se gardent pas pareil : deux entrées de même nom, couleurs disjointes."
+            },
+            {
+              "id": "fr-hermitage-blanc",
+              "nom": "Hermitage",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "marsanne",
+                "roussanne"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Marsanne dominante. Un blanc de très longue garde, cas rare : d'où le tier garde, bien au-dessus du Crozes-Hermitage blanc. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-cornas",
+              "nom": "Cornas",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier"
+              ],
+              "note": "Syrah pure, sombre et puissante. Pas de blanc dans l'appellation. Grande garde, comme l'Hermitage voisin."
+            },
+            {
+              "id": "fr-saint-joseph-rouge",
+              "nom": "Saint-Joseph",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie"
+              ],
+              "note": "Syrah plus accessible que l'Hermitage. Rouge de garde, blanc moyen : deux entrées."
+            },
+            {
+              "id": "fr-saint-joseph-blanc",
+              "nom": "Saint-Joseph",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "marsanne",
+                "roussanne"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-saint-peray",
+              "nom": "Saint-Péray",
+              "sousRegion": "Nord",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "marsanne",
+                "roussanne"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Blanc du Rhône nord (Marsanne/Roussanne), tranquille ou effervescent. On modélise le tranquille."
+            },
+            {
+              "id": "fr-chateauneuf-du-pape-rouge",
+              "nom": "Châteauneuf-du-Pape",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "agneau"
+              ],
+              "note": "Grenache dominant, assemblage jusqu'à 13 cépages autorisés. Le grand rouge du Rhône sud, grande garde. Rouge et blanc séparés : gardes divergentes."
+            },
+            {
+              "id": "fr-chateauneuf-du-pape-blanc",
+              "nom": "Châteauneuf-du-Pape",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "grenache-blanc",
+                "roussanne",
+                "clairette"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Blanc rare et gras (Grenache blanc dominant), de bonne garde. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-vacqueyras",
+              "nom": "Vacqueyras",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "agneau",
+                "barbecue"
+              ],
+              "note": "Cru voisin de Gigondas, même trio grenache/syrah/mourvèdre, un cran plus abordable."
+            },
+            {
+              "id": "fr-lirac",
+              "nom": "Lirac",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Cru de la rive droite, face à Châteauneuf. Rouge généreux mais de garde moyenne. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-tavel",
+              "nom": "Tavel",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rosé"
+              ],
+              "cepages": [
+                "grenache",
+                "cinsault",
+                "syrah"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "LE rosé de gastronomie, uniquement rosé, plus corsé et de meilleure garde que la moyenne. Les accords rosé viennent des règles de profil (couleurVin Rosé)."
+            },
+            {
+              "id": "fr-cotes-du-rhone",
+              "nom": "Côtes du Rhône",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "L'appellation régionale générique, en rouge. Cépage dominant Grenache. Accords laissés au cépage, à boire dans les premières années."
+            },
+            {
+              "id": "fr-muscat-de-beaumes-de-venise",
+              "nom": "Muscat de Beaumes-de-Venise",
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "foie_gras",
+                "desserts_fruits",
+                "fromages_bleus"
+              ],
+              "note": "Vin doux naturel (Muscat muté). Modélisé en Liquoreux, faute de catégorie « VDN » dans l'enum des couleurs — décision commanditaire L1-FR. À boire plutôt jeune, sur les desserts."
             }
           ]
         }
