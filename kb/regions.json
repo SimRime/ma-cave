@@ -1529,6 +1529,67 @@
               "note": "Le blanc sec vif et abordable de Bordeaux, à boire jeune."
             }
           ]
+        },
+        {
+          "id": "fr-champagne",
+          "nom": "Champagne",
+          "sousRegions": [
+            "Montagne de Reims",
+            "Côte des Blancs",
+            "Vallée de la Marne",
+            "Côte des Bar"
+          ],
+          "appellations": [
+            {
+              "id": "fr-champagne-effervescent",
+              "nom": "Champagne",
+              "sousRegion": null,
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "chardonnay",
+                "pinot-meunier"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "poissons_delicats",
+                "sushi"
+              ],
+              "note": "Assemblage Pinot Noir / Chardonnay / Meunier. Le tier moyen couvre les cuvées millésimées ; les bruts sans année se boivent jeunes. Servi frais (≈ 6-9 °C) : la référence de service est la couleur Effervescent, un assemblage n'ayant pas de température unique."
+            },
+            {
+              "id": "fr-coteaux-champenois",
+              "nom": "Coteaux Champenois",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Le rare vin tranquille rouge de Champagne (Bouzy), Pinot Noir. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-rose-des-riceys",
+              "nom": "Rosé des Riceys",
+              "sousRegion": "Côte des Bar",
+              "couleurs": [
+                "Rosé"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Rosé tranquille de saignée, rareté de la Côte des Bar. Les accords rosé viennent des règles de profil (couleurVin Rosé)."
+            }
+          ]
         }
       ]
     }
