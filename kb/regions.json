@@ -672,6 +672,99 @@
               "note": "Cépage endémique des Grisons, rarissime. Acidité extrême, vieillit des décennies."
             }
           ]
+        },
+        {
+          "id": "ch-deutschschweiz",
+          "nom": "Suisse alémanique",
+          "sousRegions": [
+            "Zürich",
+            "Schaffhouse",
+            "Argovie",
+            "Bâle",
+            "Thurgovie"
+          ],
+          "appellations": [
+            {
+              "id": "ch-deutschschweiz-rauschling",
+              "nom": "Räuschling",
+              "sousRegion": "Zürich",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "rauschling"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Spécialité blanche du lac de Zurich, vive et citronnée."
+            },
+            {
+              "id": "ch-deutschschweiz-blauburgunder",
+              "nom": "Blauburgunder",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Blauburgunder = Pinot Noir, cépage rouge dominant de la Suisse alémanique (synonyme déjà porté par le cépage)."
+            },
+            {
+              "id": "ch-deutschschweiz-riesling-sylvaner",
+              "nom": "Riesling-Sylvaner",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "muller-thurgau"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Riesling-Sylvaner = Müller-Thurgau, nom usuel outre-Sarine. Ni Riesling ni Sylvaner : le synonyme fait le lien."
+            }
+          ]
+        },
+        {
+          "id": "ch-fribourg",
+          "nom": "Fribourg",
+          "sousRegions": [
+            "Vully",
+            "Cheyres"
+          ],
+          "appellations": [
+            {
+              "id": "ch-fribourg-vully",
+              "nom": "Vully fribourgeois",
+              "sousRegion": "Vully",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Vully côté fribourgeois, distinct du Vully vaudois : nom différent, donc pas de collision de résolution."
+            },
+            {
+              "id": "ch-fribourg-cheyres",
+              "nom": "Cheyres",
+              "sousRegion": "Cheyres",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            }
+          ]
         }
       ]
     },
