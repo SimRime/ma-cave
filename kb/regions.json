@@ -2084,6 +2084,201 @@
               "note": "Le cru le plus au nord."
             }
           ]
+        },
+        {
+          "id": "fr-languedoc-roussillon",
+          "nom": "Languedoc-Roussillon",
+          "sousRegions": [
+            "Languedoc",
+            "Roussillon"
+          ],
+          "appellations": [
+            {
+              "id": "fr-corbieres",
+              "nom": "Corbières",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "carignan",
+                "grenache",
+                "syrah",
+                "mourvedre"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Assemblage languedocien base Carignan/Grenache. Accords laissés aux cépages."
+            },
+            {
+              "id": "fr-minervois",
+              "nom": "Minervois",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah",
+                "grenache",
+                "mourvedre",
+                "carignan"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-faugeres",
+              "nom": "Faugères",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah",
+                "grenache",
+                "mourvedre"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Terroir de schistes, rouges structurés de garde."
+            },
+            {
+              "id": "fr-saint-chinian",
+              "nom": "Saint-Chinian",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah",
+                "grenache",
+                "mourvedre"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-fitou",
+              "nom": "Fitou",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "carignan",
+                "grenache",
+                "syrah"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "La plus ancienne AOC rouge du Languedoc, base Carignan, de bonne garde."
+            },
+            {
+              "id": "fr-pic-saint-loup",
+              "nom": "Pic Saint-Loup",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah",
+                "grenache",
+                "mourvedre"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Terroir frais en altitude, Syrah dominante, l'un des rouges les plus fins du Languedoc."
+            },
+            {
+              "id": "fr-picpoul-de-pinet",
+              "nom": "Picpoul de Pinet",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "picpoul"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "crustaces",
+                "poissons_delicats",
+                "aperitif"
+              ],
+              "note": "Le blanc vif des étangs de Thau, l'accord huîtres et coquillages du Midi."
+            },
+            {
+              "id": "fr-collioure",
+              "nom": "Collioure",
+              "sousRegion": "Roussillon",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache",
+                "mourvedre",
+                "syrah"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Le rouge sec du vignoble de Banyuls, Grenache/Mourvèdre, puissant et solaire."
+            },
+            {
+              "id": "fr-banyuls",
+              "nom": "Banyuls",
+              "sousRegion": "Roussillon",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "grenache"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "desserts_chocolat",
+                "fromages_bleus",
+                "foie_gras"
+              ],
+              "note": "Vin doux naturel de Grenache noir (muté). Modélisé en Liquoreux — décision commanditaire L1-FR. LE rare accord du dessert au chocolat. Vieillit des décennies (rimage/rancio)."
+            },
+            {
+              "id": "fr-maury",
+              "nom": "Maury",
+              "sousRegion": "Roussillon",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "grenache"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "desserts_chocolat",
+                "fromages_bleus"
+              ],
+              "note": "VDN de Grenache noir, cousin de Banyuls. Modélisé en Liquoreux (décision L1-FR)."
+            },
+            {
+              "id": "fr-muscat-de-rivesaltes",
+              "nom": "Muscat de Rivesaltes",
+              "sousRegion": "Roussillon",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "desserts_fruits",
+                "foie_gras",
+                "fromages_bleus"
+              ],
+              "note": "VDN de Muscat, aromatique et fruité, à boire plutôt jeune. Modélisé en Liquoreux (décision L1-FR)."
+            }
+          ]
         }
       ]
     }
