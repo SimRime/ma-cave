@@ -6,7 +6,8 @@
   "description": "Gestion d'une cave à vin — web app statique, GitHub Pages, deux utilisateurs. Le code du navigateur n'a AUCUNE dépendance : ajv/ajv-formats servent uniquement aux scripts et tests Node (devDependencies), jamais servis par Pages (voir CLAUDE.md § Dépendances, DECISIONS.md D12).",
   "scripts": {
     "test": "node --test",
-    "validate": "node scripts/validate-data.mjs"
+    "validate": "node scripts/validate-data.mjs",
+    "validate:kb": "node scripts/validate-kb.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
