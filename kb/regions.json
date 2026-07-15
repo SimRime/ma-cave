@@ -109,6 +109,166 @@
                 "agneau"
               ],
               "note": null
+            },
+            {
+              "id": "ch-valais-johannisberg",
+              "nom": "Johannisberg",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "sylvaner"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "cuisine_alpine",
+                "poissons_delicats"
+              ],
+              "note": "Johannisberg = Sylvaner en Valais (jamais Riesling ni Savagnin). Blanc rond, servi jeune, classique sur les asperges et la raclette."
+            },
+            {
+              "id": "ch-valais-dole",
+              "nom": "Dôle",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "viandes_blanches",
+                "volaille_rotie",
+                "cuisine_alpine"
+              ],
+              "note": "Assemblage Pinot Noir (dominant) + Gamay. Le dominant est en premier : c'est lui qui porte le tier, le profil et le service. Rouge léger, tanin bas : passe sur les plats alpins."
+            },
+            {
+              "id": "ch-valais-cornalin",
+              "nom": "Cornalin du Valais",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cornalin"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Le vrai Cornalin valaisan (Rouge du Pays), à ne pas confondre avec l'Humagne Rouge (= Cornalin d'Aoste), qui a sa propre entrée."
+            },
+            {
+              "id": "ch-valais-humagne-rouge",
+              "nom": "Humagne Rouge",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "humagne-rouge"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "champignons"
+              ],
+              "note": "Rustique et sauvage, la star valaisanne du gibier. Cépage distinct du Cornalin malgré le synonyme croisé « Cornalin d'Aoste »."
+            },
+            {
+              "id": "ch-valais-humagne-blanche",
+              "nom": "Humagne Blanche",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "humagne-blanche"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Accords laissés vides : aucun accord d'appellation vraiment iconique, le cépage prend le relais."
+            },
+            {
+              "id": "ch-valais-amigne",
+              "nom": "Amigne de Vétroz",
+              "sousRegion": "Vétroz",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "amigne"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "aperitif",
+                "foie_gras",
+                "desserts_fruits"
+              ],
+              "note": "Cépage quasi exclusif de Vétroz. Souvent légèrement doux (échelle des abeilles), d'où foie gras et desserts."
+            },
+            {
+              "id": "ch-valais-ermitage",
+              "nom": "Ermitage",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "marsanne"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_blanches",
+                "poissons_gras",
+                "fromages_pate_dure"
+              ],
+              "note": "Ermitage = Marsanne en Valais (synonyme déjà porté par le cépage). Blanc puissant, de garde."
+            },
+            {
+              "id": "ch-valais-malvoisie",
+              "nom": "Malvoisie du Valais",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "pinot-gris"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_blanches",
+                "poissons_gras",
+                "fromages_pate_molle"
+              ],
+              "note": "Malvoisie = Pinot Gris en Valais. Version SÈCHE. Le flétri fait l'objet d'une entrée séparée : même nom, couleur disjointe, garde tout autre — c'est la forme des deux Petite Arvine."
+            },
+            {
+              "id": "ch-valais-malvoisie-fletrie",
+              "nom": "Malvoisie du Valais",
+              "sousRegion": null,
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "pinot-gris"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Malvoisie flétrie (surmaturée). MÊME nom que l'entrée sèche, couleur disjointe, grande garde. La résolution se fait sur (nom, couleur du vin)."
             }
           ]
         }
