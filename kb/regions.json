@@ -2381,6 +2381,122 @@
               "note": "Vermentino insulaire, salin et frais. Même cépage que le Rolle provençal et le Vermentino sarde (un seul id)."
             }
           ]
+        },
+        {
+          "id": "fr-jura",
+          "nom": "Jura",
+          "sousRegions": [
+            "Arbois",
+            "Château-Chalon",
+            "L'Étoile"
+          ],
+          "appellations": [
+            {
+              "id": "fr-arbois",
+              "nom": "Arbois",
+              "sousRegion": "Arbois",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "poulsard",
+                "trousseau",
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "volaille_rotie"
+              ],
+              "note": "L'appellation phare du Jura en rouge, base Poulsard/Trousseau. Rouges pâles et digestes."
+            },
+            {
+              "id": "fr-cotes-du-jura",
+              "nom": "Côtes du Jura",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chardonnay",
+                "savagnin"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Blanc générique du Jura, Chardonnay et Savagnin, en style ouillé ou oxydatif. Accords laissés aux cépages."
+            },
+            {
+              "id": "fr-chateau-chalon",
+              "nom": "Château-Chalon",
+              "sousRegion": "Château-Chalon",
+              "couleurs": [
+                "Jaune"
+              ],
+              "cepages": [
+                "savagnin"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "fromages_pate_dure",
+                "volaille_rotie",
+                "champignons"
+              ],
+              "note": "LE Vin Jaune (couleur Jaune), 100 % Savagnin, élevé six ans sous voile en clavelin. Immortel. Le Savagnin s'y dit « Naturé » (synonyme non porté par l'étalon savagnin, intouchable). Comté et poulet aux morilles."
+            },
+            {
+              "id": "fr-letoile",
+              "nom": "L'Étoile",
+              "sousRegion": "L'Étoile",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chardonnay",
+                "savagnin"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Petite appellation blanche réputée, Chardonnay/Savagnin. Produit aussi vin jaune et vin de paille."
+            },
+            {
+              "id": "fr-cremant-du-jura",
+              "nom": "Crémant du Jura",
+              "sousRegion": null,
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "chardonnay",
+                "pinot-noir"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "crustaces"
+              ],
+              "note": "Méthode traditionnelle, base Chardonnay. À boire jeune, servi frais."
+            },
+            {
+              "id": "fr-vin-de-paille-jura",
+              "nom": "Vin de Paille",
+              "sousRegion": null,
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "savagnin",
+                "chardonnay",
+                "poulsard"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "desserts_fruits",
+                "fromages_bleus"
+              ],
+              "note": "Raisins séchés sur paille : liquoreux concentré de très longue garde."
+            }
+          ]
         }
       ]
     }
