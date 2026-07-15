@@ -2626,6 +2626,138 @@
               "note": "Petite appellation d'Altesse, aussi connue pour son mousseux historique."
             }
           ]
+        },
+        {
+          "id": "fr-sud-ouest",
+          "nom": "Sud-Ouest",
+          "sousRegions": [
+            "Lot",
+            "Bergeracois",
+            "Gascogne",
+            "Pays Basque"
+          ],
+          "appellations": [
+            {
+              "id": "fr-cahors",
+              "nom": "Cahors",
+              "sousRegion": "Lot",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "malbec",
+                "merlot"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "fromages_pate_dure"
+              ],
+              "note": "Le « vin noir » : Malbec (Côt/Auxerrois) à 70 % minimum. Confit et cassoulet. Une étiquette « Côt » ou « Auxerrois » (rouge) doit résoudre vers le cépage malbec."
+            },
+            {
+              "id": "fr-madiran",
+              "nom": "Madiran",
+              "sousRegion": "Gascogne",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "tannat",
+                "cabernet-sauvignon",
+                "cabernet-franc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier"
+              ],
+              "note": "Le Tannat dans sa forteresse : tanin 5, grande garde. La garbure et le confit de canard. Les anti-règles l'écartent d'office des plats délicats."
+            },
+            {
+              "id": "fr-jurancon",
+              "nom": "Jurançon",
+              "sousRegion": "Gascogne",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "petit-manseng"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "desserts_fruits",
+                "fromages_bleus"
+              ],
+              "note": "Le moelleux béarnais, Petit Manseng passerillé. Nom distinct du Jurançon Sec (appellation séparée), donc pas de collision de résolution."
+            },
+            {
+              "id": "fr-jurancon-sec",
+              "nom": "Jurançon Sec",
+              "sousRegion": "Gascogne",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "petit-manseng"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "La version sèche, appellation à part entière (nom distinct). Blanc vif et exotique."
+            },
+            {
+              "id": "fr-bergerac",
+              "nom": "Bergerac",
+              "sousRegion": "Bergeracois",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "merlot",
+                "cabernet-sauvignon",
+                "cabernet-franc"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Voisin oriental de Bordeaux, mêmes cépages (Merlot dominant), à boire plus jeune. Accords laissés aux cépages."
+            },
+            {
+              "id": "fr-monbazillac",
+              "nom": "Monbazillac",
+              "sousRegion": "Bergeracois",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "semillon",
+                "sauvignon-blanc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Le Sauternes du Bergeracois : Sémillon botrytisé, liquoreux de grande garde, plus abordable."
+            },
+            {
+              "id": "fr-irouleguy",
+              "nom": "Irouléguy",
+              "sousRegion": "Pays Basque",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "tannat",
+                "cabernet-franc",
+                "cabernet-sauvignon"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Le rouge basque, Tannat assoupli de Cabernets. Sur l'axoa et le fromage de brebis."
+            }
+          ]
         }
       ]
     }
