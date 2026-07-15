@@ -1920,6 +1920,170 @@
               "note": "Seul Grand Cru de Loire, liquoreux botrytisé de Chenin (Coteaux du Layon). Grande garde."
             }
           ]
+        },
+        {
+          "id": "fr-beaujolais",
+          "nom": "Beaujolais",
+          "sousRegions": [
+            "Crus du Beaujolais",
+            "Bas-Beaujolais"
+          ],
+          "appellations": [
+            {
+              "id": "fr-beaujolais-villages",
+              "nom": "Beaujolais-Villages",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Gamay fruité à boire jeune. Le tier ne se déduit PAS de la région : Moulin-à-Vent, cru voisin, est de garde. Chaque cru décide."
+            },
+            {
+              "id": "fr-morgon",
+              "nom": "Morgon",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Cru qui « morgonne » : le Gamay le plus charnu après Moulin-à-Vent, il gagne au vieillissement."
+            },
+            {
+              "id": "fr-moulin-a-vent",
+              "nom": "Moulin-à-Vent",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "« Le roi des Beaujolais » : le seul cru dont le Gamay atteint le tier garde, structuré comme un Pinot bourguignon."
+            },
+            {
+              "id": "fr-fleurie",
+              "nom": "Fleurie",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Le cru le plus floral et élégant."
+            },
+            {
+              "id": "fr-brouilly",
+              "nom": "Brouilly",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-cote-de-brouilly",
+              "nom": "Côte de Brouilly",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-julienas",
+              "nom": "Juliénas",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-chenas",
+              "nom": "Chénas",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Le plus petit cru, voisin de Moulin-à-Vent."
+            },
+            {
+              "id": "fr-chiroubles",
+              "nom": "Chiroubles",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-regnie",
+              "nom": "Régnié",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Le dernier cru promu (1988)."
+            },
+            {
+              "id": "fr-saint-amour",
+              "nom": "Saint-Amour",
+              "sousRegion": "Crus du Beaujolais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Le cru le plus au nord."
+            }
+          ]
         }
       ]
     }
