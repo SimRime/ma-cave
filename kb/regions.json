@@ -2497,6 +2497,135 @@
               "note": "Raisins séchés sur paille : liquoreux concentré de très longue garde."
             }
           ]
+        },
+        {
+          "id": "fr-savoie-bugey",
+          "nom": "Savoie-Bugey",
+          "sousRegions": [
+            "Savoie",
+            "Bugey"
+          ],
+          "appellations": [
+            {
+              "id": "fr-apremont",
+              "nom": "Apremont",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "jacquere"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "fondue",
+                "cuisine_alpine"
+              ],
+              "note": "Cru de Jacquère, le blanc alpin par excellence : fondue, raclette, tartiflette."
+            },
+            {
+              "id": "fr-abymes",
+              "nom": "Abymes",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "jacquere"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Jumeau d'Apremont, même Jacquère légère."
+            },
+            {
+              "id": "fr-chignin",
+              "nom": "Chignin",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "jacquere"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-chignin-bergeron",
+              "nom": "Chignin-Bergeron",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "roussanne"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "« Bergeron » est le nom savoyard de la Roussanne (synonyme non porté par l'étalon roussanne, intouchable). Blanc ample, tout autre que la Jacquère voisine."
+            },
+            {
+              "id": "fr-roussette-de-savoie",
+              "nom": "Roussette de Savoie",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "altesse"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "« Roussette » = cépage Altesse (synonyme déjà porté par le cépage). Le blanc noble de Savoie."
+            },
+            {
+              "id": "fr-savoie-mondeuse",
+              "nom": "Vin de Savoie Mondeuse",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "mondeuse"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "cuisine_alpine",
+                "viandes_rouges_grillees"
+              ],
+              "note": "Le rouge poivré de Savoie (cru d'Arbin), Mondeuse. Sur la charcuterie et les diots."
+            },
+            {
+              "id": "fr-crepy",
+              "nom": "Crépy",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Chasselas du Chablais savoyard, au bord du Léman — le même cépage qu'en face, côté suisse."
+            },
+            {
+              "id": "fr-seyssel",
+              "nom": "Seyssel",
+              "sousRegion": "Savoie",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "altesse"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Petite appellation d'Altesse, aussi connue pour son mousseux historique."
+            }
+          ]
         }
       ]
     }
