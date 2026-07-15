@@ -631,6 +631,47 @@
               "note": "Merlot (raisin noir) vinifié en blanc : la couleur du vin est Blanc, celle du raisin reste noir. À boire jeune."
             }
           ]
+        },
+        {
+          "id": "ch-graubunden",
+          "nom": "Grisons",
+          "sousRegions": [
+            "Bündner Herrschaft",
+            "Malans",
+            "Fläsch",
+            "Jenins",
+            "Maienfeld"
+          ],
+          "appellations": [
+            {
+              "id": "ch-graubunden-pinot-noir",
+              "nom": "Bündner Herrschaft",
+              "sousRegion": "Bündner Herrschaft",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "L'un des plus réputés Pinot Noir (Blauburgunder) de Suisse. Malans, Fläsch, Jenins, Maienfeld."
+            },
+            {
+              "id": "ch-graubunden-completer",
+              "nom": "Completer",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "completer"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [],
+              "note": "Cépage endémique des Grisons, rarissime. Acidité extrême, vieillit des décennies."
+            }
+          ]
         }
       ]
     },
