@@ -458,6 +458,87 @@
               "note": "Rouge vaudois d'assemblage Pinot Noir (dominant) + Gamay — l'équivalent vaudois de la Dôle valaisanne."
             }
           ]
+        },
+        {
+          "id": "ch-geneve",
+          "nom": "Genève",
+          "sousRegions": [
+            "Mandement",
+            "Arve-et-Lac",
+            "Arve-et-Rhône"
+          ],
+          "appellations": [
+            {
+              "id": "ch-geneve-satigny",
+              "nom": "Satigny",
+              "sousRegion": "Mandement",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Plus grande commune viticole de Suisse. Chasselas, dit Perlan à Genève (synonyme déjà porté par le cépage)."
+            },
+            {
+              "id": "ch-geneve-peissy",
+              "nom": "Peissy",
+              "sousRegion": "Mandement",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "ch-geneve-dardagny",
+              "nom": "Dardagny",
+              "sousRegion": "Mandement",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Commune réputée pour ses blancs, Chasselas mais aussi cépages aromatiques."
+            },
+            {
+              "id": "ch-geneve-gamay",
+              "nom": "Gamay de Genève",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Genève est l'un des grands producteurs de Gamay du pays. Accords laissés au cépage."
+            },
+            {
+              "id": "ch-geneve-gamaret",
+              "nom": "Gamaret de Genève",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamaret"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Le Gamaret a été créé à Pully, près de Genève ; le canton en est une terre d'élection."
+            }
+          ]
         }
       ]
     },
