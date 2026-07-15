@@ -539,6 +539,60 @@
               "note": "Le Gamaret a été créé à Pully, près de Genève ; le canton en est une terre d'élection."
             }
           ]
+        },
+        {
+          "id": "ch-neuchatel",
+          "nom": "Neuchâtel",
+          "sousRegions": [
+            "Cortaillod",
+            "Auvernier",
+            "Cressier",
+            "Le Landeron"
+          ],
+          "appellations": [
+            {
+              "id": "ch-neuchatel-blanc",
+              "nom": "Neuchâtel",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chasselas"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Neuchâtel blanc = Chasselas. Même nom que le Neuchâtel rouge, couleurs disjointes : la résolution se fait sur (nom, couleur)."
+            },
+            {
+              "id": "ch-neuchatel-rouge",
+              "nom": "Neuchâtel",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Neuchâtel est une terre de Pinot Noir de garde. Deux entrées « Neuchâtel » (blanc/rouge) : gardes distinctes, jamais moyennées."
+            },
+            {
+              "id": "ch-neuchatel-oeil-de-perdrix",
+              "nom": "Œil-de-Perdrix",
+              "sousRegion": null,
+              "couleurs": [
+                "Rosé"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "primeur",
+              "accords": [],
+              "note": "Rosé de saignée de Pinot Noir, né à Neuchâtel. À boire jeune. Les accords rosé viennent des règles de profil (couleurVin Rosé)."
+            }
+          ]
         }
       ]
     },
