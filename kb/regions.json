@@ -1172,6 +1172,163 @@
               "note": "Vin doux naturel (Muscat muté). Modélisé en Liquoreux, faute de catégorie « VDN » dans l'enum des couleurs — décision commanditaire L1-FR. À boire plutôt jeune, sur les desserts."
             }
           ]
+        },
+        {
+          "id": "fr-bourgogne",
+          "nom": "Bourgogne",
+          "sousRegions": [
+            "Chablis",
+            "Côte de Nuits",
+            "Côte de Beaune",
+            "Côte Chalonnaise",
+            "Mâconnais"
+          ],
+          "appellations": [
+            {
+              "id": "fr-chablis",
+              "nom": "Chablis",
+              "sousRegion": "Chablis",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chardonnay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "crustaces",
+                "poissons_delicats"
+              ],
+              "note": "Chardonnay tendu et minéral, non boisé. L'accord huîtres par excellence. Les grands crus se gardent davantage, mais l'appellation générique reste moyen."
+            },
+            {
+              "id": "fr-meursault",
+              "nom": "Meursault",
+              "sousRegion": "Côte de Beaune",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chardonnay"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "poissons_gras",
+                "volaille_rotie",
+                "viandes_blanches"
+              ],
+              "note": "Chardonnay opulent et beurré, de garde. Le grand blanc gastronomique de la Côte de Beaune."
+            },
+            {
+              "id": "fr-puligny-montrachet",
+              "nom": "Puligny-Montrachet",
+              "sousRegion": "Côte de Beaune",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chardonnay"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "L'un des plus grands Chardonnay du monde. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-gevrey-chambertin",
+              "nom": "Gevrey-Chambertin",
+              "sousRegion": "Côte de Nuits",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "gibier",
+                "volaille_rotie",
+                "champignons"
+              ],
+              "note": "Pinot Noir structuré de la Côte de Nuits, le plus corsé des grands villages. Sur le gibier à plume."
+            },
+            {
+              "id": "fr-nuits-saint-georges",
+              "nom": "Nuits-Saint-Georges",
+              "sousRegion": "Côte de Nuits",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-pommard",
+              "nom": "Pommard",
+              "sousRegion": "Côte de Beaune",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "gibier",
+                "champignons"
+              ],
+              "note": "Le Pinot le plus tannique de la Côte de Beaune, qui demande la garde."
+            },
+            {
+              "id": "fr-volnay",
+              "nom": "Volnay",
+              "sousRegion": "Côte de Beaune",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "L'inverse de Pommard : le Pinot le plus délicat et floral. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-pouilly-fuisse",
+              "nom": "Pouilly-Fuissé",
+              "sousRegion": "Mâconnais",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "chardonnay"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Le grand Chardonnay du Mâconnais, plus solaire que la Côte de Beaune."
+            },
+            {
+              "id": "fr-bouzeron",
+              "nom": "Bouzeron",
+              "sousRegion": "Côte Chalonnaise",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "aligote"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "poissons_delicats"
+              ],
+              "note": "La seule appellation communale dédiée à l'Aligoté. Vif et droit."
+            }
+          ]
         }
       ]
     }
