@@ -593,6 +593,44 @@
               "note": "Rosé de saignée de Pinot Noir, né à Neuchâtel. À boire jeune. Les accords rosé viennent des règles de profil (couleurVin Rosé)."
             }
           ]
+        },
+        {
+          "id": "ch-ticino",
+          "nom": "Tessin",
+          "sousRegions": [
+            "Sopraceneri",
+            "Sottoceneri"
+          ],
+          "appellations": [
+            {
+              "id": "ch-ticino-merlot",
+              "nom": "Merlot del Ticino",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "merlot"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Le Merlot fait 90 % du vignoble tessinois. Les meilleurs (Riserva) sont de garde. C'est l'appellation générique « Ticino DOC » en rouge."
+            },
+            {
+              "id": "ch-ticino-bianco-di-merlot",
+              "nom": "Bianco di Merlot",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "merlot"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Merlot (raisin noir) vinifié en blanc : la couleur du vin est Blanc, celle du raisin reste noir. À boire jeune."
+            }
+          ]
         }
       ]
     },
