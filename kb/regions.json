@@ -1590,6 +1590,152 @@
               "note": "Rosé tranquille de saignée, rareté de la Côte des Bar. Les accords rosé viennent des règles de profil (couleurVin Rosé)."
             }
           ]
+        },
+        {
+          "id": "fr-alsace",
+          "nom": "Alsace",
+          "sousRegions": [
+            "Bas-Rhin",
+            "Haut-Rhin"
+          ],
+          "appellations": [
+            {
+              "id": "fr-alsace-riesling",
+              "nom": "Alsace Riesling",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "riesling"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Appellation varietale : le nom porte le cépage. Riesling sec de garde, l'accord choucroute et poissons. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-alsace-gewurztraminer",
+              "nom": "Alsace Gewurztraminer",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "gewurztraminer"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Blanc exubérant et épicé. L'accord munster et cuisine asiatique vient du profil aromatique du cépage."
+            },
+            {
+              "id": "fr-alsace-pinot-gris",
+              "nom": "Alsace Pinot Gris",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "pinot-gris"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Autrefois « Tokay d'Alsace ». Blanc ample, souvent légèrement moelleux."
+            },
+            {
+              "id": "fr-alsace-muscat",
+              "nom": "Alsace Muscat",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Muscat sec (contrairement aux VDN du sud), très aromatique, servi à l'apéritif et sur les asperges."
+            },
+            {
+              "id": "fr-alsace-pinot-blanc",
+              "nom": "Alsace Pinot Blanc",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "pinot-blanc"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Aussi étiqueté « Klevner ». Blanc tendre et passe-partout."
+            },
+            {
+              "id": "fr-alsace-sylvaner",
+              "nom": "Alsace Sylvaner",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "sylvaner"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "Blanc léger et désaltérant. Même cépage que le Johannisberg valaisan (un seul id)."
+            },
+            {
+              "id": "fr-alsace-pinot-noir",
+              "nom": "Alsace Pinot Noir",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Le seul rouge d'Alsace, en progrès constant. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-cremant-alsace",
+              "nom": "Crémant d'Alsace",
+              "sousRegion": null,
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "pinot-blanc",
+                "chardonnay",
+                "pinot-noir"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "crustaces"
+              ],
+              "note": "Méthode traditionnelle, base Pinot Blanc. Premier crémant de France en volume. À boire jeune, servi frais."
+            },
+            {
+              "id": "fr-alsace-vendanges-tardives",
+              "nom": "Alsace Vendanges Tardives",
+              "sousRegion": null,
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "gewurztraminer",
+                "pinot-gris"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Style « vendanges tardives » (surmaturation), le plus souvent en Gewurztraminer ou Pinot Gris. Liquoreux de grande garde. Cépage dominant Gewurztraminer par défaut."
+            }
+          ]
         }
       ]
     }
