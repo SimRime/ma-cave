@@ -1329,6 +1329,206 @@
               "note": "La seule appellation communale dédiée à l'Aligoté. Vif et droit."
             }
           ]
+        },
+        {
+          "id": "fr-bordeaux",
+          "nom": "Bordeaux",
+          "sousRegions": [
+            "Médoc",
+            "Graves",
+            "Libournais",
+            "Entre-deux-Mers",
+            "Sauternais"
+          ],
+          "appellations": [
+            {
+              "id": "fr-pauillac",
+              "nom": "Pauillac",
+              "sousRegion": "Médoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot",
+                "cabernet-franc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "agneau",
+                "gibier"
+              ],
+              "note": "Rive gauche, Cabernet Sauvignon dominant. Trois premiers crus (Lafite, Latour, Mouton) : grande garde. L'agneau de Pauillac est l'accord régional."
+            },
+            {
+              "id": "fr-margaux",
+              "nom": "Margaux",
+              "sousRegion": "Médoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot",
+                "cabernet-franc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "agneau"
+              ],
+              "note": "Le Médoc le plus parfumé et fin, Cabernet Sauvignon dominant."
+            },
+            {
+              "id": "fr-saint-julien",
+              "nom": "Saint-Julien",
+              "sousRegion": "Médoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": null
+            },
+            {
+              "id": "fr-saint-estephe",
+              "nom": "Saint-Estèphe",
+              "sousRegion": "Médoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Le plus tannique et austère des grands villages du Médoc."
+            },
+            {
+              "id": "fr-saint-emilion",
+              "nom": "Saint-Émilion",
+              "sousRegion": "Libournais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "merlot",
+                "cabernet-franc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "viandes_rouges_mijotees",
+                "fromages_pate_dure"
+              ],
+              "note": "Rive droite : Merlot dominant, complété du Cabernet Franc. Plus rond et précoce que le Médoc, mais les grands crus classés tiennent la grande garde."
+            },
+            {
+              "id": "fr-pomerol",
+              "nom": "Pomerol",
+              "sousRegion": "Libournais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "merlot",
+                "cabernet-franc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [],
+              "note": "Merlot sur argiles à Pétrus : le Merlot atteint ici son sommet mondial. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-pessac-leognan-rouge",
+              "nom": "Pessac-Léognan",
+              "sousRegion": "Graves",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [],
+              "note": "Graves du nord (Haut-Brion). Rouge de grande garde ET blanc sec de garde : deux entrées, gardes distinctes."
+            },
+            {
+              "id": "fr-pessac-leognan-blanc",
+              "nom": "Pessac-Léognan",
+              "sousRegion": "Graves",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "sauvignon-blanc",
+                "semillon"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Blanc sec le plus noble de Bordeaux, Sauvignon/Sémillon, souvent boisé et de garde."
+            },
+            {
+              "id": "fr-sauternes",
+              "nom": "Sauternes",
+              "sousRegion": "Sauternais",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "semillon",
+                "sauvignon-blanc"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Liquoreux botrytisé (Sémillon dominant, pourriture noble). Yquem. Grande garde. Foie gras et roquefort sont les accords canoniques."
+            },
+            {
+              "id": "fr-bordeaux-rouge",
+              "nom": "Bordeaux",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "merlot",
+                "cabernet-sauvignon"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "L'appellation régionale générique en rouge (« claret »), Merlot dominant, à boire dans ses premières années. Accords laissés au cépage."
+            },
+            {
+              "id": "fr-entre-deux-mers",
+              "nom": "Entre-Deux-Mers",
+              "sousRegion": "Entre-deux-Mers",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "sauvignon-blanc",
+                "semillon"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "poissons_delicats",
+                "fromages_chevre"
+              ],
+              "note": "Le blanc sec vif et abordable de Bordeaux, à boire jeune."
+            }
+          ]
         }
       ]
     }
