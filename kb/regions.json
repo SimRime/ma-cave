@@ -2758,6 +2758,47 @@
               "note": "Le rouge basque, Tannat assoupli de Cabernets. Sur l'axoa et le fromage de brebis."
             }
           ]
+        },
+        {
+          "id": "fr-lorraine",
+          "nom": "Lorraine",
+          "sousRegions": [
+            "Toulois",
+            "Moselle"
+          ],
+          "appellations": [
+            {
+              "id": "fr-cotes-de-toul",
+              "nom": "Côtes de Toul",
+              "sousRegion": "Toulois",
+              "couleurs": [
+                "Rosé"
+              ],
+              "cepages": [
+                "gamay",
+                "pinot-noir"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "La spécialité lorraine : le « vin gris », rosé très pâle de Gamay pressé. À boire jeune. Accords rosé via les règles de profil."
+            },
+            {
+              "id": "fr-moselle",
+              "nom": "Moselle",
+              "sousRegion": "Moselle",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "pinot-blanc",
+                "pinot-gris",
+                "muller-thurgau"
+              ],
+              "tierGarde": "leger",
+              "accords": [],
+              "note": "AOC septentrionale, base Auxerrois (= pinot-blanc, porté sous « Auxerrois Blanc » — à ne pas confondre avec l'Auxerrois de Cahors, qui est le Malbec)."
+            }
+          ]
         }
       ]
     }
