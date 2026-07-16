@@ -470,7 +470,7 @@ export function renderPlan(container, ctx) {
         text: 'Boire',
       }),
       el('button', { class: 'btn sheet__act', disabled: !canWrite, onclick: () => startPlacing(bottle), text: 'Déplacer' }),
-      el('button', { class: 'btn sheet__act', onclick: () => { closeOverlay(); ctx.navigate('/vins'); }, text: 'Fiche' }),
+      el('button', { class: 'btn sheet__act', onclick: () => { closeOverlay(); ctx.navigate(`/fiche/${bottle.wineId}`); }, text: 'Fiche' }),
     );
 
     const sheet = el('div', { class: 'sheet' },
