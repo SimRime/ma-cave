@@ -1592,6 +1592,53 @@
               "note": "Cépage montepulciano (voir kb/cepages.json — à ne pas confondre avec l'appellation toscane Vino Nobile di Montepulciano, qui est du Sangiovese)."
             }
           ]
+        },
+        {
+          "id": "it-umbria",
+          "nom": "Ombrie",
+          "sousRegions": [
+            "Montefalco",
+            "Orvieto"
+          ],
+          "appellations": [
+            {
+              "id": "it-sagrantino-di-montefalco",
+              "nom": "Sagrantino di Montefalco",
+              "sousRegion": "Montefalco",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sagrantino"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "fromages_pate_dure"
+              ],
+              "note": "L'un des rouges les plus tanniques d'Italie (cépage sagrantino, tanin 5). Élevage minimum long imposé par le DOCG."
+            },
+            {
+              "id": "it-orvieto",
+              "nom": "Orvieto",
+              "sousRegion": "Orvieto",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "trebbiano",
+                "grechetto"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif",
+                "viandes_blanches"
+              ],
+              "note": "Assemblage historique Trebbiano (Procanico) + Grechetto, ce dernier listé en second bien qu'il porte souvent la qualité — le Trebbiano reste majoritaire en volume dans l'assemblage classique."
+            }
+          ]
         }
       ]
     },
