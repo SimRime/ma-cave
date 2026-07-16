@@ -1354,6 +1354,89 @@
               "note": "Aussi dit Sfursat. Nebbiolo passerillé comme l'Amarone, vinifié SEC et puissant : Rouge grandeGarde, PAS Liquoreux — même piège que l'Amarone, même résolution."
             }
           ]
+        },
+        {
+          "id": "it-trentino-alto-adige",
+          "nom": "Trentin-Haut-Adige",
+          "sousRegions": [
+            "Alto Adige",
+            "Trentino"
+          ],
+          "appellations": [
+            {
+              "id": "it-alto-adige-gewurztraminer",
+              "nom": "Alto Adige Gewürztraminer",
+              "sousRegion": "Alto Adige",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "gewurztraminer"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "cuisine_asiatique",
+                "cuisine_epicee",
+                "fromages_pate_molle"
+              ],
+              "note": "Termeno (Tramin), village d'Alto Adige, revendique l'origine du cépage. Le Gewurztraminer y est planté depuis toujours — pas une importation récente."
+            },
+            {
+              "id": "it-alto-adige-pinot-grigio",
+              "nom": "Alto Adige Pinot Grigio",
+              "sousRegion": "Alto Adige",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "pinot-gris"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "poissons_gras",
+                "viandes_blanches",
+                "crustaces"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-teroldego-rotaliano",
+              "nom": "Teroldego Rotaliano",
+              "sousRegion": "Trentino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "teroldego"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier",
+                "charcuterie"
+              ],
+              "note": "Cépage autochtone de la plaine Rotaliana, longtemps confondu avec un parent du Syrah — sans lien génétique avéré."
+            },
+            {
+              "id": "it-trento-doc",
+              "nom": "Trento DOC",
+              "sousRegion": "Trentino",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "chardonnay",
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "apero_sale"
+              ],
+              "note": "Méthode traditionnelle de montagne, comme le Franciacorta lombard — première DOC italienne dédiée à ce type de mousseux."
+            }
+          ]
         }
       ]
     },
