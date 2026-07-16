@@ -1151,6 +1151,144 @@
               "note": "Raisins passerillés sur claies (appassimento), vinification et élevage très lents en caratelli. Sucré → Liquoreux, contrairement à l'Amarone/Sforzato (secs malgré le même procédé de passerillage) qui restent Rouge grandeGarde ailleurs dans le KB."
             }
           ]
+        },
+        {
+          "id": "it-veneto",
+          "nom": "Vénétie",
+          "sousRegions": [
+            "Valpolicella",
+            "Soave",
+            "Bardolino",
+            "Conegliano Valdobbiadene"
+          ],
+          "appellations": [
+            {
+              "id": "it-amarone-della-valpolicella",
+              "nom": "Amarone della Valpolicella",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Raisins passerillés (appassimento) mais vinifié SEC et puissant (15%+ d'alcool) : Rouge grandeGarde, PAS Liquoreux — contrairement au Recioto ci-dessous, issu du même procédé mais laissé sucré."
+            },
+            {
+              "id": "it-recioto-della-valpolicella",
+              "nom": "Recioto della Valpolicella",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "L'ancêtre sucré de l'Amarone : même passerillage, fermentation arrêtée avant épuisement du sucre. Liquoreux, quand l'Amarone issu du même raisin reste Rouge."
+            },
+            {
+              "id": "it-valpolicella",
+              "nom": "Valpolicella",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "charcuterie",
+                "pates_tomate",
+                "pizza"
+              ],
+              "note": "Le Valpolicella de base, à boire jeune — à l'opposé de l'Amarone qui vient de la même zone et du même cépage dominant."
+            },
+            {
+              "id": "it-valpolicella-ripasso",
+              "nom": "Valpolicella Ripasso",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Valpolicella « repassé » sur les marcs encore actifs de l'Amarone/Recioto : plus corsé et plus long en garde que le Valpolicella simple, sans atteindre l'Amarone. Palier intermédiaire assumé."
+            },
+            {
+              "id": "it-soave",
+              "nom": "Soave",
+              "sousRegion": "Soave",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "garganega"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif",
+                "viandes_blanches"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-bardolino",
+              "nom": "Bardolino",
+              "sousRegion": "Bardolino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "charcuterie",
+                "pizza",
+                "aperitif"
+              ],
+              "note": "Rouge très pâle et léger du lac de Garde, à servir frais — le style Beaujolais de la famille Valpolicella. Tier le plus court de toute la famille corvina."
+            },
+            {
+              "id": "it-prosecco-di-conegliano-valdobbiadene",
+              "nom": "Prosecco di Conegliano Valdobbiadene",
+              "sousRegion": "Conegliano Valdobbiadene",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "glera"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "apero_sale",
+                "crustaces"
+              ],
+              "note": "DOCG (le Prosecco DOC générique, plus large, n'est pas couvert ici). Sec (Brut/Extra Dry) : aucun problème d'antiRègle desserts, contrairement à l'Asti — le glera n'a pas le sucre du muscat."
+            }
+          ]
         }
       ]
     },
