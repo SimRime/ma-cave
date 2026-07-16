@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-16T10:36:17.000Z",
+  "updatedAt": "2026-07-16T10:36:41.353Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -17,7 +17,9 @@
         "F",
         "G"
       ],
-      "disabledSlots": [],
+      "disabledSlots": [
+        "G|9"
+      ],
       "couleur": "#8E2438",
       "ordre": 1
     }
