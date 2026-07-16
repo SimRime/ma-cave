@@ -838,6 +838,1087 @@
                 "viandes_blanches"
               ],
               "note": "Même région, même pays, un tier tout autre que le Barolo. Ne JAMAIS déduire le tier de la région : il se décide appellation par appellation."
+            },
+            {
+              "id": "it-barbera-dalba",
+              "nom": "Barbera d'Alba",
+              "sousRegion": "Langhe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "barbera"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "viandes_blanches"
+              ],
+              "note": "Voisine du Barbera d'Asti (même cépage, tier identique) mais zone de production distincte, souvent plus boisée. Deux ids séparés : la garde se décide par appellation, pas par cépage seul."
+            },
+            {
+              "id": "it-dolcetto-dalba",
+              "nom": "Dolcetto d'Alba",
+              "sousRegion": "Langhe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "dolcetto"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "charcuterie",
+                "pates_tomate",
+                "pizza"
+              ],
+              "note": "Le rouge du quotidien des Langhe, à boire dans les 2-3 ans — à l'opposé du Barolo qui vient de la même sous-région."
+            },
+            {
+              "id": "it-roero",
+              "nom": "Roero",
+              "sousRegion": "Roero",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Nebbiolo rive gauche du Tanaro, style plus souple que Barolo/Barbaresco. Tier plus court (garde) et accords LAISSÉS VIDES plutôt que de recopier le profil gibier/truffe du Barolo, qui ne correspond pas à ce style plus léger — le cépage nebbiolo relaie."
+            },
+            {
+              "id": "it-roero-arneis",
+              "nom": "Roero Arneis",
+              "sousRegion": "Roero",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "arneis"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "poissons_delicats"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-gavi",
+              "nom": "Gavi",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "cortese"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "crustaces",
+                "aperitif"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-asti",
+              "nom": "Asti",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "aperitif",
+                "desserts_fruits"
+              ],
+              "note": "DOCG, spumante doux. muscat.profil.sucre relevé à 3 (calibrage L1-IT) pour que l'accord dessert tienne face à l'antiRègle de kb/accords.json — voir _note sur muscat dans kb/cepages.json pour l'effet de bord sur l'Alsace Muscat sec."
+            },
+            {
+              "id": "it-moscato-dasti",
+              "nom": "Moscato d'Asti",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "aperitif",
+                "desserts_fruits"
+              ],
+              "note": "DOCG distincte de l'Asti : moins de mousse (frizzante), moins d'alcool, plus sucrée à la dégustation. Même calibrage que l'Asti sur muscat.profil.sucre."
+            },
+            {
+              "id": "it-brachetto-dacqui",
+              "nom": "Brachetto d'Acqui",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "brachetto"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "desserts_fruits",
+                "aperitif"
+              ],
+              "note": "DOCG, rouge doux frizzante. Contrairement à l'Asti/Moscato d'Asti, le cépage brachetto (créé pour ce lot) porte un sucre franc (4) : l'accord dessert n'est pas neutralisé par l'antiRègle. Même famille de vin que l'Asti, traitement différent parce que le cépage n'a pas la même contrainte héritée."
+            }
+          ]
+        },
+        {
+          "id": "it-toscana",
+          "nom": "Toscane",
+          "sousRegions": [
+            "Chianti Classico",
+            "Montalcino",
+            "Montepulciano",
+            "Maremma",
+            "San Gimignano",
+            "Bolgheri"
+          ],
+          "appellations": [
+            {
+              "id": "it-chianti-classico",
+              "nom": "Chianti Classico",
+              "sousRegion": "Chianti Classico",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "pates_tomate",
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Le noyau historique (coq noir), DOCG distincte du Chianti générique depuis 1996. Élevage plus long, garde plus longue que le Chianti simple : deux entrées séparées, pas une moyenne."
+            },
+            {
+              "id": "it-chianti",
+              "nom": "Chianti",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "pizza"
+              ],
+              "note": "Le Chianti de tous les jours, hors zone Classico. Tier volontairement plus court que Chianti Classico."
+            },
+            {
+              "id": "it-brunello-di-montalcino",
+              "nom": "Brunello di Montalcino",
+              "sousRegion": "Montalcino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "100% Sangiovese. Élevage minimum 5 ans dont 2 en bois. Un des rouges italiens à la plus longue garde avec Barolo et Barbaresco."
+            },
+            {
+              "id": "it-rosso-di-montalcino",
+              "nom": "Rosso di Montalcino",
+              "sousRegion": "Montalcino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "viandes_rouges_grillees"
+              ],
+              "note": "Le « petit Brunello » de la même zone, élevage court, à boire bien plus tôt — exactement le rapport Barbera d'Asti / Barolo transposé à Montalcino."
+            },
+            {
+              "id": "it-vino-nobile-di-montepulciano",
+              "nom": "Vino Nobile di Montepulciano",
+              "sousRegion": "Montepulciano",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Localement Prugnolo Gentile (synonyme déjà porté par sangiovese). À NE JAMAIS confondre avec le Montepulciano d'Abruzzo : ici Montepulciano est un nom de ville toscane et le cépage est le Sangiovese ; là-bas Montepulciano est un cépage à part entière planté dans une tout autre région."
+            },
+            {
+              "id": "it-morellino-di-scansano",
+              "nom": "Morellino di Scansano",
+              "sousRegion": "Maremma",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "barbecue"
+              ],
+              "note": "Sangiovese côtier de la Maremme, localement dit Morellino — plus solaire et rond que le Chianti."
+            },
+            {
+              "id": "it-bolgheri-rosso-superiore",
+              "nom": "Bolgheri Rosso Superiore",
+              "sousRegion": "Bolgheri",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Le « Super Tuscan » archétype (Sassicaia, Ornellaia) : assemblage bordelais planté en Toscane, cabernet-sauvignon dominant. Rupture assumée avec le tout-Sangiovese du reste de la région."
+            },
+            {
+              "id": "it-vernaccia-di-san-gimignano",
+              "nom": "Vernaccia di San Gimignano",
+              "sousRegion": "San Gimignano",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "vernaccia"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif"
+              ],
+              "note": "Le blanc historique de Toscane, seul DOCG blanc de la région avant Vin Santo. Sans lien avec la Vernaccia di Oristano sarde — pure homonymie, voir kb/cepages.json > vernaccia."
+            },
+            {
+              "id": "it-vin-santo-del-chianti-classico",
+              "nom": "Vin Santo del Chianti Classico",
+              "sousRegion": "Chianti Classico",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "trebbiano",
+                "malvasia"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Raisins passerillés sur claies (appassimento), vinification et élevage très lents en caratelli. Sucré → Liquoreux, contrairement à l'Amarone/Sforzato (secs malgré le même procédé de passerillage) qui restent Rouge grandeGarde ailleurs dans le KB."
+            }
+          ]
+        },
+        {
+          "id": "it-veneto",
+          "nom": "Vénétie",
+          "sousRegions": [
+            "Valpolicella",
+            "Soave",
+            "Bardolino",
+            "Conegliano Valdobbiadene"
+          ],
+          "appellations": [
+            {
+              "id": "it-amarone-della-valpolicella",
+              "nom": "Amarone della Valpolicella",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Raisins passerillés (appassimento) mais vinifié SEC et puissant (15%+ d'alcool) : Rouge grandeGarde, PAS Liquoreux — contrairement au Recioto ci-dessous, issu du même procédé mais laissé sucré."
+            },
+            {
+              "id": "it-recioto-della-valpolicella",
+              "nom": "Recioto della Valpolicella",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "L'ancêtre sucré de l'Amarone : même passerillage, fermentation arrêtée avant épuisement du sucre. Liquoreux, quand l'Amarone issu du même raisin reste Rouge."
+            },
+            {
+              "id": "it-valpolicella",
+              "nom": "Valpolicella",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "charcuterie",
+                "pates_tomate",
+                "pizza"
+              ],
+              "note": "Le Valpolicella de base, à boire jeune — à l'opposé de l'Amarone qui vient de la même zone et du même cépage dominant."
+            },
+            {
+              "id": "it-valpolicella-ripasso",
+              "nom": "Valpolicella Ripasso",
+              "sousRegion": "Valpolicella",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Valpolicella « repassé » sur les marcs encore actifs de l'Amarone/Recioto : plus corsé et plus long en garde que le Valpolicella simple, sans atteindre l'Amarone. Palier intermédiaire assumé."
+            },
+            {
+              "id": "it-soave",
+              "nom": "Soave",
+              "sousRegion": "Soave",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "garganega"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif",
+                "viandes_blanches"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-bardolino",
+              "nom": "Bardolino",
+              "sousRegion": "Bardolino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "corvina"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "charcuterie",
+                "pizza",
+                "aperitif"
+              ],
+              "note": "Rouge très pâle et léger du lac de Garde, à servir frais — le style Beaujolais de la famille Valpolicella. Tier le plus court de toute la famille corvina."
+            },
+            {
+              "id": "it-prosecco-di-conegliano-valdobbiadene",
+              "nom": "Prosecco di Conegliano Valdobbiadene",
+              "sousRegion": "Conegliano Valdobbiadene",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "glera"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "apero_sale",
+                "crustaces"
+              ],
+              "note": "DOCG (le Prosecco DOC générique, plus large, n'est pas couvert ici). Sec (Brut/Extra Dry) : aucun problème d'antiRègle desserts, contrairement à l'Asti — le glera n'a pas le sucre du muscat."
+            }
+          ]
+        },
+        {
+          "id": "it-lombardia",
+          "nom": "Lombardie",
+          "sousRegions": [
+            "Franciacorta",
+            "Valtellina"
+          ],
+          "appellations": [
+            {
+              "id": "it-franciacorta",
+              "nom": "Franciacorta",
+              "sousRegion": "Franciacorta",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "chardonnay",
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "apero_sale"
+              ],
+              "note": "Méthode traditionnelle (deuxième fermentation en bouteille), comme le Champagne. Sec, garde plus longue qu'un Prosecco — tier moyen plutôt que leger."
+            },
+            {
+              "id": "it-valtellina-superiore",
+              "nom": "Valtellina Superiore",
+              "sousRegion": "Valtellina",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Nebbiolo de montagne (localement Chiavennasca, synonyme déjà porté par nebbiolo), sur terrasses. Style plus svelte que Barolo/Barbaresco : tier garde, pas grandeGarde — même logique que le Roero piémontais."
+            },
+            {
+              "id": "it-sforzato-di-valtellina",
+              "nom": "Sforzato di Valtellina",
+              "sousRegion": "Valtellina",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Aussi dit Sfursat. Nebbiolo passerillé comme l'Amarone, vinifié SEC et puissant : Rouge grandeGarde, PAS Liquoreux — même piège que l'Amarone, même résolution."
+            }
+          ]
+        },
+        {
+          "id": "it-trentino-alto-adige",
+          "nom": "Trentin-Haut-Adige",
+          "sousRegions": [
+            "Alto Adige",
+            "Trentino"
+          ],
+          "appellations": [
+            {
+              "id": "it-alto-adige-gewurztraminer",
+              "nom": "Alto Adige Gewürztraminer",
+              "sousRegion": "Alto Adige",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "gewurztraminer"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "cuisine_asiatique",
+                "cuisine_epicee",
+                "fromages_pate_molle"
+              ],
+              "note": "Termeno (Tramin), village d'Alto Adige, revendique l'origine du cépage. Le Gewurztraminer y est planté depuis toujours — pas une importation récente."
+            },
+            {
+              "id": "it-alto-adige-pinot-grigio",
+              "nom": "Alto Adige Pinot Grigio",
+              "sousRegion": "Alto Adige",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "pinot-gris"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "poissons_gras",
+                "viandes_blanches",
+                "crustaces"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-teroldego-rotaliano",
+              "nom": "Teroldego Rotaliano",
+              "sousRegion": "Trentino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "teroldego"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier",
+                "charcuterie"
+              ],
+              "note": "Cépage autochtone de la plaine Rotaliana, longtemps confondu avec un parent du Syrah — sans lien génétique avéré."
+            },
+            {
+              "id": "it-trento-doc",
+              "nom": "Trento DOC",
+              "sousRegion": "Trentino",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "chardonnay",
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "apero_sale"
+              ],
+              "note": "Méthode traditionnelle de montagne, comme le Franciacorta lombard — première DOC italienne dédiée à ce type de mousseux."
+            }
+          ]
+        },
+        {
+          "id": "it-friuli",
+          "nom": "Frioul",
+          "sousRegions": [
+            "Collio",
+            "Colli Orientali del Friuli"
+          ],
+          "appellations": [
+            {
+              "id": "it-collio-friulano",
+              "nom": "Collio Friulano",
+              "sousRegion": "Collio",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "friulano"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "poissons_delicats",
+                "charcuterie"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-ribolla-gialla",
+              "nom": "Ribolla Gialla",
+              "sousRegion": "Collio",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "ribolla-gialla"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "crustaces"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-refosco-dal-peduncolo-rosso",
+              "nom": "Refosco dal Peduncolo Rosso",
+              "sousRegion": "Colli Orientali del Friuli",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "refosco"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "viandes_rouges_grillees",
+                "pates_tomate"
+              ],
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "it-emilia-romagna",
+          "nom": "Émilie-Romagne",
+          "sousRegions": [
+            "Modena",
+            "Romagna"
+          ],
+          "appellations": [
+            {
+              "id": "it-lambrusco-di-sorbara",
+              "nom": "Lambrusco di Sorbara",
+              "sousRegion": "Modena",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "lambrusco"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "charcuterie",
+                "pizza",
+                "apero_sale"
+              ],
+              "note": "Version SECCO retenue (la plus courante en cave, cépage calibré sucre 0). Les versions amabile/dolce existent mais ne sont pas modélisées dans ce lot."
+            },
+            {
+              "id": "it-sangiovese-di-romagna",
+              "nom": "Sangiovese di Romagna",
+              "sousRegion": "Romagna",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "pizza"
+              ],
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "it-marche",
+          "nom": "Marches",
+          "sousRegions": [
+            "Castelli di Jesi",
+            "Conero"
+          ],
+          "appellations": [
+            {
+              "id": "it-verdicchio-dei-castelli-di-jesi",
+              "nom": "Verdicchio dei Castelli di Jesi",
+              "sousRegion": "Castelli di Jesi",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "verdicchio"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "crustaces",
+                "aperitif"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-rosso-conero",
+              "nom": "Rosso Conero",
+              "sousRegion": "Conero",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "montepulciano"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "pates_tomate"
+              ],
+              "note": "Cépage montepulciano (voir kb/cepages.json — à ne pas confondre avec l'appellation toscane Vino Nobile di Montepulciano, qui est du Sangiovese)."
+            }
+          ]
+        },
+        {
+          "id": "it-umbria",
+          "nom": "Ombrie",
+          "sousRegions": [
+            "Montefalco",
+            "Orvieto"
+          ],
+          "appellations": [
+            {
+              "id": "it-sagrantino-di-montefalco",
+              "nom": "Sagrantino di Montefalco",
+              "sousRegion": "Montefalco",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sagrantino"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "fromages_pate_dure"
+              ],
+              "note": "L'un des rouges les plus tanniques d'Italie (cépage sagrantino, tanin 5). Élevage minimum long imposé par le DOCG."
+            },
+            {
+              "id": "it-orvieto",
+              "nom": "Orvieto",
+              "sousRegion": "Orvieto",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "trebbiano",
+                "grechetto"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif",
+                "viandes_blanches"
+              ],
+              "note": "Assemblage historique Trebbiano (Procanico) + Grechetto, ce dernier listé en second bien qu'il porte souvent la qualité — le Trebbiano reste majoritaire en volume dans l'assemblage classique."
+            }
+          ]
+        },
+        {
+          "id": "it-abruzzo",
+          "nom": "Abruzzes",
+          "sousRegions": [],
+          "appellations": [
+            {
+              "id": "it-montepulciano-dabruzzo",
+              "nom": "Montepulciano d'Abruzzo",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "montepulciano"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "viandes_rouges_grillees",
+                "charcuterie"
+              ],
+              "note": "L'appellation qui donne son nom au piège : ici Montepulciano est le CÉPAGE, planté dans les Abruzzes. Rien à voir avec le Vino Nobile di Montepulciano toscan, dont Montepulciano est le nom de la ville et le cépage le Sangiovese."
+            },
+            {
+              "id": "it-trebbiano-dabruzzo",
+              "nom": "Trebbiano d'Abruzzo",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "trebbiano"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif",
+                "crustaces"
+              ],
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "it-campania",
+          "nom": "Campanie",
+          "sousRegions": [
+            "Avellino",
+            "Sannio"
+          ],
+          "appellations": [
+            {
+              "id": "it-taurasi",
+              "nom": "Taurasi",
+              "sousRegion": "Avellino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "aglianico"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "fromages_pate_dure"
+              ],
+              "note": "Surnommé le « Barolo du Sud ». Tanin et acidité élevés (comme le Nebbiolo) : grande garde, élevage long imposé par le DOCG."
+            },
+            {
+              "id": "it-fiano-di-avellino",
+              "nom": "Fiano di Avellino",
+              "sousRegion": "Avellino",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "fiano"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "poissons_gras",
+                "viandes_blanches",
+                "crustaces"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-greco-di-tufo",
+              "nom": "Greco di Tufo",
+              "sousRegion": "Avellino",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "greco"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "crustaces",
+                "poissons_delicats",
+                "aperitif"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-falanghina-del-sannio",
+              "nom": "Falanghina del Sannio",
+              "sousRegion": "Sannio",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "falanghina"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "poissons_delicats",
+                "crustaces"
+              ],
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "it-puglia",
+          "nom": "Pouilles",
+          "sousRegions": [
+            "Manduria",
+            "Salento"
+          ],
+          "appellations": [
+            {
+              "id": "it-primitivo-di-manduria",
+              "nom": "Primitivo di Manduria",
+              "sousRegion": "Manduria",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "primitivo"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "barbecue",
+                "fromages_pate_dure"
+              ],
+              "note": "Même cépage que le Zinfandel californien. Corps 5, alcool élevé, style solaire."
+            },
+            {
+              "id": "it-salice-salentino",
+              "nom": "Salice Salentino",
+              "sousRegion": "Salento",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "negroamaro"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "viandes_rouges_grillees",
+                "pates_tomate"
+              ],
+              "note": null
+            }
+          ]
+        },
+        {
+          "id": "it-sicilia",
+          "nom": "Sicile",
+          "sousRegions": [
+            "Etna"
+          ],
+          "appellations": [
+            {
+              "id": "it-etna-rosso",
+              "nom": "Etna Rosso",
+              "sousRegion": "Etna",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nerello-mascalese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "gibier",
+                "champignons",
+                "viandes_rouges_grillees"
+              ],
+              "note": "Vignes de pente volcanique, souvent en altitude. Style plus fin et acide que le reste des rouges siciliens — comparé au Pinot Noir malgré une couleur peu marquée."
+            },
+            {
+              "id": "it-nero-davola",
+              "nom": "Nero d'Avola",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nero-d-avola"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "barbecue"
+              ],
+              "note": "Vin variétal (Sicilia DOC), pas d'appellation géographique unique — s'étiquette le plus souvent par son cépage. Marsala volontairement non couvert par ce lot : aucune couleur du schéma ne le représente sans mentir sur sa garde — même précédent que Porto en L1-FR."
+            }
+          ]
+        },
+        {
+          "id": "it-sardegna",
+          "nom": "Sardaigne",
+          "sousRegions": [
+            "Gallura",
+            "Sulcis"
+          ],
+          "appellations": [
+            {
+              "id": "it-cannonau-di-sardegna",
+              "nom": "Cannonau di Sardegna",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "barbecue",
+                "agneau"
+              ],
+              "note": "Cannonau = Grenache (synonyme déjà porté par grenache, réutilisé sans modification). Le rouge sarde le plus planté."
+            },
+            {
+              "id": "it-vermentino-di-gallura",
+              "nom": "Vermentino di Gallura",
+              "sousRegion": "Gallura",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "vermentino"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "crustaces",
+                "aperitif"
+              ],
+              "note": "Seul DOCG blanc de Sardaigne. Vermentino déjà porté FR+IT dans le KB — réutilisé sans modification."
+            },
+            {
+              "id": "it-carignano-del-sulcis",
+              "nom": "Carignano del Sulcis",
+              "sousRegion": "Sulcis",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "carignan"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "barbecue",
+                "charcuterie"
+              ],
+              "note": "Carignano = Carignan (synonyme déjà porté). Vieilles vignes franches de pied sur sables du Sulcis, épargnées par le phylloxéra."
             }
           ]
         }
@@ -1653,7 +2734,7 @@
               ],
               "tierGarde": "leger",
               "accords": [],
-              "note": "Muscat sec (contrairement aux VDN du sud), très aromatique, servi à l'apéritif et sur les asperges."
+              "note": "Muscat sec (contrairement aux VDN du sud). Depuis L1-IT, le cépage muscat porte sucre=3 (calibré pour l'Asti/Moscato d'Asti) : cette appellation sèche perd donc sa protection anti-dessert faute de profil par appellation — régression connue, non corrigée ici."
             },
             {
               "id": "fr-alsace-pinot-blanc",
