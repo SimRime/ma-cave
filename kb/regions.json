@@ -935,9 +935,10 @@
               ],
               "tierGarde": "primeur",
               "accords": [
-                "aperitif"
+                "aperitif",
+                "desserts_fruits"
               ],
-              "note": "DOCG, spumante doux. Le cépage muscat porte sucre 1 (entrée relue en L1-FR, non modifiable) : l'antiRègle desserts de kb/accords.json exclurait tout accord dessert posé ici. Accord limité à aperitif — point de calibrage signalé, pas contourné."
+              "note": "DOCG, spumante doux. muscat.profil.sucre relevé à 3 (calibrage L1-IT) pour que l'accord dessert tienne face à l'antiRègle de kb/accords.json — voir _note sur muscat dans kb/cepages.json pour l'effet de bord sur l'Alsace Muscat sec."
             },
             {
               "id": "it-moscato-dasti",
@@ -951,9 +952,10 @@
               ],
               "tierGarde": "primeur",
               "accords": [
-                "aperitif"
+                "aperitif",
+                "desserts_fruits"
               ],
-              "note": "DOCG distincte de l'Asti : moins de mousse (frizzante), moins d'alcool, plus sucrée à la dégustation — mais même piège de calibrage que ci-dessus sur l'antiRègle desserts (cépage muscat, sucre 1)."
+              "note": "DOCG distincte de l'Asti : moins de mousse (frizzante), moins d'alcool, plus sucrée à la dégustation. Même calibrage que l'Asti sur muscat.profil.sucre."
             },
             {
               "id": "it-brachetto-dacqui",
@@ -2732,7 +2734,7 @@
               ],
               "tierGarde": "leger",
               "accords": [],
-              "note": "Muscat sec (contrairement aux VDN du sud), très aromatique, servi à l'apéritif et sur les asperges."
+              "note": "Muscat sec (contrairement aux VDN du sud). Depuis L1-IT, le cépage muscat porte sucre=3 (calibré pour l'Asti/Moscato d'Asti) : cette appellation sèche perd donc sa protection anti-dessert faute de profil par appellation — régression connue, non corrigée ici."
             },
             {
               "id": "fr-alsace-pinot-blanc",

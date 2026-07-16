@@ -406,12 +406,12 @@
       "synonymes": ["Muscat Blanc à Petits Grains", "Muscat Ottonel", "Muscat d'Alsace", "Moscato"],
       "couleur": "blanc",
       "pays": ["FR", "IT"],
-      "profil": { "corps": 3, "tanin": 0, "acidite": 3, "sucre": 1, "aromatique": 5 },
+      "profil": { "corps": 3, "tanin": 0, "acidite": 3, "sucre": 3, "aromatique": 5 },
       "aromes": ["raisin frais", "fleur d'oranger", "musc", "rose", "menthe"],
       "tierGarde": "leger",
       "accords": ["aperitif", "cuisine_asiatique", "desserts_fruits", "cuisine_epicee", "foie_gras"],
       "service": { "tempC": [8, 10], "carafage": null, "verre": "tulipe" },
-      "_note": "Le seul cépage qui « sent le raisin ». Sec en Alsace, muté en VDN (Muscat de Rivesaltes, Beaumes-de-Venise) : la couleur Liquoreux et la garde viennent alors de l'appellation."
+      "_note": "Le seul cépage qui « sent le raisin ». Sec en Alsace, muté en VDN (Rivesaltes, Beaumes-de-Venise) : couleur Liquoreux et garde viennent de l'appellation. CALIBRAGE L1-IT : sucre relevé 1→3 pour que l'antiRègle desserts n'exclue plus l'Asti/Moscato d'Asti. Effet de bord assumé : ce profil partagé lève aussi la protection anti-dessert de l'Alsace Muscat sec — voir note sur fr-alsace-muscat."
     },
     {
       "id": "sauvignon-blanc",
