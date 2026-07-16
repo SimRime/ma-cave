@@ -973,6 +973,184 @@
               "note": "DOCG, rouge doux frizzante. Contrairement à l'Asti/Moscato d'Asti, le cépage brachetto (créé pour ce lot) porte un sucre franc (4) : l'accord dessert n'est pas neutralisé par l'antiRègle. Même famille de vin que l'Asti, traitement différent parce que le cépage n'a pas la même contrainte héritée."
             }
           ]
+        },
+        {
+          "id": "it-toscana",
+          "nom": "Toscane",
+          "sousRegions": [
+            "Chianti Classico",
+            "Montalcino",
+            "Montepulciano",
+            "Maremma",
+            "San Gimignano",
+            "Bolgheri"
+          ],
+          "appellations": [
+            {
+              "id": "it-chianti-classico",
+              "nom": "Chianti Classico",
+              "sousRegion": "Chianti Classico",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "pates_tomate",
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Le noyau historique (coq noir), DOCG distincte du Chianti générique depuis 1996. Élevage plus long, garde plus longue que le Chianti simple : deux entrées séparées, pas une moyenne."
+            },
+            {
+              "id": "it-chianti",
+              "nom": "Chianti",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "pizza"
+              ],
+              "note": "Le Chianti de tous les jours, hors zone Classico. Tier volontairement plus court que Chianti Classico."
+            },
+            {
+              "id": "it-brunello-di-montalcino",
+              "nom": "Brunello di Montalcino",
+              "sousRegion": "Montalcino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "100% Sangiovese. Élevage minimum 5 ans dont 2 en bois. Un des rouges italiens à la plus longue garde avec Barolo et Barbaresco."
+            },
+            {
+              "id": "it-rosso-di-montalcino",
+              "nom": "Rosso di Montalcino",
+              "sousRegion": "Montalcino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "viandes_rouges_grillees"
+              ],
+              "note": "Le « petit Brunello » de la même zone, élevage court, à boire bien plus tôt — exactement le rapport Barbera d'Asti / Barolo transposé à Montalcino."
+            },
+            {
+              "id": "it-vino-nobile-di-montepulciano",
+              "nom": "Vino Nobile di Montepulciano",
+              "sousRegion": "Montepulciano",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Localement Prugnolo Gentile (synonyme déjà porté par sangiovese). À NE JAMAIS confondre avec le Montepulciano d'Abruzzo : ici Montepulciano est un nom de ville toscane et le cépage est le Sangiovese ; là-bas Montepulciano est un cépage à part entière planté dans une tout autre région."
+            },
+            {
+              "id": "it-morellino-di-scansano",
+              "nom": "Morellino di Scansano",
+              "sousRegion": "Maremma",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "barbecue"
+              ],
+              "note": "Sangiovese côtier de la Maremme, localement dit Morellino — plus solaire et rond que le Chianti."
+            },
+            {
+              "id": "it-bolgheri-rosso-superiore",
+              "nom": "Bolgheri Rosso Superiore",
+              "sousRegion": "Bolgheri",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Le « Super Tuscan » archétype (Sassicaia, Ornellaia) : assemblage bordelais planté en Toscane, cabernet-sauvignon dominant. Rupture assumée avec le tout-Sangiovese du reste de la région."
+            },
+            {
+              "id": "it-vernaccia-di-san-gimignano",
+              "nom": "Vernaccia di San Gimignano",
+              "sousRegion": "San Gimignano",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "vernaccia"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif"
+              ],
+              "note": "Le blanc historique de Toscane, seul DOCG blanc de la région avant Vin Santo. Sans lien avec la Vernaccia di Oristano sarde — pure homonymie, voir kb/cepages.json > vernaccia."
+            },
+            {
+              "id": "it-vin-santo-del-chianti-classico",
+              "nom": "Vin Santo del Chianti Classico",
+              "sousRegion": "Chianti Classico",
+              "couleurs": [
+                "Liquoreux"
+              ],
+              "cepages": [
+                "trebbiano",
+                "malvasia"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "foie_gras",
+                "fromages_bleus",
+                "desserts_fruits"
+              ],
+              "note": "Raisins passerillés sur claies (appassimento), vinification et élevage très lents en caratelli. Sucré → Liquoreux, contrairement à l'Amarone/Sforzato (secs malgré le même procédé de passerillage) qui restent Rouge grandeGarde ailleurs dans le KB."
+            }
+          ]
         }
       ]
     },
