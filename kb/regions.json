@@ -1764,6 +1764,52 @@
               "note": null
             }
           ]
+        },
+        {
+          "id": "it-puglia",
+          "nom": "Pouilles",
+          "sousRegions": [
+            "Manduria",
+            "Salento"
+          ],
+          "appellations": [
+            {
+              "id": "it-primitivo-di-manduria",
+              "nom": "Primitivo di Manduria",
+              "sousRegion": "Manduria",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "primitivo"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "barbecue",
+                "fromages_pate_dure"
+              ],
+              "note": "Même cépage que le Zinfandel californien. Corps 5, alcool élevé, style solaire."
+            },
+            {
+              "id": "it-salice-salentino",
+              "nom": "Salice Salentino",
+              "sousRegion": "Salento",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "negroamaro"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "viandes_rouges_grillees",
+                "pates_tomate"
+              ],
+              "note": null
+            }
+          ]
         }
       ]
     },
