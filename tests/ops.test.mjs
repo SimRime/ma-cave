@@ -98,9 +98,9 @@ test('DRINK_BOTTLE sur une bouteille absente : no-op idempotent, aucune écritur
 });
 
 test('PLACE_BOTTLE sur un casier occupé : OpAbortError (invariant 2)', () => {
-  const data = seed(); // b_1 est en A1
+  const data = seed(); // le magnum b_2 occupe A2 dans la graine
   assert.throws(
-    () => applyOp(data, { type: 'PLACE_BOTTLE', payload: { bottleId: 'b_3', slot: { zone: 'z1', row: 'A', col: '1' } } }),
+    () => applyOp(data, { type: 'PLACE_BOTTLE', payload: { bottleId: 'b_3', slot: { zone: 'z1', row: 'A', col: '2' } } }),
     (e) => e instanceof OpAbortError && e.code === 'SLOT_OCCUPIED',
   );
 });
