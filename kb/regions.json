@@ -1289,6 +1289,71 @@
               "note": "DOCG (le Prosecco DOC générique, plus large, n'est pas couvert ici). Sec (Brut/Extra Dry) : aucun problème d'antiRègle desserts, contrairement à l'Asti — le glera n'a pas le sucre du muscat."
             }
           ]
+        },
+        {
+          "id": "it-lombardia",
+          "nom": "Lombardie",
+          "sousRegions": [
+            "Franciacorta",
+            "Valtellina"
+          ],
+          "appellations": [
+            {
+              "id": "it-franciacorta",
+              "nom": "Franciacorta",
+              "sousRegion": "Franciacorta",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "chardonnay",
+                "pinot-noir"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "aperitif",
+                "crustaces",
+                "apero_sale"
+              ],
+              "note": "Méthode traditionnelle (deuxième fermentation en bouteille), comme le Champagne. Sec, garde plus longue qu'un Prosecco — tier moyen plutôt que leger."
+            },
+            {
+              "id": "it-valtellina-superiore",
+              "nom": "Valtellina Superiore",
+              "sousRegion": "Valtellina",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "fromages_pate_dure"
+              ],
+              "note": "Nebbiolo de montagne (localement Chiavennasca, synonyme déjà porté par nebbiolo), sur terrasses. Style plus svelte que Barolo/Barbaresco : tier garde, pas grandeGarde — même logique que le Roero piémontais."
+            },
+            {
+              "id": "it-sforzato-di-valtellina",
+              "nom": "Sforzato di Valtellina",
+              "sousRegion": "Valtellina",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "gibier",
+                "fromages_pate_dure"
+              ],
+              "note": "Aussi dit Sfursat. Nebbiolo passerillé comme l'Amarone, vinifié SEC et puissant : Rouge grandeGarde, PAS Liquoreux — même piège que l'Amarone, même résolution."
+            }
+          ]
         }
       ]
     },
