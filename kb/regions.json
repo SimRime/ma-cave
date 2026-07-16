@@ -1855,6 +1855,70 @@
               "note": "Vin variétal (Sicilia DOC), pas d'appellation géographique unique — s'étiquette le plus souvent par son cépage. Marsala volontairement non couvert par ce lot : aucune couleur du schéma ne le représente sans mentir sur sa garde — même précédent que Porto en L1-FR."
             }
           ]
+        },
+        {
+          "id": "it-sardegna",
+          "nom": "Sardaigne",
+          "sousRegions": [
+            "Gallura",
+            "Sulcis"
+          ],
+          "appellations": [
+            {
+              "id": "it-cannonau-di-sardegna",
+              "nom": "Cannonau di Sardegna",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "viandes_rouges_mijotees",
+                "barbecue",
+                "agneau"
+              ],
+              "note": "Cannonau = Grenache (synonyme déjà porté par grenache, réutilisé sans modification). Le rouge sarde le plus planté."
+            },
+            {
+              "id": "it-vermentino-di-gallura",
+              "nom": "Vermentino di Gallura",
+              "sousRegion": "Gallura",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "vermentino"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "crustaces",
+                "aperitif"
+              ],
+              "note": "Seul DOCG blanc de Sardaigne. Vermentino déjà porté FR+IT dans le KB — réutilisé sans modification."
+            },
+            {
+              "id": "it-carignano-del-sulcis",
+              "nom": "Carignano del Sulcis",
+              "sousRegion": "Sulcis",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "carignan"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "barbecue",
+                "charcuterie"
+              ],
+              "note": "Carignano = Carignan (synonyme déjà porté). Vieilles vignes franches de pied sur sables du Sulcis, épargnées par le phylloxéra."
+            }
+          ]
         }
       ]
     },
