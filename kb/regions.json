@@ -1639,6 +1639,49 @@
               "note": "Assemblage historique Trebbiano (Procanico) + Grechetto, ce dernier listé en second bien qu'il porte souvent la qualité — le Trebbiano reste majoritaire en volume dans l'assemblage classique."
             }
           ]
+        },
+        {
+          "id": "it-abruzzo",
+          "nom": "Abruzzes",
+          "sousRegions": [],
+          "appellations": [
+            {
+              "id": "it-montepulciano-dabruzzo",
+              "nom": "Montepulciano d'Abruzzo",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "montepulciano"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "viandes_rouges_grillees",
+                "charcuterie"
+              ],
+              "note": "L'appellation qui donne son nom au piège : ici Montepulciano est le CÉPAGE, planté dans les Abruzzes. Rien à voir avec le Vino Nobile di Montepulciano toscan, dont Montepulciano est le nom de la ville et le cépage le Sangiovese."
+            },
+            {
+              "id": "it-trebbiano-dabruzzo",
+              "nom": "Trebbiano d'Abruzzo",
+              "sousRegion": null,
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "trebbiano"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "aperitif",
+                "crustaces"
+              ],
+              "note": null
+            }
+          ]
         }
       ]
     },
