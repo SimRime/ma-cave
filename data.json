@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-14T21:02:38.820Z",
+  "updatedAt": "2026-07-16T10:36:14.205Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -140,7 +140,11 @@
       "id": "b_3",
       "wineId": "w_2",
       "format": "standard",
-      "slot": null,
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "6"
+      },
       "acquisition": {
         "type": "achat",
         "source": "Cave de Fully",
