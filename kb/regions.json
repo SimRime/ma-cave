@@ -1546,6 +1546,52 @@
               "note": null
             }
           ]
+        },
+        {
+          "id": "it-marche",
+          "nom": "Marches",
+          "sousRegions": [
+            "Castelli di Jesi",
+            "Conero"
+          ],
+          "appellations": [
+            {
+              "id": "it-verdicchio-dei-castelli-di-jesi",
+              "nom": "Verdicchio dei Castelli di Jesi",
+              "sousRegion": "Castelli di Jesi",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "verdicchio"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "poissons_delicats",
+                "crustaces",
+                "aperitif"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-rosso-conero",
+              "nom": "Rosso Conero",
+              "sousRegion": "Conero",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "montepulciano"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "pates_tomate"
+              ],
+              "note": "Cépage montepulciano (voir kb/cepages.json — à ne pas confondre avec l'appellation toscane Vino Nobile di Montepulciano, qui est du Sangiovese)."
+            }
+          ]
         }
       ]
     },
