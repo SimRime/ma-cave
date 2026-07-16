@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-16T10:37:30.992Z",
+  "updatedAt": "2026-07-16T10:37:33.786Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -108,7 +108,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "A",
+        "row": "B",
         "col": "9"
       },
       "acquisition": {
