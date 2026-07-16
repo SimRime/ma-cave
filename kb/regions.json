@@ -1500,6 +1500,52 @@
               "note": null
             }
           ]
+        },
+        {
+          "id": "it-emilia-romagna",
+          "nom": "Émilie-Romagne",
+          "sousRegions": [
+            "Modena",
+            "Romagna"
+          ],
+          "appellations": [
+            {
+              "id": "it-lambrusco-di-sorbara",
+              "nom": "Lambrusco di Sorbara",
+              "sousRegion": "Modena",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "lambrusco"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "charcuterie",
+                "pizza",
+                "apero_sale"
+              ],
+              "note": "Version SECCO retenue (la plus courante en cave, cépage calibré sucre 0). Les versions amabile/dolce existent mais ne sont pas modélisées dans ce lot."
+            },
+            {
+              "id": "it-sangiovese-di-romagna",
+              "nom": "Sangiovese di Romagna",
+              "sousRegion": "Romagna",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "sangiovese"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "pizza"
+              ],
+              "note": null
+            }
+          ]
         }
       ]
     },
