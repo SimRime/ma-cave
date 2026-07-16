@@ -272,3 +272,87 @@ input {
 .toast--on { opacity: 1; transform: translate(-50%, 0); }
 
 @media (prefers-reduced-motion: reduce) { .cell, .sheet, .toast { transition: none; } }
+
+/* ======================================================================
+   Vins · fiche · à boire (L3). Cible 380 px, cibles d'action ≥ 44 px,
+   la couleur ne porte jamais seule l'information (les statuts sont étiquetés).
+   ====================================================================== */
+
+select, textarea {
+  width: 100%; min-height: 44px; padding: 8px 10px; font-size: 1rem;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg);
+}
+textarea { min-height: 72px; line-height: 1.4; resize: vertical; }
+.field { margin: 0 0 4px; }
+.field label { margin-top: 12px; }
+.check { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; color: var(--fg); }
+.check input { width: auto; min-height: 0; }
+.sortrow { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+.sortrow select { flex: 1; }
+
+/* — Liste de vins cliquable — */
+.wine--link { cursor: pointer; border-radius: 8px; }
+.wine--link:hover { background: var(--info-bg); }
+.wine--link:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+
+/* — Badges de statut de garde (toujours étiquetés) — */
+.tag.garde { border-width: 1px; }
+.garde--urgent   { color: var(--warn); border-color: var(--warn); font-weight: 600; }
+.garde--depasse  { color: var(--muted); border-color: var(--muted); text-decoration: line-through; }
+.garde--apogee   { color: var(--ok); border-color: var(--ok); font-weight: 600; }
+.garde--aBoire   { color: var(--fg); border-color: var(--line); }
+.garde--tropJeune { color: var(--muted); border-color: var(--line); }
+.garde--inconnu  { color: var(--muted); border-color: var(--line); font-style: italic; }
+
+/* — Aperçu de garde (formulaire) — */
+.garde-preview { margin: 12px 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--info-bg); }
+.garde-preview__win { font-weight: 600; }
+.garde-preview__why { margin: 6px 0 0; font-size: 0.9rem; }
+
+/* — Fiche : en-tête — */
+.fiche__head { display: flex; gap: 12px; align-items: flex-start; margin: 4px 0 8px; }
+.fiche__dot { width: 18px; height: 18px; margin-top: 8px; }
+.fiche__nom { margin: 2px 0; font-size: 1.4rem; }
+.fiche__tags, .fiche__flags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+
+/* — Frise de garde — */
+.frise { margin: 6px 0 10px; }
+.frise__bar { position: relative; height: 10px; border-radius: 6px; margin: 18px 0 6px;
+  background: linear-gradient(90deg, var(--wine-blanc), var(--ok) 55%, var(--warn)); }
+.frise__apogee { position: absolute; top: -4px; width: 3px; height: 18px; background: var(--fg); transform: translateX(-50%); border-radius: 2px; }
+.frise__today { position: absolute; top: -8px; width: 0; height: 26px; border-left: 2px dashed var(--fg); transform: translateX(-50%); }
+.frise__today::after { content: "▾"; position: absolute; top: -14px; left: -5px; font-size: 12px; color: var(--fg); }
+.frise__today--out { opacity: 0.55; }
+.frise__scale { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); }
+.frise__scale-apo { font-weight: 600; color: var(--fg); }
+.frise__now { font-size: 0.85rem; margin-top: 4px; }
+.garde-edit { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.garde-edit .field { flex: 1; min-width: 80px; }
+
+/* — Chips statiques (accords sur la fiche) — */
+.chips--static { margin: 8px 0; }
+.chip--static { cursor: default; }
+
+/* — Bouteilles — */
+.bottle { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.bottle:last-child { border-bottom: 0; }
+.bottle__main { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bottle__fmt { text-transform: capitalize; font-weight: 600; }
+.bottle__eff, .bottle__prov { font-size: 0.85rem; margin-top: 4px; }
+.btn--link { min-height: 36px; padding: 0 10px; background: var(--info-bg); border-color: var(--line); }
+
+/* — Dégustations — */
+.tastings { list-style: none; padding: 0; margin: 0; }
+.tasting { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.tasting:last-child { border-bottom: 0; }
+.tasting__head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+/* — À boire — */
+.aboire__head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.aboire__head h2 { margin: 0; }
+.aboire { list-style: none; padding: 0; margin: 8px 0 0; }
+.aboire__row { padding: 10px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.aboire__row:last-child { border-bottom: 0; }
+.aboire__row:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+.aboire__title { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-weight: 600; }
+.aboire__meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
