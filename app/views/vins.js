@@ -65,24 +65,50 @@ export function renderVins(container, ctx) {
   container.append(el('div', { class: 'search' }, searchInput));
 
   // — Filtre en stock / archivés / tout ——————————————————————————————————————
-  const stockToggle = el('div', { class: 'toggle', role: 'group', 'aria-label': 'Portée du catalogue' },
-    ...[['stock', 'En stock'], ['archive', 'Archivés'], ['tout', 'Tout']].map(([v, label]) =>
-      el('button', {
-        class: ui.stock === v ? 'toggle__btn toggle__btn--on' : 'toggle__btn',
-        'aria-pressed': ui.stock === v ? 'true' : 'false',
-        onclick: () => { ui.stock = v; renderList(); }, text: label,
-      })));
+  // Les boutons sont construits une fois ; renderList() ne re-rend que la liste. Il faut donc
+  // resynchroniser l'évidence à chaque clic, sinon le bouton actif reste figé sur l'état initial.
+  const stockToggle = el('div', { class: 'toggle', role: 'group', 'aria-label': 'Portée du catalogue' });
+  const stockBtns = [['stock', 'En stock'], ['archive', 'Archivés'], ['tout', 'Tout']].map(([v, label]) => {
+    const b = el('button', {
+      class: 'toggle__btn',
+      onclick: () => { ui.stock = v; syncStock(); renderList(); }, text: label,
+    });
+    b.dataset.val = v;
+    return b;
+  });
+  function syncStock() {
+    for (const b of stockBtns) {
+      const on = b.dataset.val === ui.stock;
+      b.className = on ? 'toggle__btn toggle__btn--on' : 'toggle__btn';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+  stockToggle.append(...stockBtns);
+  syncStock();
   container.append(stockToggle);
 
   // — Filtre couleur ——————————————————————————————————————————————————————————
   const presentColors = COULEURS.filter((c) => data.wines.some((w) => w.couleur === c));
   if (presentColors.length > 1) {
-    const chip = (c, label) => el('button', {
-      class: ui.colorFilter === c ? 'chip chip--on' : 'chip',
-      'aria-pressed': ui.colorFilter === c ? 'true' : 'false',
-      onclick: () => { ui.colorFilter = c; renderList(); }, text: label,
+    // colorFilter vaut null pour « Toutes » : on garde la valeur brute (pas de dataset, qui coerce
+    // en chaîne) pour comparer sans ambiguïté.
+    const colorBtns = [[null, 'Toutes'], ...presentColors.map((c) => [c, c])].map(([c, label]) => {
+      const b = el('button', {
+        class: 'chip',
+        onclick: () => { ui.colorFilter = c; syncColors(); renderList(); }, text: label,
+      });
+      b._val = c;
+      return b;
     });
-    container.append(el('div', { class: 'filters' }, chip(null, 'Toutes'), ...presentColors.map((c) => chip(c, c))));
+    function syncColors() {
+      for (const b of colorBtns) {
+        const on = b._val === ui.colorFilter;
+        b.className = on ? 'chip chip--on' : 'chip';
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      }
+    }
+    syncColors();
+    container.append(el('div', { class: 'filters' }, ...colorBtns));
   }
 
   // — Tri ————————————————————————————————————————————————————————————————————
