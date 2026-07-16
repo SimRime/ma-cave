@@ -1437,6 +1437,69 @@
               "note": "Méthode traditionnelle de montagne, comme le Franciacorta lombard — première DOC italienne dédiée à ce type de mousseux."
             }
           ]
+        },
+        {
+          "id": "it-friuli",
+          "nom": "Frioul",
+          "sousRegions": [
+            "Collio",
+            "Colli Orientali del Friuli"
+          ],
+          "appellations": [
+            {
+              "id": "it-collio-friulano",
+              "nom": "Collio Friulano",
+              "sousRegion": "Collio",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "friulano"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "poissons_delicats",
+                "charcuterie"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-ribolla-gialla",
+              "nom": "Ribolla Gialla",
+              "sousRegion": "Collio",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "ribolla-gialla"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "crustaces"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-refosco-dal-peduncolo-rosso",
+              "nom": "Refosco dal Peduncolo Rosso",
+              "sousRegion": "Colli Orientali del Friuli",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "refosco"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "charcuterie",
+                "viandes_rouges_grillees",
+                "pates_tomate"
+              ],
+              "note": null
+            }
+          ]
         }
       ]
     },
