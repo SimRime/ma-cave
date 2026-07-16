@@ -58,6 +58,15 @@ function modifPrix(tier, prixReference, garde) {
   return { tier: ordre[bornedIdx], shift: bornedIdx - idx }; // shift EFFECTIF après bornage
 }
 
+// Tier EFFECTIF du vin (cascade + modificateur de prix borné), ou null si la couleur est hors
+// référentiel. Exposé pour app/accords.js (cascade de service §2.3, carafage par tier) : la
+// résolution du tier reste écrite UNE SEULE FOIS ici (CLAUDE.md « Un seul endroit »).
+export function tierEffectif(wine, kb) {
+  const ctx = resoudreTier(wine, kb);
+  if (!ctx) return null;
+  return modifPrix(ctx.tier, wine.prixReference, kb.garde).tier;
+}
+
 // ---------------------------------------------------------------------------
 // Étapes 3-4 — Durées du tier, puis facteur de format (a et apogee, jamais de).
 // ---------------------------------------------------------------------------

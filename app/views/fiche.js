@@ -9,6 +9,7 @@
 
 import { slotLabel, normalise } from '../format.js';
 import { calculerGardeVin, gardeEffective, statutVin, statutsGarde } from '../garde.js';
+import { serviceVin, metsAutomatiques } from '../accords.js';
 
 const colorSlug = (c) => normalise(c).replace(/\s+/g, '-');
 
@@ -59,14 +60,8 @@ export function renderFiche(container, ctx, wineId) {
   // — Garde ——————————————————————————————————————————————————————————————————
   container.append(renderGarde(ctx, wine, bottles, kb, annee, canWrite));
 
-  // — Mets (chips depuis le KB) ——————————————————————————————————————————————
-  if (wine.mets?.length) {
-    container.append(el('section', { class: 'card' },
-      el('h2', { text: 'Accords' }),
-      el('div', { class: 'chips chips--static' },
-        ...wine.mets.map((id) => el('span', { class: 'chip chip--static', text: kb ? kb.platLabel(id) : id }))),
-      el('p', { class: 'help', text: 'Suggestions détaillées et service : écran Accords (lot L4).' })));
-  }
+  // — Accords & service — sens inverse vin → mets (SPEC_MOTEURS §2). ————————————
+  if (kb && kb.accords) container.append(renderAccordsFiche(ctx, wine, kb));
 
   // — Bouteilles ——————————————————————————————————————————————————————————————
   container.append(renderBottles(ctx, wine, bottles, kb, annee, canWrite));
@@ -177,6 +172,35 @@ function frise(el, { gardeDe, gardeA, apogee }, annee) {
       apogee != null ? el('span', { class: 'frise__scale-apo', text: `apogée ${apogee}` }) : null,
       el('span', { text: String(gardeA) })),
     el('div', { class: 'frise__now muted', text: todayIn ? `aujourd'hui : ${annee}, dans la fenêtre` : `aujourd'hui : ${annee}` }));
+}
+
+// ---------------------------------------------------------------------------
+// Accords & service (vin → mets). Chips = connaissance EXPLICITE du KB (metsAutomatiques, filtrée
+// par les anti-règles) quand metsSource = auto ; une sélection « manuel » est affichée telle quelle
+// (invariant 4). Le service vient de la cascade de accords.js. Écran complet : #/accords.
+// ---------------------------------------------------------------------------
+
+function renderAccordsFiche(ctx, wine, kb) {
+  const { el } = ctx;
+  const card = el('section', { class: 'card' }, el('h2', { text: 'Accords & service' }));
+
+  const mets = wine.metsSource === 'manuel' ? (wine.mets ?? []) : metsAutomatiques(wine, kb);
+  if (mets.length) {
+    card.append(el('div', { class: 'chips chips--static' },
+      ...mets.map((id) => el('span', { class: 'chip chip--static', text: kb.platLabel(id) }))));
+  } else {
+    card.append(el('p', { class: 'muted', text: 'Aucun accord établi depuis le référentiel.' }));
+  }
+
+  const svc = serviceVin(wine, kb);
+  const bits = [];
+  if (Array.isArray(svc.tempC)) bits.push(`${svc.tempC[0]}–${svc.tempC[1]} °C`);
+  bits.push(svc.carafage ? `carafage ${svc.carafage}` : 'sans carafage');
+  if (svc.verre) bits.push(`verre ${svc.verre}`);
+  card.append(el('p', { class: 'muted', text: `Service : ${bits.join(' · ')}` }));
+
+  card.append(el('p', { class: 'help', text: 'Quel plat, quels vins de la cave : écran Accords.' }));
+  return card;
 }
 
 // ---------------------------------------------------------------------------
