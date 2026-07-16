@@ -130,7 +130,7 @@ export function renderPlan(container, ctx) {
   });
   searchInput.addEventListener('input', () => {
     ui.query = searchInput.value;
-    applySearch();
+    applyFilters();
   });
   root.append(el('div', { class: 'search' }, searchInput, hitsEl));
 
@@ -152,6 +152,7 @@ export function renderPlan(container, ctx) {
       el('button', {
         class: ui.colorFilter === c ? 'chip chip--on' : 'chip',
         'aria-pressed': ui.colorFilter === c ? 'true' : 'false',
+        'data-color': c || '',
         onclick: () => { ui.colorFilter = c; renderContent(); },
         text: label,
       });
@@ -167,17 +168,33 @@ export function renderPlan(container, ctx) {
   // Références de casiers pour le surlignage de recherche in-place (pas de re-rendu).
   let cellRefs = [];
 
-  function applySearch() {
+  // Reflète l'état des puces de filtre couleur (construites une seule fois dans renderPlan).
+  function syncChips() {
+    root.querySelectorAll('.chip[data-color]').forEach((ch) => {
+      const on = (ch.getAttribute('data-color') || '') === (ui.colorFilter || '');
+      ch.classList.toggle('chip--on', on);
+      ch.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  // Applique recherche ET filtre couleur : estompe les casiers hors sélection, cercle les résultats
+  // de recherche. Les deux filtres se combinent (un casier passe s'il satisfait les deux actifs).
+  function applyFilters() {
     const q = ui.query.trim();
     const n = q ? data.wines.filter((w) => matchWine(w, q)).length : 0;
     hitsEl.textContent = q ? (n ? `${n} vin${n > 1 ? 's' : ''} trouvé${n > 1 ? 's' : ''}` : 'aucun vin') : '';
 
     if (ui.mode === 'plan') {
       const grid = contentEl.querySelector('.grid');
-      if (grid) grid.classList.toggle('grid--searching', !!q);
+      const active = !!q || !!ui.colorFilter;
+      if (grid) grid.classList.toggle('grid--filtering', active);
       for (const { btn, wineId } of cellRefs) {
         const w = wineById.get(wineId);
-        btn.classList.toggle('cell--hit', !!q && !!w && matchWine(w, q));
+        const passSearch = !q || (!!w && matchWine(w, q));
+        const passColor = !ui.colorFilter || (!!w && w.couleur === ui.colorFilter);
+        const pass = passSearch && passColor;
+        btn.classList.toggle('cell--dim', active && !pass);
+        btn.classList.toggle('cell--hit', !!q && pass); // l'anneau est réservé à la recherche
       }
     } else {
       renderAddress();
@@ -290,7 +307,7 @@ export function renderPlan(container, ctx) {
         el('p', { text: 'Tapez un nom, un cépage, une appellation. L’adresse arrive.' }),
         el('div', { class: 'chips' },
           ...examples.map((s) => el('button', {
-            class: 'chip', onclick: () => { searchInput.value = s; ui.query = s; applySearch(); }, text: s,
+            class: 'chip', onclick: () => { searchInput.value = s; ui.query = s; applyFilters(); }, text: s,
           })))));
       return;
     }
@@ -372,7 +389,8 @@ export function renderPlan(container, ctx) {
     while (contentEl.firstChild) contentEl.removeChild(contentEl.firstChild);
     renderAranger();               // bandeau « à ranger » en tête
     if (ui.mode === 'plan') renderGrid();
-    applySearch();                 // Plan : surligne ; Adresse : rend les cartes + compteur
+    applyFilters();                // Plan : estompe/surligne ; Adresse : rend les cartes + compteur
+    syncChips();                   // état visuel des puces de filtre couleur
     // refléter l'état de la bascule
     root.querySelectorAll('.toggle__btn').forEach((b) => {
       const on = b.textContent === (ui.mode === 'plan' ? 'Plan' : 'Adresse');

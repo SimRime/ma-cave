@@ -201,7 +201,7 @@ input {
 .cell--liquoreux { background: var(--wine-liquoreux); }
 .cell--jaune { background: var(--wine-jaune); }
 .cell--magnum::after { content: ""; position: absolute; inset: 24%; border-radius: 50%; border: 1.5px solid rgba(0,0,0,.5); }
-.grid--searching .cell--wine:not(.cell--hit) { opacity: 0.18; }
+.grid--filtering .cell--wine.cell--dim { opacity: 0.18; }
 .cell--hit { opacity: 1 !important; transform: scale(1.08); z-index: 1;
   box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--fg); }
 .legende { font-size: 0.78rem; margin: 8px 0 0; }
