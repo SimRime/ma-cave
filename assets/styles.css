@@ -356,3 +356,24 @@ textarea { min-height: 72px; line-height: 1.4; resize: vertical; }
 .aboire__row:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
 .aboire__title { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-weight: 600; }
 .aboire__meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+
+/* — Accords (mets → vin) — */
+.plats { margin: 4px 0 8px; }
+.famille { font-size: 0.95rem; margin: 14px 0 6px; color: var(--muted); }
+.plats__row { display: flex; flex-wrap: wrap; gap: 8px; }
+.plat { min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--fg); font-size: 0.9rem; cursor: pointer; }
+.plat--on { background: var(--wine); color: var(--wine-ink); border-color: var(--wine); }
+.plat:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+
+.accords { list-style: none; padding: 0; margin: 8px 0 0; }
+.accord { padding: 12px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.accord:last-child { border-bottom: 0; }
+.accord:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+.accord__head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.accord__dot { width: 14px; height: 14px; margin-top: 0; flex: none; }
+.accord__nom { font-weight: 600; }
+.accord__score { margin-left: auto; font-variant-numeric: tabular-nums; }
+.accord__meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+.accord__svc, .accord__why { font-size: 0.85rem; margin-top: 4px; }
+.accord__why { font-style: italic; }

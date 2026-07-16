@@ -8,6 +8,7 @@ import { renderPlan } from './views/plan.js';
 import { renderVins } from './views/vins.js';
 import { renderFiche } from './views/fiche.js';
 import { renderABoire } from './views/a-boire.js';
+import { renderAccords } from './views/accords.js';
 import { renderReglages } from './views/reglages.js';
 
 const LS = { token: 'macave.token', user: 'macave.user' };
@@ -17,6 +18,7 @@ const TABS = [
   { route: '/plan', label: 'Plan' },
   { route: '/vins', label: 'Vins' },
   { route: '/a-boire', label: 'À boire' },
+  { route: '/accords', label: 'Accords' },
   { route: '/reglages', label: 'Réglages' },
 ];
 
@@ -25,6 +27,7 @@ const VIEWS = {
   '/plan': renderPlan,
   '/vins': renderVins,
   '/a-boire': renderABoire,
+  '/accords': renderAccords,
   '/reglages': renderReglages,
   '/fiche': renderFiche,
 };

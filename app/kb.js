@@ -106,6 +106,7 @@ export function buildKb({ garde, cepages, regions, accords = null }) {
 
   return {
     garde,
+    accords, // config brute du moteur d'accords (kb/accords.json) — lue par app/accords.js, comme `garde`.
     cepage,
     appellation,
     plat,
