@@ -1682,6 +1682,88 @@
               "note": null
             }
           ]
+        },
+        {
+          "id": "it-campania",
+          "nom": "Campanie",
+          "sousRegions": [
+            "Avellino",
+            "Sannio"
+          ],
+          "appellations": [
+            {
+              "id": "it-taurasi",
+              "nom": "Taurasi",
+              "sousRegion": "Avellino",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "aglianico"
+              ],
+              "tierGarde": "grandeGarde",
+              "accords": [
+                "gibier",
+                "viandes_rouges_mijotees",
+                "fromages_pate_dure"
+              ],
+              "note": "Surnommé le « Barolo du Sud ». Tanin et acidité élevés (comme le Nebbiolo) : grande garde, élevage long imposé par le DOCG."
+            },
+            {
+              "id": "it-fiano-di-avellino",
+              "nom": "Fiano di Avellino",
+              "sousRegion": "Avellino",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "fiano"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "poissons_gras",
+                "viandes_blanches",
+                "crustaces"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-greco-di-tufo",
+              "nom": "Greco di Tufo",
+              "sousRegion": "Avellino",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "greco"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "crustaces",
+                "poissons_delicats",
+                "aperitif"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-falanghina-del-sannio",
+              "nom": "Falanghina del Sannio",
+              "sousRegion": "Sannio",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "falanghina"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "poissons_delicats",
+                "crustaces"
+              ],
+              "note": null
+            }
+          ]
         }
       ]
     },
