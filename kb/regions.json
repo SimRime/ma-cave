@@ -1810,6 +1810,51 @@
               "note": null
             }
           ]
+        },
+        {
+          "id": "it-sicilia",
+          "nom": "Sicile",
+          "sousRegions": [
+            "Etna"
+          ],
+          "appellations": [
+            {
+              "id": "it-etna-rosso",
+              "nom": "Etna Rosso",
+              "sousRegion": "Etna",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nerello-mascalese"
+              ],
+              "tierGarde": "garde",
+              "accords": [
+                "gibier",
+                "champignons",
+                "viandes_rouges_grillees"
+              ],
+              "note": "Vignes de pente volcanique, souvent en altitude. Style plus fin et acide que le reste des rouges siciliens — comparé au Pinot Noir malgré une couleur peu marquée."
+            },
+            {
+              "id": "it-nero-davola",
+              "nom": "Nero d'Avola",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nero-d-avola"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "charcuterie",
+                "barbecue"
+              ],
+              "note": "Vin variétal (Sicilia DOC), pas d'appellation géographique unique — s'étiquette le plus souvent par son cépage. Marsala volontairement non couvert par ce lot : aucune couleur du schéma ne le représente sans mentir sur sa garde — même précédent que Porto en L1-FR."
+            }
+          ]
         }
       ]
     },
