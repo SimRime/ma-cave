@@ -3,17 +3,34 @@
 
 import * as store from './store.js';
 import * as github from './github.js';
+import { loadKb } from './kb.js';
 import { renderPlan } from './views/plan.js';
 import { renderVins } from './views/vins.js';
+import { renderFiche } from './views/fiche.js';
+import { renderABoire } from './views/a-boire.js';
 import { renderReglages } from './views/reglages.js';
 
 const LS = { token: 'macave.token', user: 'macave.user' };
 
-const ROUTES = {
-  '/plan': { label: 'Plan', render: renderPlan },
-  '/vins': { label: 'Vins', render: renderVins },
-  '/reglages': { label: 'Réglages', render: renderReglages },
+// Onglets visibles (dans l'ordre). La fiche n'est pas un onglet : on l'atteint depuis Vins/Plan.
+const TABS = [
+  { route: '/plan', label: 'Plan' },
+  { route: '/vins', label: 'Vins' },
+  { route: '/a-boire', label: 'À boire' },
+  { route: '/reglages', label: 'Réglages' },
+];
+
+// Vues, indexées par leur segment de base. `/fiche/<id>` reçoit l'id en paramètre.
+const VIEWS = {
+  '/plan': renderPlan,
+  '/vins': renderVins,
+  '/a-boire': renderABoire,
+  '/reglages': renderReglages,
+  '/fiche': renderFiche,
 };
+
+// La fiche n'a pas d'onglet propre : on éclaire « Vins » (son parent) quand on y est.
+const TAB_FOR_BASE = { '/fiche': '/vins' };
 
 // --- Réglages persistés (token, nom) : localStorage, jamais les données (CLAUDE.md) ----------
 
@@ -59,9 +76,12 @@ const clear = (node) => { while (node.firstChild) node.removeChild(node.firstChi
 
 // --- Routage -------------------------------------------------------------------------------
 
+// Parse le hash en { base, param } : « #/fiche/w_3 » → { base: '/fiche', param: 'w_3' }.
 function currentRoute() {
-  const hash = location.hash.replace(/^#/, '') || '/plan';
-  return ROUTES[hash] ? hash : '/plan';
+  const raw = location.hash.replace(/^#/, '') || '/plan';
+  const [seg, param = null] = raw.replace(/^\//, '').split('/');
+  const base = `/${seg}`;
+  return VIEWS[base] ? { base, param } : { base: '/plan', param: null };
 }
 
 const navigate = (route) => { location.hash = route; };
@@ -72,6 +92,7 @@ const ctx = {
   el,
   clear,
   navigate,
+  kb: null, // résolution du KB (appellations, cépages, plats) — chargée au boot, cf. loadKb().
   settings: { read: readSettings, save: saveSettings },
   onChange: () => render(),
 };
@@ -79,8 +100,9 @@ const ctx = {
 function renderTabs() {
   const nav = document.getElementById('tabs');
   clear(nav);
-  const active = currentRoute();
-  for (const [route, { label }] of Object.entries(ROUTES)) {
+  const { base } = currentRoute();
+  const active = TAB_FOR_BASE[base] ?? base;
+  for (const { route, label } of TABS) {
     nav.append(
       el('a', { href: `#${route}`, class: route === active ? 'tab tab--active' : 'tab', text: label }),
     );
@@ -118,7 +140,8 @@ function render() {
   renderBanner();
   const view = document.getElementById('view');
   clear(view);
-  ROUTES[currentRoute()].render(view, ctx);
+  const { base, param } = currentRoute();
+  VIEWS[base](view, ctx, param);
 }
 
 // --- Démarrage -----------------------------------------------------------------------------
@@ -128,6 +151,7 @@ function boot() {
   window.addEventListener('hashchange', render);
   render(); // coquille immédiate (état « chargement… »)
   store.load().then(render); // puis les données, par l'API GitHub
+  loadKb().then((kb) => { ctx.kb = kb; render(); }); // puis le KB (garde, accords, résolution)
 }
 
 boot();
