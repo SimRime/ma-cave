@@ -838,6 +838,139 @@
                 "viandes_blanches"
               ],
               "note": "Même région, même pays, un tier tout autre que le Barolo. Ne JAMAIS déduire le tier de la région : il se décide appellation par appellation."
+            },
+            {
+              "id": "it-barbera-dalba",
+              "nom": "Barbera d'Alba",
+              "sousRegion": "Langhe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "barbera"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "pates_tomate",
+                "charcuterie",
+                "viandes_blanches"
+              ],
+              "note": "Voisine du Barbera d'Asti (même cépage, tier identique) mais zone de production distincte, souvent plus boisée. Deux ids séparés : la garde se décide par appellation, pas par cépage seul."
+            },
+            {
+              "id": "it-dolcetto-dalba",
+              "nom": "Dolcetto d'Alba",
+              "sousRegion": "Langhe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "dolcetto"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "charcuterie",
+                "pates_tomate",
+                "pizza"
+              ],
+              "note": "Le rouge du quotidien des Langhe, à boire dans les 2-3 ans — à l'opposé du Barolo qui vient de la même sous-région."
+            },
+            {
+              "id": "it-roero",
+              "nom": "Roero",
+              "sousRegion": "Roero",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nebbiolo"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Nebbiolo rive gauche du Tanaro, style plus souple que Barolo/Barbaresco. Tier plus court (garde) et accords LAISSÉS VIDES plutôt que de recopier le profil gibier/truffe du Barolo, qui ne correspond pas à ce style plus léger — le cépage nebbiolo relaie."
+            },
+            {
+              "id": "it-roero-arneis",
+              "nom": "Roero Arneis",
+              "sousRegion": "Roero",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "arneis"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "aperitif",
+                "poissons_delicats"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-gavi",
+              "nom": "Gavi",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Blanc"
+              ],
+              "cepages": [
+                "cortese"
+              ],
+              "tierGarde": "leger",
+              "accords": [
+                "crustaces",
+                "aperitif"
+              ],
+              "note": null
+            },
+            {
+              "id": "it-asti",
+              "nom": "Asti",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "aperitif"
+              ],
+              "note": "DOCG, spumante doux. Le cépage muscat porte sucre 1 (entrée relue en L1-FR, non modifiable) : l'antiRègle desserts de kb/accords.json exclurait tout accord dessert posé ici. Accord limité à aperitif — point de calibrage signalé, pas contourné."
+            },
+            {
+              "id": "it-moscato-dasti",
+              "nom": "Moscato d'Asti",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "muscat"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "aperitif"
+              ],
+              "note": "DOCG distincte de l'Asti : moins de mousse (frizzante), moins d'alcool, plus sucrée à la dégustation — mais même piège de calibrage que ci-dessus sur l'antiRègle desserts (cépage muscat, sucre 1)."
+            },
+            {
+              "id": "it-brachetto-dacqui",
+              "nom": "Brachetto d'Acqui",
+              "sousRegion": "Monferrato",
+              "couleurs": [
+                "Effervescent"
+              ],
+              "cepages": [
+                "brachetto"
+              ],
+              "tierGarde": "primeur",
+              "accords": [
+                "desserts_fruits",
+                "aperitif"
+              ],
+              "note": "DOCG, rouge doux frizzante. Contrairement à l'Asti/Moscato d'Asti, le cépage brachetto (créé pour ce lot) porte un sucre franc (4) : l'accord dessert n'est pas neutralisé par l'antiRègle. Même famille de vin que l'Asti, traitement différent parce que le cépage n'a pas la même contrainte héritée."
             }
           ]
         }
