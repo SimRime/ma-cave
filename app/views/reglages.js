@@ -1,5 +1,7 @@
-// views/reglages.js — token GitHub, nom d'utilisateur, test de connexion, écran Diagnostic.
-// C'est le seul écran de L0 qui déclenche une écriture (bouton « Tester l'écriture »).
+// views/reglages.js — token GitHub, nom d'utilisateur, test de connexion, éditeur de zones (L2),
+// écran Diagnostic. C'est l'écran qui déclenche des écritures (test d'écriture, gestion des zones).
+
+import { renderZones } from './zones.js';
 
 const PAT_URL = 'https://github.com/settings/personal-access-tokens/new';
 
@@ -108,7 +110,9 @@ export function renderReglages(container, ctx) {
     journalList,
   );
 
-  container.append(identite, diagnostic);
+  container.append(identite);
+  renderZones(container, ctx); // éditeur de zones (L2, PRD §6.8)
+  container.append(diagnostic);
 }
 
 const dt = (el, t) => el('dt', { text: t });

@@ -29,3 +29,30 @@ export const wineLabel = (wine) => {
   const parts = [wine.producteur, wine.nom].filter(Boolean).join(' — ');
   return wine.millesime ? `${parts} (${wine.millesime})` : parts;
 };
+
+// Recherche partagée Plan ↔ Adresse — définie UNE SEULE FOIS ici (PRD §6.1).
+// Sous-chaîne normalisée (NFD sans accents, minuscules), sur producteur + cuvée + appellation +
+// région + sous-région + millésime + cépages. AUCUN fuzzy matching.
+// Note : on cherche sur `wine.cepages` (texte d'affichage). La résolution par synonymes viendra avec
+// `kb.js` (lot L3) ; en L2, ce champ suffit et n'introduit aucune dépendance au KB.
+const wineHaystack = (wine) =>
+  normalise(
+    [
+      wine.producteur,
+      wine.nom,
+      wine.appellation,
+      wine.region,
+      wine.sousRegion,
+      wine.millesime,
+      ...(wine.cepages ?? []),
+    ]
+      .filter((v) => v !== null && v !== undefined && v !== '')
+      .join(' '),
+  );
+
+// Vrai si le vin correspond à la saisie. `query` est brut : la normalisation est faite ici.
+// Sans saisie → false (le Plan n'estompe rien tant qu'on ne cherche pas).
+export const matchWine = (wine, query) => {
+  const q = normalise(query);
+  return q ? wineHaystack(wine).includes(q) : false;
+};
