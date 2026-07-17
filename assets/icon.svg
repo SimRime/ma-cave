@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Ma Cave">
+  <rect width="512" height="512" rx="96" fill="#8E2438"/>
+  <g fill="#faf7f5">
+    <path d="M164 150 H348 C348 244 306 288 256 296 C206 288 164 244 164 150 Z"/>
+    <rect x="246" y="292" width="20" height="70"/>
+    <rect x="196" y="356" width="120" height="20" rx="10"/>
+  </g>
+  <path fill="#dcc06a" d="M182 170 H330 C328 232 296 266 256 274 C216 266 184 232 182 170 Z"/>
+</svg>

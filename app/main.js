@@ -10,16 +10,20 @@ import { renderFiche } from './views/fiche.js';
 import { renderABoire } from './views/a-boire.js';
 import { renderAccords } from './views/accords.js';
 import { renderReglages } from './views/reglages.js';
+import { renderPlus } from './views/plus.js';
+import { renderDegustations } from './views/degustations.js';
+import { renderStats } from './views/stats.js';
 
 const LS = { token: 'macave.token', user: 'macave.user' };
 
-// Onglets visibles (dans l'ordre). La fiche n'est pas un onglet : on l'atteint depuis Vins/Plan.
+// Onglets visibles (dans l'ordre). « Plus » regroupe Dégustations, Stats, Réglages (PRD §6).
+// La fiche n'est pas un onglet : on l'atteint depuis Vins/Plan.
 const TABS = [
   { route: '/plan', label: 'Plan' },
   { route: '/vins', label: 'Vins' },
   { route: '/a-boire', label: 'À boire' },
   { route: '/accords', label: 'Accords' },
-  { route: '/reglages', label: 'Réglages' },
+  { route: '/plus', label: 'Plus' },
 ];
 
 // Vues, indexées par leur segment de base. `/fiche/<id>` reçoit l'id en paramètre.
@@ -28,12 +32,21 @@ const VIEWS = {
   '/vins': renderVins,
   '/a-boire': renderABoire,
   '/accords': renderAccords,
+  '/plus': renderPlus,
+  '/degustations': renderDegustations,
+  '/stats': renderStats,
   '/reglages': renderReglages,
   '/fiche': renderFiche,
 };
 
-// La fiche n'a pas d'onglet propre : on éclaire « Vins » (son parent) quand on y est.
-const TAB_FOR_BASE = { '/fiche': '/vins' };
+// Écrans sans onglet propre : on éclaire leur onglet parent. Fiche → Vins ; les écrans
+// regroupés sous « Plus » → Plus.
+const TAB_FOR_BASE = {
+  '/fiche': '/vins',
+  '/degustations': '/plus',
+  '/stats': '/plus',
+  '/reglages': '/plus',
+};
 
 // --- Réglages persistés (token, nom) : localStorage, jamais les données (CLAUDE.md) ----------
 
@@ -126,6 +139,14 @@ function renderBanner() {
     return;
   }
 
+  // Hors-ligne : la cave reste consultable (service worker), mais aucune mutation n'est possible
+  // — pas de file d'attente offline (PRD §7.2). Le message prime sur « lecture seule ».
+  if (!navigator.onLine) {
+    banner.className = 'banner banner--info';
+    banner.append(el('span', { text: 'Hors ligne. La cave reste consultable ; les modifications sont indisponibles.' }));
+    return;
+  }
+
   if (!s.canWrite) {
     banner.className = 'banner banner--info';
     banner.append(
@@ -149,12 +170,22 @@ function render() {
 
 // --- Démarrage -----------------------------------------------------------------------------
 
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  // Servi à la racine de l'app (scope « ./ ») : chemin résolu relativement au document.
+  // Best-effort — sans SW, l'app fonctionne normalement, sans cache hors-ligne.
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
 function boot() {
   applySettings();
   window.addEventListener('hashchange', render);
+  window.addEventListener('online', renderBanner); // reflète l'état réseau sans recharger la vue
+  window.addEventListener('offline', renderBanner);
   render(); // coquille immédiate (état « chargement… »)
   store.load().then(render); // puis les données, par l'API GitHub
   loadKb().then((kb) => { ctx.kb = kb; render(); }); // puis le KB (garde, accords, résolution)
+  registerServiceWorker(); // PWA (lot L5) : cache hors-ligne + statut « actif » dans Diagnostic
 }
 
 boot();
