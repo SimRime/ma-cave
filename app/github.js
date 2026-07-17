@@ -143,6 +143,11 @@ export function pushOperation(op) {
 }
 
 async function attemptPush(op) {
+  // Hors-ligne : refus immédiat et clair, sans file d'attente (PRD §7.2). Le garde `=== false`
+  // ne se déclenche qu'en navigateur réellement hors-ligne (en Node, onLine est indéfini).
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+    throw new GithubError('Hors ligne — la cave est consultable mais non modifiable.', { code: 'OFFLINE' });
+  }
   if (!cfg.token) {
     throw new GithubError('Ajoutez votre token GitHub dans Réglages pour modifier la cave.', {
       code: 'READ_ONLY',

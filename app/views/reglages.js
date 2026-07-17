@@ -100,6 +100,26 @@ export function renderReglages(container, ctx) {
     title: state.canWrite ? '' : 'Ajoutez un token pour écrire.',
   });
 
+  // — Export data.json (PRD §6.8) — un téléchargement de fichier, jamais via localStorage ——————
+  const exportData = () => {
+    const d = store.getState().data;
+    if (!d) return;
+    const blob = new Blob([`${JSON.stringify(d, null, 2)}\n`], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = el('a', { href: url, download: 'data.json' });
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 0);
+  };
+
+  const exportCard = el('section', { class: 'card' },
+    el('h2', { text: 'Export' }),
+    el('p', { class: 'help', text: 'Télécharge une copie de data.json (vins, bouteilles, zones, dégustations). Format JSON — pas de CSV.' }),
+    el('div', { class: 'row' },
+      el('button', { class: 'btn', onclick: exportData, text: 'Exporter data.json', disabled: !data })),
+  );
+
   const diagnostic = el('section', { class: 'card' },
     el('h2', { text: 'Diagnostic' }),
     dl,
@@ -112,6 +132,7 @@ export function renderReglages(container, ctx) {
 
   container.append(identite);
   renderZones(container, ctx); // éditeur de zones (L2, PRD §6.8)
+  container.append(exportCard);
   container.append(diagnostic);
 }
 

@@ -377,3 +377,44 @@ textarea { min-height: 72px; line-height: 1.4; resize: vertical; }
 .accord__meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
 .accord__svc, .accord__why { font-size: 0.85rem; margin-top: 4px; }
 .accord__why { font-style: italic; }
+
+/* — Plus (page d'atterrissage) — */
+.menu { list-style: none; padding: 0; margin: 8px 0 0; }
+.menu li { margin: 0 0 10px; }
+.menu__item { display: flex; flex-direction: column; gap: 2px; min-height: 44px; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--fg); }
+.menu__item:focus-visible { outline: 2px solid var(--wine); outline-offset: 2px; }
+.menu__titre { font-weight: 600; }
+.menu__desc { font-size: 0.85rem; color: var(--muted); }
+
+/* — Stats : deux agrégats distincts, jamais confondus (PRD §4.2) — */
+.stat-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+.stat-tile { display: flex; flex-direction: column; gap: 4px; padding: 12px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
+.stat-tile__label { font-size: 0.85rem; color: var(--muted); }
+.stat-tile__value { font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+.stat-tile__help { font-size: 0.75rem; color: var(--muted); }
+@media (max-width: 340px) { .stat-tiles { grid-template-columns: 1fr; } }
+
+.prov-list { list-style: none; padding: 0; margin: 4px 0 8px; }
+.prov-list li { padding: 4px 0; }
+.apogee-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* — Stats : graphiques SVG, aucune bibliothèque (PRD §6.7) — */
+.chart { margin: 8px 0 0; }
+.chart--scroll { overflow-x: auto; }
+.chart__svg { display: block; max-width: 100%; height: auto; }
+.chart--scroll .chart__svg { max-width: none; } /* garde sa largeur px → défile si trop large */
+.chart__bar { fill: var(--wine); }
+.chart__axis { stroke: var(--line); stroke-width: 1; }
+.chart__val { fill: var(--fg); font-size: 11px; font-variant-numeric: tabular-nums; }
+.chart__lbl { fill: var(--muted); font-size: 11px; }
+
+.legend { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.legend__item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; }
+.legend__swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--line); flex: none; }
+
+/* — Dégustations : filtres qui s'enroulent + édition en place — */
+.filters--wrap { flex-wrap: wrap; }
+.filters--wrap .select { flex: 1; min-width: 130px; }
+.tasting--edit { background: var(--info-bg); border-radius: 10px; padding: 10px; margin: 6px 0; }
