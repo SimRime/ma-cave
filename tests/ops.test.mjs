@@ -115,11 +115,13 @@ test('DELETE_WINE d’un vin avec bouteilles : OpAbortError (invariant 5)', () =
 
 // --- Allocation d'ids (D9) -----------------------------------------------------------------
 test('deux ADD_WINE séquentiels : ref et id strictement croissants, alloués par l’op', () => {
+  // Les attendus se dérivent du seed : ajouter un vin à data.json ne doit pas casser ce test.
+  const base = seed().wines.reduce((m, w) => Math.max(m, w.ref), 0);
   const r1 = applyOp(seed(), { type: 'ADD_WINE', payload: { producteur: 'A', nom: 'x', pays: 'FR', couleur: 'Rouge' } });
   const r2 = applyOp(r1.data, { type: 'ADD_WINE', payload: { producteur: 'B', nom: 'y', pays: 'FR', couleur: 'Blanc' } });
-  assert.equal(r1.ids.wineId, 'w_3');
-  assert.equal(r2.ids.wineId, 'w_4');
-  assert.equal(r2.data.wines.at(-1).ref, 4);
+  assert.equal(r1.ids.wineId, `w_${base + 1}`);
+  assert.equal(r2.ids.wineId, `w_${base + 2}`);
+  assert.equal(r2.data.wines.at(-1).ref, base + 2);
 });
 
 test('applyOp ne mute pas le document d’entrée (rejeu propre)', () => {

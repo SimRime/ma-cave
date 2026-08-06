@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-16T10:37:34.997Z",
+  "updatedAt": "2026-08-06T20:27:56.643Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -99,6 +99,43 @@
       "note": null,
       "commentaire": "Sur la fondue de samedi.",
       "archive": false
+    },
+    {
+      "nom": "Pentes Rôties",
+      "region": "Valais",
+      "appellation": "Pinot Noir du Valais AOC",
+      "appellationId": null,
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2026,
+      "gardeA": 2037,
+      "apogee": 2030,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde) + millésime 2022 — appellation inconnue du référentiel",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cave St-Pierre",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_3",
+      "ref": 3
     }
   ],
   "bottles": [
@@ -153,6 +190,20 @@
         "occasion": null,
         "date": "2026-05-30",
         "prix": 22,
+        "note": null
+      }
+    },
+    {
+      "id": "b_4",
+      "wineId": "w_3",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "cadeau",
+        "source": null,
+        "occasion": null,
+        "date": "2026-08-06",
+        "prix": null,
         "note": null
       }
     }
