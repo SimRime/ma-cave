@@ -2492,6 +2492,22 @@
               "note": "Le plus tannique et austère des grands villages du Médoc."
             },
             {
+              "id": "fr-haut-medoc",
+              "nom": "Haut-Médoc",
+              "sousRegion": "Médoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "cabernet-sauvignon",
+                "merlot",
+                "cabernet-franc"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Appellation régionale de la rive gauche, dans laquelle les crus communaux (Margaux, Saint-Julien, Pauillac, Saint-Estèphe) sont enclavés sans en faire partie. Cabernet Sauvignon dominant, un cran sous eux et un cran au-dessus du Bordeaux générique. Accords laissés au cépage."
+            },
+            {
               "id": "fr-saint-emilion",
               "nom": "Saint-Émilion",
               "sousRegion": "Libournais",
