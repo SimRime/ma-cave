@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-16T10:37:34.997Z",
+  "updatedAt": "2026-09-05T15:12:54.020Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -99,6 +99,48 @@
       "note": null,
       "commentaire": "Sur la fondue de samedi.",
       "archive": false
+    },
+    {
+      "id": "w_3",
+      "ref": 3,
+      "producteur": "Château de Lamarque",
+      "nom": "",
+      "pays": "FR",
+      "region": "Bordeaux",
+      "appellation": "Haut-Médoc",
+      "appellationId": "fr-haut-medoc",
+      "sousRegion": "Médoc",
+      "couleur": "Rouge",
+      "millesime": 2018,
+      "cepages": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Cabernet Franc",
+        "Petit Verdot"
+      ],
+      "cepageIds": [
+        "cabernet-sauvignon",
+        "merlot",
+        "cabernet-franc"
+      ],
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2022,
+      "gardeA": 2033,
+      "apogee": 2026,
+      "gardeSource": "auto",
+      "gardeExplication": "Appellation Haut-Médoc (vin de garde) + millésime 2018",
+      "mets": [
+        "viandes_rouges_grillees",
+        "agneau",
+        "viandes_rouges_mijotees",
+        "gibier",
+        "fromages_pate_dure"
+      ],
+      "metsSource": "auto",
+      "note": null,
+      "commentaire": null,
+      "archive": false
     }
   ],
   "bottles": [
@@ -153,6 +195,24 @@
         "occasion": null,
         "date": "2026-05-30",
         "prix": 22,
+        "note": null
+      }
+    },
+    {
+      "id": "b_4",
+      "wineId": "w_3",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "cadeau",
+        "source": null,
+        "occasion": null,
+        "date": "2026-09-05",
+        "prix": null,
         "note": null
       }
     }
