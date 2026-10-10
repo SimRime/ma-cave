@@ -23,7 +23,7 @@ import { buildKb } from '../app/kb.js';
 import { accordsPourPlat } from '../app/accords.js';
 import { gardeEffective, statutsGarde } from '../app/garde.js';
 import { montantDepense, valeurCave, provenance, parRegion, parCouleur } from '../app/stats.js';
-import { slotLabel, wineLabel } from '../app/format.js';
+import { slotLabel, wineLabel, fmtCHF } from '../app/format.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const readJson = async (p) => JSON.parse(await readFile(p, 'utf8'));
@@ -211,8 +211,8 @@ function modeInventaire(data, opts) {
   const lignes = [
     `${nbBouteilles} bouteille(s) en stock · ${nbVins} vin(s) présent(s).`,
     // Deux chiffres distincts, jamais confondus (PRD §4.2, raison d'être du projet).
-    `Montant dépensé  : ${depense} CHF   (Σ prix payés ; cadeaux et héritages = 0)`,
-    `Valeur de la cave : ${valeur} CHF   (Σ valeurs des bouteilles en stock, cadeaux compris)`,
+    `Montant dépensé  : ${fmtCHF(depense)}   (Σ prix payés ; cadeaux et héritages = 0)`,
+    `Valeur de la cave : ${fmtCHF(valeur)}   (Σ valeurs des bouteilles en stock, cadeaux compris)`,
     '',
     `Par couleur : ${parCouleur(data).map((x) => `${x.cle} ${x.n}`).join(' · ') || '—'}`,
     `Par région  : ${parRegion(data).map((x) => `${x.cle} ${x.n}`).join(' · ') || '—'}`,

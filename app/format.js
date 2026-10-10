@@ -24,6 +24,11 @@ export const normalise = (str) =>
 export const slotLabel = (slot) =>
   slot ? `${slot.row}${slot.col}` : '—';
 
+// Montant en francs. Défini UNE SEULE FOIS : l'écran Stats et scripts/query.mjs affichent le même
+// chiffre. Sans l'arrondi, une somme de prix décimaux sort en « 1113.2000000000003 CHF ».
+export const fmtCHF = (n) =>
+  n == null ? '—' : `${new Intl.NumberFormat('fr-CH').format(Math.round(n))} CHF`;
+
 // Libellé d'un vin pour les listes : « Producteur — Nom (millésime) ».
 export const wineLabel = (wine) => {
   const parts = [wine.producteur, wine.nom].filter(Boolean).join(' — ');
