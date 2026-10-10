@@ -200,3 +200,34 @@ test('invariant 4 : « recalculer tout » saute les gardes manuelles', () => {
   const up = updates.find((u) => u.payload.id === 'w_a');
   assert.equal(up.payload.fields.gardeA, 2041, 'la garde auto est remise à jour (2041)');
 });
+
+// G13 — une fenêtre SAISIE À LA MAIN gouverne aussi gardeEffective, pas seulement la fiche.
+// Sans ce vecteur, la garde manuelle restait visible sur la fiche mais ignorée par le Plan,
+// « À boire » et les accords — qui passent tous par gardeEffective.
+test('G13 — gardeSource manuel : gardeEffective part de la fenêtre saisie, pas du tier', () => {
+  // Le Nez Noir : le producteur annonce 2025-2028 ; le barème, lui, dirait 2024-2028.
+  const wine = {
+    id: 'g13', appellationId: 'ch-valais-rouge', cepageIds: ['merlot'], couleur: 'Rouge',
+    millesime: 2022, prixReference: 19.95,
+    gardeDe: 2025, apogee: 2026, gardeA: 2028, gardeSource: 'manuel',
+  };
+  const eff = gardeEffective(wine, bottle('standard', '2024-01-01'), kb);
+  assert.deepEqual(
+    { de: eff.gardeDe, ap: eff.apogee, a: eff.gardeA },
+    { de: 2025, ap: 2026, a: 2028 },
+    'la fenêtre du producteur est rendue telle quelle',
+  );
+  assert.equal(eff.mention, null);
+
+  // Le format reste pertinent : un magnum étire `a` et `apogee` depuis le millésime, jamais `de`.
+  const mag = gardeEffective(wine, bottle('magnum', '2024-01-01'), kb);
+  assert.deepEqual(
+    { de: mag.gardeDe, ap: mag.apogee, a: mag.gardeA },
+    { de: 2025, ap: 2027, a: 2030 }, // 2022 + round(4×1.25)=5 ; 2022 + round(6×1.25)=8
+    'le magnum étire la fenêtre saisie sans en décaler le début',
+  );
+
+  // Fenêtre manuelle incomplète : on ne devine pas.
+  const creux = gardeEffective({ ...wine, gardeA: null }, bottle('standard', '2024-01-01'), kb);
+  assert.deepEqual(creux, { gardeDe: null, gardeA: null, apogee: null, mention: null });
+});

@@ -178,6 +178,26 @@ export function calculerGardeVin(wine, bottles, kb) {
 const FENETRE_NULLE = { gardeDe: null, gardeA: null, apogee: null, mention: null };
 
 export function gardeEffective(wine, bottle, kb) {
+  // Invariant 4 / SPEC §1.3 : une fenêtre SAISIE À LA MAIN n'est jamais recalculée. On ne repart
+  // donc pas du tier — on part de la fenêtre stockée, et on lui applique seulement le facteur de
+  // format (un magnum tient plus longtemps, y compris sur une fenêtre saisie).
+  // Sans ce court-circuit, la fenêtre du producteur serait visible sur la fiche et ignorée par le
+  // Plan, « À boire » et les accords, qui tous passent par ici.
+  if (wine.gardeSource === 'manuel') {
+    if (wine.gardeDe == null || wine.gardeA == null) return { ...FENETRE_NULLE };
+    const base = wine.millesime ?? yearOf(bottle?.acquisition?.date);
+    const ff = facteurFormat(bottle?.format ?? 'standard', kb.garde);
+    // Sans année de base, aucune durée à étirer : la fenêtre saisie vaut telle quelle.
+    if (base == null) return { gardeDe: wine.gardeDe, apogee: wine.apogee ?? null, gardeA: wine.gardeA, mention: null };
+    const etire = (annee, facteur) => (annee == null ? null : base + Math.round((annee - base) * facteur));
+    return {
+      gardeDe: wine.gardeDe, // le format ne décale JAMAIS le début (étape 4)
+      apogee: etire(wine.apogee, ff.facteurApogee),
+      gardeA: etire(wine.gardeA, ff.facteurA),
+      mention: null,
+    };
+  }
+
   const ctx = resoudreTier(wine, kb);
   if (!ctx) return { ...FENETRE_NULLE };
   const { tier: tierEff } = modifPrix(ctx.tier, wine.prixReference, kb.garde);

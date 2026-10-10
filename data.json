@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-10T19:30:38.188Z",
+  "updatedAt": "2026-10-10T20:19:24.734Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -1716,8 +1716,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "E",
-        "col": "1"
+        "row": "G",
+        "col": "2"
       },
       "acquisition": {
         "type": "achat",
@@ -1734,8 +1734,8 @@
       "format": "magnum",
       "slot": {
         "zone": "z1",
-        "row": "E",
-        "col": "2"
+        "row": "G",
+        "col": "1"
       },
       "acquisition": {
         "type": "cadeau",
@@ -1752,7 +1752,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
+        "row": "D",
         "col": "5"
       },
       "acquisition": {
@@ -1770,8 +1770,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "7"
+        "row": "E",
+        "col": "5"
       },
       "acquisition": {
         "type": "cadeau",
@@ -1789,7 +1789,7 @@
       "slot": {
         "zone": "z1",
         "row": "B",
-        "col": "10"
+        "col": "5"
       },
       "acquisition": {
         "type": "achat",
@@ -1807,7 +1807,7 @@
       "slot": {
         "zone": "z1",
         "row": "B",
-        "col": "2"
+        "col": "1"
       },
       "acquisition": {
         "type": "achat",
@@ -1824,8 +1824,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "E",
-        "col": "7"
+        "row": "G",
+        "col": "5"
       },
       "acquisition": {
         "type": "achat",
@@ -1843,7 +1843,7 @@
       "slot": {
         "zone": "z1",
         "row": "C",
-        "col": "4"
+        "col": "5"
       },
       "acquisition": {
         "type": "achat",
@@ -1861,7 +1861,7 @@
       "slot": {
         "zone": "z1",
         "row": "B",
-        "col": "9"
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
@@ -1878,8 +1878,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
-        "col": "7"
+        "row": "C",
+        "col": "6"
       },
       "acquisition": {
         "type": "achat",
@@ -1914,7 +1914,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "E",
+        "row": "G",
         "col": "3"
       },
       "acquisition": {
@@ -1932,8 +1932,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "11"
+        "row": "D",
+        "col": "7"
       },
       "acquisition": {
         "type": "achat",
@@ -1950,7 +1950,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
+        "row": "C",
         "col": "1"
       },
       "acquisition": {
@@ -1969,7 +1969,7 @@
       "slot": {
         "zone": "z1",
         "row": "D",
-        "col": "4"
+        "col": "2"
       },
       "acquisition": {
         "type": "achat",
@@ -1986,8 +1986,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
-        "col": "8"
+        "row": "E",
+        "col": "6"
       },
       "acquisition": {
         "type": "achat",
@@ -2022,8 +2022,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "2"
+        "row": "D",
+        "col": "3"
       },
       "acquisition": {
         "type": "achat",
@@ -2041,7 +2041,7 @@
       "slot": {
         "zone": "z1",
         "row": "B",
-        "col": "8"
+        "col": "3"
       },
       "acquisition": {
         "type": "achat",
@@ -2059,7 +2059,7 @@
       "slot": {
         "zone": "z1",
         "row": "B",
-        "col": "5"
+        "col": "2"
       },
       "acquisition": {
         "type": "achat",
@@ -2076,8 +2076,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
-        "col": "3"
+        "row": "C",
+        "col": "2"
       },
       "acquisition": {
         "type": "achat",
@@ -2094,7 +2094,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
+        "row": "D",
         "col": "1"
       },
       "acquisition": {
@@ -2130,8 +2130,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
-        "col": "6"
+        "row": "F",
+        "col": "1"
       },
       "acquisition": {
         "type": "achat",
@@ -2148,8 +2148,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "E",
-        "col": "6"
+        "row": "G",
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
@@ -2166,7 +2166,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
+        "row": "E",
         "col": "1"
       },
       "acquisition": {
@@ -2184,7 +2184,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
+        "row": "D",
         "col": "6"
       },
       "acquisition": {
@@ -2202,8 +2202,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "3"
+        "row": "D",
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
@@ -2238,8 +2238,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
-        "col": "6"
+        "row": "C",
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
@@ -2256,7 +2256,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
+        "row": "E",
         "col": "2"
       },
       "acquisition": {
@@ -2274,8 +2274,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "E",
-        "col": "4"
+        "row": "F",
+        "col": "3"
       },
       "acquisition": {
         "type": "achat",
@@ -2292,8 +2292,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
-        "col": "5"
+        "row": "E",
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
@@ -2310,8 +2310,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "E",
-        "col": "5"
+        "row": "F",
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
@@ -2346,8 +2346,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
-        "col": "4"
+        "row": "C",
+        "col": "3"
       },
       "acquisition": {
         "type": "achat",
@@ -2364,7 +2364,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
+        "row": "E",
         "col": "3"
       },
       "acquisition": {
@@ -2382,8 +2382,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
-        "col": "9"
+        "row": "F",
+        "col": "5"
       },
       "acquisition": {
         "type": "achat",
@@ -2400,8 +2400,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "10"
+        "row": "E",
+        "col": "9"
       },
       "acquisition": {
         "type": "achat",
@@ -2418,8 +2418,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
-        "col": "11"
+        "row": "C",
+        "col": "7"
       },
       "acquisition": {
         "type": "achat",
@@ -2436,8 +2436,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "B",
-        "col": "12"
+        "row": "C",
+        "col": "8"
       },
       "acquisition": {
         "type": "achat",
@@ -2508,8 +2508,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "8"
+        "row": "E",
+        "col": "7"
       },
       "acquisition": {
         "type": "achat",
@@ -2526,8 +2526,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "9"
+        "row": "E",
+        "col": "8"
       },
       "acquisition": {
         "type": "achat",
@@ -2544,8 +2544,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
-        "col": "7"
+        "row": "F",
+        "col": "2"
       },
       "acquisition": {
         "type": "achat",

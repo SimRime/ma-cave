@@ -102,8 +102,16 @@ Une garde non expliquée n'est pas exploitable. C'est ce qui manque à l'Excel ;
 ### 1.3 Invariant 4 rappelé
 
 `gardeSource: "manuel"` n'est **jamais** écrasé — y compris par le bouton « recalculer tout ».
-`gardeEffective` s'applique quand même (le facteur magnum reste pertinent sur une fenêtre saisie à la
-main), mais **n'écrit rien**.
+
+**Et `gardeEffective` part alors de la fenêtre saisie, pas du tier.** C'est le point à ne pas rater :
+le Plan, « À boire » et les accords passent tous par `gardeEffective`. S'il recalculait depuis le
+barème, la fenêtre du producteur serait visible sur la fiche et ignorée partout ailleurs — la saisie
+manuelle ne primerait que sur un écran.
+
+Le facteur de format reste appliqué (un magnum tient plus longtemps, y compris sur une fenêtre
+saisie) : `a` et `apogee` sont étirés depuis l'année de base, `de` ne bouge jamais. Sans année de
+base, la fenêtre vaut telle quelle. `gardeDe` ou `gardeA` manquant → fenêtre nulle, on ne devine pas.
+`gardeEffective` **n'écrit rien**, ici comme ailleurs.
 
 ### 1.4 Statuts : des drapeaux, pas une valeur
 
@@ -229,12 +237,15 @@ le filet de sécurité. Invariant 4 : `metsSource: "manuel"` n'est jamais écras
 | G10 | appellation `ch-valais-rouge` (**`tierGarde: null`**), cépage `cornalin` | null | standard | 2022 | **cépage** `garde` — l'appellation ne court-circuite pas | **2025** | **2029** | **2034** | aBoire |
 | G11 | appellation `ch-valais-rouge`, **aucun cépage** | null | standard | 2022 | défaut couleur → `moyen` | **2024** | **2025** | **2028** | aBoire, apogee |
 | G12 | appellation inconnue, `cepageIds: ["merlot"]` + **`cepageDominantInconnu`** | null | standard | 2021 | défaut couleur → `moyen`, **pas** `garde` | **2023** | **2024** | **2027** | aBoire, urgent |
+| G13 | **`gardeSource: "manuel"`** 2025-2026-2028, `ch-valais-rouge` + `merlot` | 19.95 | standard | 2022 | **aucun** — la fenêtre saisie court-circuite le tier | **2025** | **2026** | **2028** | aBoire, apogee |
+| G13b | idem G13 | 19.95 | **magnum** | 2022 | ×1.25 sur `a` et `apogee`, depuis le millésime | **2025** | **2027** | **2030** | aBoire, apogee |
 
 *Vérifications que ces vecteurs verrouillent :* le plafonnement du décalage de tier (G1), le décalage
 vers le haut et vers le bas (G3/G4), l'arrondi du facteur de format (G5 : 22×1.25 = 27,5 → **28**),
 le fait que `de` n'est **pas** touché par le format (G5/G6), la base d'acquisition (G7), le cas dégénéré
 qui produisait `NaN` (G9), la traversée d'une appellation sans tier (G10/G11, D16) et le refus de
-promouvoir un cépage secondaire (G12, D17).
+promouvoir un cépage secondaire (G12, D17), et le fait qu'une fenêtre saisie à la main gouverne
+**aussi** la fenêtre effective (G13), sans quoi elle ne primerait que sur la fiche.
 
 ### 3.1 Vecteurs de test — RÉSOLUTION DU KB *(normatifs)*
 
