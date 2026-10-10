@@ -28,14 +28,21 @@ function resoudreTier(wine, kb) {
   if (app && app.tierGarde) {
     return { tier: app.tierGarde, source: 'appellation', nom: app.nom };
   }
-  const cepId = wine.cepageIds?.[0];
+  // Appellation résolue mais SANS tier : régionale ou vin de pays, trop large pour discriminer
+  // (D16). La cascade continue — le cépage en sait davantage — mais on retient son nom : dire
+  // « appellation inconnue du référentiel » serait faux, elle est connue et délibérément muette.
+  const appSansTier = app ? app.nom : null;
+
+  // D17 : un cépage secondaire ne gouverne jamais. Si le dominant n'a pas été reconnu à la
+  // saisie, l'étape 2 est sautée — sans quoi un Navarra se garderait comme son Merlot d'appoint.
+  const cepId = wine.cepageDominantInconnu ? null : wine.cepageIds?.[0];
   const cep = cepId ? kb.cepage(cepId) : null;
   if (cep && cep.tierGarde) {
-    return { tier: cep.tierGarde, source: 'cepage', nom: cep.nom };
+    return { tier: cep.tierGarde, source: 'cepage', nom: cep.nom, appSansTier };
   }
   const parCouleur = kb.garde.defautParCouleur?.[wine.couleur];
   if (parCouleur) {
-    return { tier: parCouleur, source: 'couleur', nom: wine.couleur };
+    return { tier: parCouleur, source: 'couleur', nom: wine.couleur, appSansTier };
   }
   return null; // couleur hors référentiel (ne devrait pas arriver : enum du schéma)
 }
@@ -51,8 +58,10 @@ function modifPrix(tier, prixReference, garde) {
   const p = garde.modificateurs.prix;
   let shift = 0;
   if (prixReference != null) {
-    if (prixReference > p.prixEleve.seuilCHF) shift = p.prixEleve.decalageTier;
-    else if (prixReference < p.prixBas.seuilCHF) shift = p.prixBas.decalageTier;
+    // Premier palier dont le prix est STRICTEMENT inférieur à la borne, ou le palier terminal
+    // (jusquA: null). Les bornes vivent dans kb/garde.json, jamais ici.
+    const palier = p.paliers.find((x) => x.jusquA == null || prixReference < x.jusquA);
+    shift = palier?.decalageTier ?? 0;
   }
   const bornedIdx = Math.max(0, Math.min(ordre.length - 1, idx + shift));
   return { tier: ordre[bornedIdx], shift: bornedIdx - idx }; // shift EFFECTIF après bornage
@@ -95,18 +104,39 @@ function fenetre(base, durees, ff) {
 
 const PREFIXE = { appellation: 'Appellation', cepage: 'Cépage', couleur: 'Couleur' };
 
-function construireExplication({ source, nom, tierBase, shift, base, hasMillesime, garde }) {
+const CRANS = { 1: "d'un cran", 2: 'de deux crans', 3: 'de trois crans', 4: 'de quatre crans' };
+
+// Contrainte de schema/data.schema.json > wine.gardeExplication.maxLength. Le schéma fait foi ;
+// cette constante n'est qu'un garde-fou local pour ne jamais produire une valeur invalide.
+const MAX_EXPLICATION = 200;
+
+function construireExplication({ source, nom, tierBase, shift, base, hasMillesime, garde, appSansTier, prixReference }) {
   const libelle = garde.tiers[tierBase].libelle;
-  const prix = garde.modificateurs.prix;
   let s = `${PREFIXE[source]} ${nom} (${libelle})`;
-  if (shift > 0) s += `, relevé d'un cran (prix > ${prix.prixEleve.seuilCHF} CHF)`;
-  else if (shift < 0) s += `, abaissé d'un cran (prix < ${prix.prixBas.seuilCHF} CHF)`;
+  // On cite le PRIX, pas le seuil franchi : avec plusieurs paliers, « prix > 40 CHF » ne
+  // désignerait plus rien de précis, et c'est le chiffre saisi que l'utilisateur veut vérifier.
+  if (shift !== 0) {
+    const crans = CRANS[Math.abs(shift)] ?? `de ${Math.abs(shift)} crans`;
+    s += `, ${shift > 0 ? 'relevé' : 'abaissé'} ${crans} (prix ${prixReference} CHF)`;
+  }
   s += hasMillesime
     ? ` + millésime ${base}`
     : `, fenêtre estimée depuis l'achat ${base} (vin non millésimé)`;
-  if (source === 'cepage') s += ' — appellation inconnue du référentiel';
-  else if (source === 'couleur') s += ' — appellation et cépage inconnus du référentiel';
-  return s;
+  // Pourquoi la cascade est descendue jusque-là. « Trop large » et « inconnue » ne disent pas la
+  // même chose à l'utilisateur : l'une est un choix du référentiel, l'autre un trou (D16).
+  if (source === 'cepage') {
+    s += appSansTier
+      ? ` — appellation ${appSansTier}, trop large pour fixer une garde`
+      : ' — appellation inconnue du référentiel';
+  } else if (source === 'couleur') {
+    s += appSansTier
+      ? ` — appellation ${appSansTier}, trop large pour fixer une garde, et cépage inconnu du référentiel`
+      : ' — appellation et cépage inconnus du référentiel';
+  }
+  // Garde-fou : data.schema.json plafonne gardeExplication à 200 caractères. Les quatre fragments
+  // (tier, prix, millésime, appellation sans tier) peuvent les dépasser sur un nom long. Mieux vaut
+  // une phrase coupée qu'une écriture refusée à la validation.
+  return s.length <= MAX_EXPLICATION ? s : `${s.slice(0, MAX_EXPLICATION - 1)}…`;
 }
 
 // ---------------------------------------------------------------------------
@@ -134,7 +164,8 @@ export function calculerGardeVin(wine, bottles, kb) {
 
   const f = fenetre(base, durees, facteurFormat('standard', kb.garde));
   const gardeExplication = construireExplication({
-    source: ctx.source, nom: ctx.nom, tierBase: ctx.tier, shift, base, hasMillesime, garde: kb.garde,
+    source: ctx.source, nom: ctx.nom, tierBase: ctx.tier, shift, base, hasMillesime,
+    garde: kb.garde, appSansTier: ctx.appSansTier, prixReference: wine.prixReference,
   });
   return { gardeDe: f.gardeDe, gardeA: f.gardeA, apogee: f.apogee, gardeExplication };
 }

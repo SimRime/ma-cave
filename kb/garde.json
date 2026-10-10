@@ -2,12 +2,14 @@
   "version": 2,
   "_doc": "Moteur de garde. Livré COMPLET : ce fichier n'a pas à être étendu, seulement calibré. Toutes les valeurs sont des ANNÉES À AJOUTER À L'ANNÉE DE BASE (millésime, ou année d'acquisition pour un vin non millésimé). Consommé par app/garde.js et par scripts/query.mjs — une seule implémentation, jamais deux. Spécification complète et vecteurs de test : docs/SPEC_MOTEURS.md §1.",
 
+  "_calibrage": "Révisé en octobre 2026 contre quatre contre-étiquettes qui annoncent leur propre fenêtre (Fleur du Rhône « 2-4 ans », Bibacchus Cornalin « maturité optimale 2-4 », Nez Noir « 3 à 6 ans », Domaines des Virets « apogée durant les cinq ans suivant la récolte »). Le barème d'origine donnait 11 ans à ces quatre-là. Les bandes basses (primeur, leger) sont inchangées : elles n'étaient pas en cause. Ne pas réélargir moyen/garde sans un contre-exemple documenté.",
+
   "tiers": {
     "primeur":     { "de": 0, "a": 2,  "apogee": 1,  "libelle": "à boire jeune" },
     "leger":       { "de": 1, "a": 4,  "apogee": 2,  "libelle": "garde courte" },
-    "moyen":       { "de": 2, "a": 8,  "apogee": 4,  "libelle": "garde moyenne" },
-    "garde":       { "de": 4, "a": 15, "apogee": 8,  "libelle": "vin de garde" },
-    "grandeGarde": { "de": 6, "a": 30, "apogee": 15, "libelle": "grande garde" }
+    "moyen":       { "de": 2, "a": 6,  "apogee": 3,  "libelle": "garde moyenne" },
+    "garde":       { "de": 3, "a": 12, "apogee": 7,  "libelle": "vin de garde" },
+    "grandeGarde": { "de": 5, "a": 22, "apogee": 12, "libelle": "grande garde" }
   },
 
   "ordreTiers": ["primeur", "leger", "moyen", "garde", "grandeGarde"],
@@ -34,11 +36,16 @@
     "_doc": "Appliqués APRÈS la résolution du tier, DANS CET ORDRE : prix, puis format.",
 
     "prix": {
-      "_doc": "Base = wine.prixReference UNIQUEMENT. Jamais bottle.acquisition.prix : un cadeau vaut null et la garde changerait selon la bouteille consultée. prixReference null → AUCUN modificateur.",
+      "_doc": "Base = wine.prixReference UNIQUEMENT. Jamais bottle.acquisition.prix : un cadeau vaut null et la garde changerait selon la bouteille consultée. prixReference null → AUCUN modificateur. Un vin cher est généralement issu d'une sélection qui se garde davantage : proxy imparfait, mais c'est le seul signal disponible quand l'appellation est régionale et que le cépage ne dit que son potentiel.",
       "champ": "wine.prixReference",
       "siNull": "aucun modificateur",
-      "prixEleve": { "seuilCHF": 40, "decalageTier": 1,  "_doc": "Un vin cher est généralement issu d'une sélection qui se garde davantage. Proxy imparfait mais utile en l'absence d'autre signal." },
-      "prixBas":   { "seuilCHF": 10, "decalageTier": -1 },
+      "paliers": [
+        { "jusquA": 20,   "decalageTier": -1, "_doc": "Le cépage dit ce que le raisin PEUT faire ; sous 20 CHF, la bouteille ne le fait pas. C'est ce palier qui portait tout le défaut du barème d'origine : ses deux seuls seuils (10 et 40) laissaient sans correction 35 des 42 vins tarifés de la cave." },
+        { "jusquA": 45,   "decalageTier": 0 },
+        { "jusquA": 80,   "decalageTier": 1 },
+        { "jusquA": null, "decalageTier": 2,  "_doc": "jusquA null = palier terminal, sans borne haute." }
+      ],
+      "lecture": "Premier palier dont prixReference < jusquA (comparaison STRICTE), ou le palier terminal. 20 CHF tombe donc dans le palier neutre, pas dans le palier bas.",
       "borne": "Le décalage ne sort JAMAIS de ordreTiers. Un Barolo à 60 CHF reste grandeGarde."
     },
 

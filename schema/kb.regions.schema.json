@@ -106,6 +106,13 @@
           "description": "PLUSIEURS appellations peuvent porter le MÊME nom avec des couleurs disjointes (un Crozes-Hermitage rouge et un blanc ne se gardent pas pareil). La résolution depuis une étiquette se fait donc sur le COUPLE (nom normalisé, couleur du vin) — jamais sur le nom seul. Normalisation : NFD sans accents, minuscules, mentions AOC|AOP|AC|DOC|DOCG|IGP|DOP retirées, espaces et tirets compressés.",
           "type": "string"
         },
+        "synonymes": {
+          "description": "Autres libellés sous lesquels cette appellation peut être écrite sur une étiquette : mention cantonale ou régionale ('Valais', 'Ticino'), classement accolé ('Saint-Émilion Grand Cru'), nom dans une autre langue ('Wallis'). Résolus comme le nom, sur le COUPLE (libellé normalisé, couleur du vin). Deux entrées ne peuvent pas revendiquer la même clé pour la même couleur — scripts/validate-kb.mjs le refuse. Voir DECISIONS.md D16.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "sousRegion": {
           "type": [
             "string",
@@ -137,13 +144,14 @@
           "minItems": 1
         },
         "tierGarde": {
-          "description": "Se décide APPELLATION PAR APPELLATION, jamais par région (Barolo et Barbera d'Asti sont voisins et n'ont rien à voir). Si deux couleurs d'une même appellation divergent nettement, créer DEUX entrées de même nom plutôt que de moyenner. Le critère de scission n'est pas « deux couleurs » mais « deux gardes ».",
+          "description": "Se décide APPELLATION PAR APPELLATION, jamais par région (Barolo et Barbera d'Asti sont voisins et n'ont rien à voir). Si deux couleurs d'une même appellation divergent nettement, créer DEUX entrées de même nom plutôt que de moyenner. Le critère de scission n'est pas « deux couleurs » mais « deux gardes ». null = APPELLATION TROP LARGE POUR DISCRIMINER (régionale ou vin de pays) : la cascade tombe alors sur le cépage, qui en sait davantage, et l'appellation reste résolue pour la région, les accords et l'affichage. Toujours l'écrire explicitement — la clé reste requise. Voir DECISIONS.md D16.",
           "enum": [
             "primeur",
             "leger",
             "moyen",
             "garde",
-            "grandeGarde"
+            "grandeGarde",
+            null
           ]
         },
         "accords": {

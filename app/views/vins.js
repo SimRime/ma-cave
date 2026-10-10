@@ -20,6 +20,19 @@ const SORTS = [
 
 const colorSlug = (c) => normalise(c).replace(/\s+/g, '-');
 
+// Convention de saisie d'une garde manuelle : un nombre SOUS 100 est une durée en années après
+// l'année de base (le millésime, ou l'acquisition à défaut) ; à partir de 100, c'est une année.
+// Sans ambiguïté possible — aucun millésime n'est inférieur à 100, aucune durée ne l'atteint — et
+// c'est la forme sous laquelle les contre-étiquettes s'expriment (« 3 à 6 ans », « 2-4 »).
+// Exportée pour être testable : le formulaire est du DOM, cette règle n'en est pas.
+export function anneeDeGarde(valeur, base) {
+  if (valeur == null || String(valeur).trim() === '') return null;
+  const n = Number(valeur);
+  if (!Number.isFinite(n) || n < 0) return null;
+  if (n >= 100) return Math.round(n);
+  return base == null ? null : base + Math.round(n);
+}
+
 // État de vue, persistant entre rendus (le container #view est vidé à chaque rendu).
 const ui = { query: '', colorFilter: null, stock: 'stock', sort: 'producteur', mode: 'list' };
 
@@ -261,6 +274,37 @@ function renderAddForm(container, ctx) {
   const warn = el('p', { class: 'status status--warn', text: '' });
   const gardePreview = el('div', { class: 'garde-preview' });
 
+  // — Garde : calculée, ou saisie à la main (elle PRIME alors sur le moteur) ——————————————
+  // Ce que le producteur écrit au dos (« 3 à 6 ans », « apogée durant les cinq ans ») bat tout
+  // barème. Une fois en `manuel`, l'invariant 4 interdit à tout recalcul de l'écraser.
+  const gardeModeSel = el('select', {},
+    el('option', { value: 'auto' }, 'Calculée par le référentiel'),
+    el('option', { value: 'manuel' }, 'Saisie à la main (prime sur le calcul)'));
+  const anInput = (ph) => el('input', { type: 'number', min: '0', max: '2150', placeholder: ph });
+  const gardeDeInput = anInput('3  ou  2029');
+  const gardeApogeeInput = anInput('facultatif');
+  const gardeAInput = anInput('6  ou  2032');
+  const gardeManuelBloc = el('div', {},
+    el('p', { class: 'help', text: 'Un nombre sous 100 est lu comme des années après le millésime (« 3 » → millésime + 3) ; au-dessus, comme une année (« 2029 »). Sans millésime, la base est la date d’acquisition.' }),
+    field(el, 'Garde — début', gardeDeInput).wrap,
+    field(el, 'Garde — apogée', gardeApogeeInput).wrap,
+    field(el, 'Garde — fin', gardeAInput).wrap,
+  );
+  gardeManuelBloc.style.display = 'none';
+
+  // Année de base des durées : le millésime, sinon l'acquisition — même règle que le moteur (§1.2).
+  const anneeBase = () =>
+    (millesimeInput.value ? Number(millesimeInput.value) : null)
+    ?? (acqDate.value ? Number(acqDate.value.slice(0, 4)) : null);
+
+  const resoudreAnnee = (champ) => anneeDeGarde(champ.value, anneeBase());
+
+  const gardeManuelle = () => ({
+    gardeDe: resoudreAnnee(gardeDeInput),
+    apogee: resoudreAnnee(gardeApogeeInput),
+    gardeA: resoudreAnnee(gardeAInput),
+  });
+
   // — Cascade pays → région → appellation ————————————————————————————————————
   function fillRegions() {
     const pays = kb.pays.find((p) => p.code === paysSel.value);
@@ -294,11 +338,11 @@ function renderAddForm(container, ctx) {
 
   // — Aperçu de garde en direct (démontre : fenêtre estimée + justification avant d'enregistrer) —
   function currentDraft() {
-    const { appellationId, cepageIds, cepagesDisplay } = resolve();
+    const { appellationId, cepageIds, cepageDominantInconnu, cepagesDisplay } = resolve();
     const millesime = millesimeInput.value ? Number(millesimeInput.value) : null;
     const prixReference = prixInput.value ? Number(prixInput.value) : null;
     return {
-      id: '_draft', couleur: couleurSel.value, appellationId, cepageIds,
+      id: '_draft', couleur: couleurSel.value, appellationId, cepageIds, cepageDominantInconnu,
       cepages: cepagesDisplay, millesime, prixReference,
     };
   }
@@ -312,13 +356,32 @@ function renderAddForm(container, ctx) {
       const id = kb.resolveCepage(label);
       if (id) { if (!cepageIds.includes(id)) cepageIds.push(id); } else unresolved.push(label);
     }
-    return { appellationId, cepageIds, cepagesDisplay, unresolvedCepages: unresolved };
+    // D17 : le premier libellé saisi est le cépage dominant. S'il ne résout pas, on ne laisse PAS
+    // le suivant prendre sa place — on garde les secondaires, et on le signale.
+    const cepageDominantInconnu = cepagesDisplay.length > 0 && !kb.resolveCepage(cepagesDisplay[0]);
+    return { appellationId, cepageIds, cepageDominantInconnu, cepagesDisplay, unresolvedCepages: unresolved };
   }
   function refreshGarde() {
+    while (gardePreview.firstChild) gardePreview.removeChild(gardePreview.firstChild);
+    gardeManuelBloc.style.display = gardeModeSel.value === 'manuel' ? '' : 'none';
+
+    if (gardeModeSel.value === 'manuel') {
+      const m = gardeManuelle();
+      if (m.gardeDe == null || m.gardeA == null) {
+        gardePreview.append(el('p', { class: 'muted', text: 'Garde : renseignez au moins le début et la fin.' }));
+        return;
+      }
+      const apo = m.apogee != null ? ` → apogée ${m.apogee}` : '';
+      gardePreview.append(
+        el('div', { class: 'garde-preview__win', text: `Fenêtre retenue : ${m.gardeDe}${apo} → ${m.gardeA}` }),
+        el('p', { class: 'muted garde-preview__why', text: 'Saisie à la main — le référentiel ne la recalculera jamais.' }),
+      );
+      return;
+    }
+
     const draft = currentDraft();
     const bottles = [{ acquisition: { date: acqDate.value || today } }]; // pour la base d'un non millésimé
     const g = calculerGardeVin(draft, bottles, kb);
-    while (gardePreview.firstChild) gardePreview.removeChild(gardePreview.firstChild);
     if (!g) {
       gardePreview.append(el('p', { class: 'muted', text: 'Garde : renseignez un millésime ou une date d’acquisition.' }));
       return;
@@ -329,7 +392,8 @@ function renderAddForm(container, ctx) {
     );
   }
 
-  for (const node of [couleurSel, cepagesInput, millesimeInput, prixInput, acqDate]) {
+  for (const node of [couleurSel, cepagesInput, millesimeInput, prixInput, acqDate,
+    gardeModeSel, gardeDeInput, gardeApogeeInput, gardeAInput]) {
     node.addEventListener('input', refreshGarde);
     node.addEventListener('change', refreshGarde);
   }
@@ -344,7 +408,7 @@ function renderAddForm(container, ctx) {
   async function submit(btn) {
     warn.textContent = '';
     if (!producteur.input.value.trim()) { warn.textContent = 'Le producteur est requis.'; return; }
-    const { appellationId, cepageIds, cepagesDisplay, unresolvedCepages } = resolve();
+    const { appellationId, cepageIds, cepageDominantInconnu, cepagesDisplay, unresolvedCepages } = resolve();
 
     const appText = appSel.value ? kb.appellation(appSel.value)?.nom : (appLibre.value.trim() || null);
     const millesime = millesimeInput.value ? Number(millesimeInput.value) : null;
@@ -358,17 +422,32 @@ function renderAddForm(container, ctx) {
       pays: paysSel.value, region,
       appellation: appText, appellationId,
       sousRegion: null, couleur: couleurSel.value, millesime,
-      cepages: cepagesDisplay, cepageIds,
+      cepages: cepagesDisplay, cepageIds, cepageDominantInconnu,
       prixReference, valeur,
     };
 
-    // Garde canonique (auto) + mets (union KB, auto). Le filtrage anti-règles et le service
-    // arrivent au lot L4 — ici on résout la connaissance, on ne score pas.
+    // Garde. Une fenêtre saisie à la main PRIME sur le moteur : on ne calcule même pas, et
+    // `gardeSource: "manuel"` la met hors d'atteinte de tout recalcul ultérieur (invariant 4).
     const bottleDate = acqDate.value || today;
-    const g = calculerGardeVin({ ...wineProto, id: '_draft' }, [{ acquisition: { date: bottleDate } }], kb);
-    const gardeFields = g
-      ? { gardeDe: g.gardeDe, gardeA: g.gardeA, apogee: g.apogee, gardeExplication: g.gardeExplication, gardeSource: 'auto' }
-      : { gardeDe: null, gardeA: null, apogee: null, gardeExplication: null, gardeSource: 'auto' };
+    let gardeFields;
+    if (gardeModeSel.value === 'manuel') {
+      const m = gardeManuelle();
+      if (m.gardeDe == null || m.gardeA == null) {
+        warn.textContent = 'Garde saisie à la main : le début et la fin sont requis.'; return;
+      }
+      if (m.gardeA < m.gardeDe) {
+        warn.textContent = 'Garde saisie à la main : la fin ne peut pas précéder le début.'; return;
+      }
+      if (m.apogee != null && (m.apogee < m.gardeDe || m.apogee > m.gardeA)) {
+        warn.textContent = 'Garde saisie à la main : l’apogée doit tomber dans la fenêtre.'; return;
+      }
+      gardeFields = { ...m, gardeSource: 'manuel', gardeExplication: 'Fenêtre saisie à la main.' };
+    } else {
+      const g = calculerGardeVin({ ...wineProto, id: '_draft' }, [{ acquisition: { date: bottleDate } }], kb);
+      gardeFields = g
+        ? { gardeDe: g.gardeDe, gardeA: g.gardeA, apogee: g.apogee, gardeExplication: g.gardeExplication, gardeSource: 'auto' }
+        : { gardeDe: null, gardeA: null, apogee: null, gardeExplication: null, gardeSource: 'auto' };
+    }
     const mets = kb.metsUnionKb(wineProto);
 
     // Acquisition par défaut, appliquée aux N bouteilles (éditable ensuite bouteille par bouteille).
@@ -392,7 +471,10 @@ function renderAddForm(container, ctx) {
       ui.mode = 'list';
       if (unresolvedCepages.length) {
         // Saisie acceptée même en cas d'échec de résolution (D6) : on prévient après coup.
-        toast(el, `Vin ajouté. Cépage(s) non reconnu(s) du KB : ${unresolvedCepages.join(', ')}.`);
+        // Le dominant non reconnu n'est pas un détail : c'est lui qui décidait de la garde (D17).
+        toast(el, cepageDominantInconnu
+          ? `Vin ajouté. Cépage dominant non reconnu (${cepagesDisplay[0]}) : garde et service estimés depuis la couleur.`
+          : `Vin ajouté. Cépage(s) non reconnu(s) du KB : ${unresolvedCepages.join(', ')}.`);
       }
       ctx.navigate(`/fiche/${wineId}`);
       ctx.onChange();
@@ -414,6 +496,8 @@ function renderAddForm(container, ctx) {
     field(el, 'Millésime', millesimeInput).wrap,
     field(el, 'Prix de référence', prixInput).wrap,
     field(el, 'Valeur (cave)', valeurInput).wrap,
+    field(el, 'Garde', gardeModeSel).wrap,
+    gardeManuelBloc,
     gardePreview,
     el('h3', { text: 'Acquisition (appliquée à toutes les bouteilles)' }),
     field(el, 'Type', acqType).wrap,

@@ -112,9 +112,13 @@
           "items": { "type": "string", "maxLength": 60 }
         },
         "cepageIds": {
-          "description": "Ids de kb/cepages.json ('pinot-noir'), résolus à la saisie (nom OU synonyme, normalisation sans accents). ORDONNÉS : le PREMIER est le cépage dominant — c'est lui qui décide du tier de garde, du profil d'accord et des données de service. Tableau vide = aucun cépage résolu → profilDefautParCouleur.",
+          "description": "Ids de kb/cepages.json ('pinot-noir'), résolus à la saisie (nom OU synonyme, normalisation sans accents). ORDONNÉS : le PREMIER est le cépage dominant — c'est lui qui décide du tier de garde, du profil d'accord et des données de service. Tableau vide = aucun cépage résolu → profilDefautParCouleur. SAUF si cepageDominantInconnu : voir ce champ.",
           "type": "array",
           "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }
+        },
+        "cepageDominantInconnu": {
+          "description": "true = le PREMIER cépage de l'étiquette n'a pas été reconnu par le KB ; les ids présents dans cepageIds sont donc tous des cépages SECONDAIRES et aucun ne vaut dominant. La garde, le profil d'accord et le service retombent sur la couleur ; le bonus « un cépage cite ce plat » reste acquis aux secondaires. Sans ce drapeau, un Navarra dont le Tempranillo est inconnu serait classé et servi comme un Merlot. Voir DECISIONS.md D17.",
+          "type": "boolean", "default": false
         },
 
         "prixReference": {

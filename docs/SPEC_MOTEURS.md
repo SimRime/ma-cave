@@ -29,8 +29,12 @@ Le **statut d'un vin** = celui de sa bouteille **la plus urgente** (celle dont `
 
 **Étape 1 — Résoudre le tier** (cascade, premier trouvé gagne) :
 
-1. `wine.appellationId` → `kb/regions.json` → `appellation.tierGarde`
-2. `wine.cepageIds[0]` (le **dominant**) → `kb/cepages.json` → `cepage.tierGarde`
+1. `wine.appellationId` → `kb/regions.json` → `appellation.tierGarde` — **sauf si `null`** : une
+   appellation régionale ou un vin de pays ne discrimine rien, la cascade continue et l'appellation
+   reste résolue pour le reste (région, accords, affichage). Voir D16.
+2. `wine.cepageIds[0]` (le **dominant**) → `kb/cepages.json` → `cepage.tierGarde` — **sauf si
+   `wine.cepageDominantInconnu`** : les ids présents sont alors tous des cépages secondaires, et un
+   secondaire ne gouverne jamais le vin. Voir D17.
 3. `wine.couleur` → `kb/garde.json > defautParCouleur`
 
 `wine.appellation` (texte libre) n'est **jamais** consulté. Voir D6.
@@ -40,9 +44,22 @@ Le **statut d'un vin** = celui de sa bouteille **la plus urgente** (celle dont `
 - Base : **`wine.prixReference`**. Jamais `bottle.acquisition.prix` (un cadeau vaut `null` et changerait
   la garde selon la bouteille).
 - `prixReference === null` → **aucun modificateur**.
-- `> 40 CHF` → +1 cran. `< 10 CHF` → −1 cran. Entre les deux → rien.
+- **Paliers** (`kb/garde.json > modificateurs.prix.paliers`), premier dont le prix est **strictement
+  inférieur** à la borne, ou palier terminal (`jusquA: null`) :
+
+  | `prixReference` | décalage |
+  |---|---|
+  | < 20 CHF | **−1 cran** |
+  | 20 – 45 CHF | aucun |
+  | 45 – 80 CHF | **+1 cran** |
+  | ≥ 80 CHF | **+2 crans** |
+
+  Le cépage dit ce que le raisin **peut** faire ; le prix dit si **cette bouteille-là** le fait. C'est le
+  seul signal disponible quand l'appellation est régionale (`tierGarde: null`, D16). Les deux seuils
+  d'origine (10 et 40) laissaient sans correction 35 des 42 vins tarifés de la cave réelle.
 - Le décalage est **borné** : `primeur < leger < moyen < garde < grandeGarde`. Un Barolo à 60 CHF reste
-  `grandeGarde` (pas de cran au-dessus).
+  `grandeGarde` (pas de cran au-dessus), et le `shift` cité dans l'explication est celui **après** bornage
+  — un décalage absorbé par la borne n'est pas mentionné.
 
 **Étape 3 — Durées du tier** → `{ de, a, apogee }` en années.
 
@@ -69,8 +86,16 @@ Le **statut d'un vin** = celui de sa bouteille **la plus urgente** (celle dont `
 **Étape 7 — Explication** (obligatoire si `gardeSource: "auto"`) :
 
 > `« appellation Barolo (grande garde) + millésime 2019 »`
-> `« cépage Pinot Noir (vin de garde), relevé d'un cran (prix > 40 CHF) + millésime 2019 »`
+> `« cépage Pinot Noir (vin de garde), relevé d'un cran (prix 65 CHF) + millésime 2019 »`
 > `« couleur Rouge (garde moyenne) + millésime 2020 — appellation et cépage inconnus du référentiel »`
+
+Quand la cascade est descendue parce que l'appellation portait `tierGarde: null`, le suffixe le **dit** —
+l'appellation est connue, pas absente :
+
+> `« cépage Cornalin (vin de garde) + millésime 2022 — appellation Valais, trop large pour fixer une garde »`
+
+L'explication cite le **prix saisi**, jamais le seuil franchi : avec plusieurs paliers, « prix > 40 CHF »
+ne désignerait plus rien de précis, et c'est le chiffre saisi que l'utilisateur veut pouvoir vérifier.
 
 Une garde non expliquée n'est pas exploitable. C'est ce qui manque à l'Excel ; c'est la raison d'être du champ.
 
@@ -95,6 +120,12 @@ main), mais **n'écrit rien**.
 
 Plusieurs drapeaux peuvent être actifs. **Ils le sont tous, et on les affiche tous**
 (« à l'apogée, et la fenêtre se ferme »).
+
+> **Conséquence du recalibrage à connaître.** Un vin `moyen` n'est jamais en simple `aBoire` : sa
+> fenêtre de 5 ans (+2 à +6) est entièrement couverte par `apogee` (+2 à +4, tolérance ±1) puis par
+> `urgent` (+5, +6). Son facteur d'accord vaut donc toujours 1.0. Ce n'est pas un défaut — un vin à
+> fenêtre courte est effectivement prêt sur toute sa fenêtre — mais c'est ce qui a fait basculer le
+> vecteur A4.
 
 **Facteur d'accord = le maximum des facteurs des drapeaux actifs.** Aucun drapeau → 0.85.
 `apogee` et `urgent` valant tous deux 1.0, il n'y a **aucune ambiguïté de calcul** — c'était le seul
@@ -134,6 +165,10 @@ peuvent toujours pas dominer une source explicite. C'était l'intention ; c'est 
 
 Le profil du **cépage dominant** (`cepageIds[0]`).
 **Si aucun cépage n'est résolu** → `kb/accords.json > profilDefautParCouleur`.
+**Si `wine.cepageDominantInconnu`** → `profilDefautParCouleur` également, et pour la même raison :
+les ids présents sont des secondaires, aucun ne décrit le vin (D17). Cela vaut aussi pour le service
+(§2.3) et pour les mets automatiques (§2.5). En revanche le bonus de 30 points « au moins un cépage
+liste le plat » (§2.1) reste acquis : un secondaire connu peut *suggérer* un accord, jamais *gouverner*.
 
 Ce défaut n'est pas cosmétique : sans lui, un vin hors KB a `tanin === undefined`, l'anti-règle
 `{ raclette, tanin >= 3 }` ne se déclenche pas, et **le tannat arrive sur la raclette** — exactement le
@@ -177,24 +212,44 @@ le filet de sécurité. Invariant 4 : `metsSource: "manuel"` n'est jamais écras
 
 ## 3. Vecteurs de test — GARDE *(normatifs)*
 
-`tests/garde.test.mjs`. Année de référence : **2026**.
+`tests/garde.test.mjs`. Année de référence : **2026**. Barème recalibré en octobre 2026 : voir
+`kb/garde.json > _calibrage` pour les quatre contre-étiquettes qui ont servi de banc d'essai.
 
 | # | Vin | prixRef | Format | Millésime | Tier résolu | gardeDe | apogée | gardeA | Drapeaux 2026 |
 |---|---|---|---|---|---|---|---|---|---|
-| G1 | appellation `it-barolo` | 60 | standard | 2019 | `grandeGarde` (prix +1 **plafonné**) | **2025** | **2034** | **2049** | aBoire |
+| G1 | appellation `it-barolo` | 60 | standard | 2019 | `grandeGarde` (prix +1 **plafonné**) | **2024** | **2031** | **2041** | aBoire |
 | G2 | appellation `ch-valais-fendant` | 22 | standard | 2024 | `leger` (aucun modif.) | **2025** | **2026** | **2028** | aBoire, apogee |
-| G3 | appellation inconnue, cépage `pinot-noir` | 65 | standard | 2019 | `garde` **+1 → grandeGarde** | **2025** | **2034** | **2049** | aBoire |
-| G4 | idem G3 | 8 | standard | 2019 | `garde` **−1 → moyen** | **2021** | **2023** | **2027** | aBoire, urgent |
-| G5 | idem G3 | 65 | **magnum** | 2019 | `grandeGarde`, ×1.25 sur `a` et `apogee` | **2025** | **2038** | **2057** | aBoire |
+| G3 | appellation inconnue, cépage `pinot-noir` | 65 | standard | 2019 | `garde` **+1 → grandeGarde** | **2024** | **2031** | **2041** | aBoire |
+| G4 | idem G3 | 8 | standard | 2019 | `garde` **−1 → moyen** | **2021** | **2022** | **2025** | depasse |
+| G5 | idem G3 | 65 | **magnum** | 2019 | `grandeGarde`, ×1.25 sur `a` et `apogee` | **2024** | **2034** | **2047** | aBoire |
 | G6 | idem G2 | 22 | **demi** | 2024 | `leger`, ×0.75 (`a` 4→3, `apogee` 2→2) | **2025** | **2026** | **2027** | aBoire, apogee, urgent |
-| G7 | couleur `Effervescent`, rien d'autre, acquis **2024-03-01** | 45 | standard | **null** | `leger` **+1 → moyen** | **2026** | **2028** | **2032** | aBoire + **mention BSA** |
-| G8 | `pays: XX`, cépage libre inconnu, `Rouge` | **null** | standard | 2020 | défaut couleur → `moyen` | **2022** | **2024** | **2028** | aBoire |
+| G7 | couleur `Effervescent`, rien d'autre, acquis **2024-03-01** | 45 | standard | **null** | `leger` **+1 → moyen** | **2026** | **2027** | **2030** | aBoire, apogee + **mention BSA** |
+| G8 | `pays: XX`, cépage libre inconnu, `Rouge` | **null** | standard | 2020 | défaut couleur → `moyen` | **2022** | **2023** | **2026** | aBoire, urgent |
 | G9 | millésime `null`, **aucune bouteille** | — | — | null | — | **null** | **null** | **null** | **inconnu** (facteur 0.85) |
+| G10 | appellation `ch-valais-rouge` (**`tierGarde: null`**), cépage `cornalin` | null | standard | 2022 | **cépage** `garde` — l'appellation ne court-circuite pas | **2025** | **2029** | **2034** | aBoire |
+| G11 | appellation `ch-valais-rouge`, **aucun cépage** | null | standard | 2022 | défaut couleur → `moyen` | **2024** | **2025** | **2028** | aBoire, apogee |
+| G12 | appellation inconnue, `cepageIds: ["merlot"]` + **`cepageDominantInconnu`** | null | standard | 2021 | défaut couleur → `moyen`, **pas** `garde` | **2023** | **2024** | **2027** | aBoire, urgent |
 
 *Vérifications que ces vecteurs verrouillent :* le plafonnement du décalage de tier (G1), le décalage
-vers le haut et vers le bas (G3/G4), l'arrondi du facteur de format (G5 : 30×1.25 = 37,5 → **38**),
+vers le haut et vers le bas (G3/G4), l'arrondi du facteur de format (G5 : 22×1.25 = 27,5 → **28**),
 le fait que `de` n'est **pas** touché par le format (G5/G6), la base d'acquisition (G7), le cas dégénéré
-qui produisait `NaN` (G9).
+qui produisait `NaN` (G9), la traversée d'une appellation sans tier (G10/G11, D16) et le refus de
+promouvoir un cépage secondaire (G12, D17).
+
+### 3.1 Vecteurs de test — RÉSOLUTION DU KB *(normatifs)*
+
+`tests/kb.test.mjs`. Ils verrouillent `resolveAppellation` / `resolveCepage`, dont dépend tout le reste.
+
+| # | Saisie | Couleur | Attendu |
+|---|---|---|---|
+| K1 | `"La Côte"` | `Rouge` | `ch-vaud-la-cote-rouge` — **jamais** l'entrée blanche |
+| K2 | `"Barolo DOCG"` | `Rouge` | `it-barolo` (mention `DOCG` retirée) |
+| K3 | `"Ticino DOC"` | `Rouge` | `ch-ticino-merlot` (par synonyme) |
+| K4 | `"Saint-Émilion Grand Cru"` | `Rouge` | `fr-saint-emilion` (par synonyme, « Grand Cru » **non** retiré par `MENTIONS`) |
+| K5 | `"Salento IGT"` | `Rouge` | `it-salento` (mention `IGT` retirée) |
+| K6 | `"Dézaley"` | `Rouge` | **`null`** — l'entrée existe en blanc, la couleur ne correspond pas |
+| K7 | `"Navarra"` | `Rouge` | **`null`** — hors périmètre (D15), et l'app accepte quand même |
+| K8 | `"Tinta del País"` | — | `tempranillo` (par synonyme) |
 
 ---
 
@@ -207,10 +262,10 @@ qui produisait `NaN` (G9).
 | A1 | Fendant 2024 (`ch-valais-fendant`, `chasselas`) | `fondue` | 50 | 30 | 0 | 80 | 1.0 (apogee) | **80** | affiché — accord établi |
 | A2 | Barolo 2019 (`it-barolo`, `nebbiolo`) | `raclette` | — | — | — | — | — | **0** | **exclu** (anti-règle : tanin 5 ≥ 3) |
 | A3 | Barolo 2019 | `gibier` | 50 | 30 | 10 | 90 | 0.9 (aBoire) | **81** | affiché |
-| A4 | Barbera, **appellation hors KB** | `pates_tomate` | 0 | 30 | 8 | 38 | 0.9 | **34** | **affiché** ← le cas que l'ancien barème ratait (34 < 40) |
+| A4 | Barbera, **appellation hors KB** | `pates_tomate` | 0 | 30 | 8 | 38 | 1.0 (urgent) | **38** | **affiché** ← le cas que l'ancien barème ratait (< 40) |
 | A5 | Blanc `pays: XX`, cépage inconnu, garde inconnue | `raclette` | 0 | 0 | 10 (profil **défaut** Blanc) | 10 | 0.85 | **9** | **repli uniquement** |
 | A6 | Rouge `pays: XX`, cépage inconnu | `raclette` | 0 | 0 | — | — | — | **0** | **exclu** (profil défaut Rouge : tanin 3 → anti-règle) |
-| A7 | Syrah du Valais 2020 (`ch-valais-syrah`, `syrah`) | `viandes_rouges_grillees` | 50 | 30 | 10 | 90 | 0.9 | **81** | affiché |
+| A7 | Syrah du Valais 2022 (`ch-valais-syrah`, `syrah`) | `viandes_rouges_grillees` | 50 | 30 | 10 | 90 | 0.9 (aBoire) | **81** | affiché |
 | A8 | Vin fictif : appellation 50 + cépage 30 + profil 35 | quelconque | 50 | 30 | 35 | **100** (plafonné, pas 115) | 1.0 | **100** | plafond respecté |
 
 *Vérifications que ces vecteurs verrouillent :* les anti-règles priment sur tout (A2), le profil par défaut

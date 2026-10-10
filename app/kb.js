@@ -14,11 +14,18 @@
 import { normalise } from './format.js';
 
 // Mentions d'appellation à retirer avant résolution (D6). Retirées comme mots entiers.
-const MENTIONS = /\b(aoc|aop|ac|docg|doc|igp|dop)\b/g;
+// `igt` y figure au même titre qu'`igp` : c'est la mention portée par les étiquettes italiennes
+// antérieures à l'harmonisation européenne (« Salento IGT »), et elle n'appartient à aucun nom.
+// En revanche « Grand Cru », « Riserva » ou « Classico » n'y entrent PAS : ils font partie du nom
+// dans certaines appellations et les retirer partout créerait des faux positifs. Ces cas passent
+// par `appellation.synonymes` (D16).
+const MENTIONS = /\b(aoc|aop|ac|docg|doc|igp|igt|dop)\b/g;
 
 // Normalisation KB : la normalisation de recherche (NFD, sans accents, minuscules, espaces) PLUS
-// le retrait des mentions et la compression des tirets/espaces. Spécifique au KB → reste ici.
-const normKb = (str) =>
+// le retrait des mentions et la compression des tirets/espaces. Spécifique au KB → définie ici.
+// Exportée pour scripts/validate-kb.mjs, qui vérifie l'unicité des clés de résolution (D16) : il
+// doit normaliser EXACTEMENT comme la résolution, pas comme une recopie qui divergera.
+export const normKb = (str) =>
   normalise(str)
     .replace(MENTIONS, ' ')
     .replace(/[\s-]+/g, ' ')
@@ -59,10 +66,16 @@ export function buildKb({ garde, cepages, regions, accords = null }) {
         };
         appellationById.set(a.id, flat);
         appsOut.push(flat);
-        const nomKey = normKb(a.nom);
-        for (const couleur of a.couleurs ?? []) {
-          const key = `${nomKey}|${couleur}`;
-          if (!appellationByKey.has(key)) appellationByKey.set(key, a.id);
+        // Nom ET synonymes, indexés sur le couple (libellé normalisé, couleur) — D16.
+        // Les étiquettes suisses portent la mention cantonale (« AOC Valais », « Ticino DOC »)
+        // là où le référentiel nomme la dénomination (« Cornalin du Valais », « Merlot del Ticino »).
+        for (const label of [a.nom, ...(a.synonymes ?? [])]) {
+          const labelKey = normKb(label);
+          if (!labelKey) continue;
+          for (const couleur of a.couleurs ?? []) {
+            const key = `${labelKey}|${couleur}`;
+            if (!appellationByKey.has(key)) appellationByKey.set(key, a.id);
+          }
         }
       }
       regionsOut.push({ id: region.id, nom: region.nom, sousRegions: region.sousRegions ?? [], appellations: appsOut });
@@ -86,12 +99,15 @@ export function buildKb({ garde, cepages, regions, accords = null }) {
   const resolveAppellation = (texte, couleur) => {
     const nomKey = normKb(texte);
     if (!nomKey) return null;
-    if (couleur) {
-      const hit = appellationByKey.get(`${nomKey}|${couleur}`);
-      if (hit) return hit;
-    }
-    // Sans couleur (ou couleur non concluante) : accepter un nom unique toutes couleurs confondues.
-    const matches = [...appellationById.values()].filter((a) => normKb(a.nom) === nomKey);
+    // Couleur connue : la résolution se fait sur le COUPLE, et s'arrête là. Pas de repli
+    // toutes-couleurs — il collait une appellation BLANCHE (La Côte, Côtes de l'Orbe, qui
+    // n'existent au KB qu'en blanc) sur un rouge vaudois, avec son tier et ses accords. C'est
+    // le rapprochement approximatif silencieux que D6 interdit, au niveau de la couleur.
+    if (couleur) return appellationByKey.get(`${nomKey}|${couleur}`) ?? null;
+    // Couleur inconnue seulement : accepter un libellé unique toutes couleurs confondues.
+    const matches = [...appellationById.values()].filter((a) =>
+      [a.nom, ...(a.synonymes ?? [])].some((label) => normKb(label) === nomKey),
+    );
     return matches.length === 1 ? matches[0].id : null;
   };
 
@@ -100,7 +116,9 @@ export function buildKb({ garde, cepages, regions, accords = null }) {
   // reproduit exactement le champ `mets` de la graine data.json.
   const metsUnionKb = (wine) => {
     const app = wine.appellationId ? appellation(wine.appellationId) : null;
-    const cep = wine.cepageIds?.[0] ? cepage(wine.cepageIds[0]) : null;
+    // D17 : si le dominant n'a pas été reconnu, aucun id de cepageIds ne vaut dominant.
+    const cepId = wine.cepageDominantInconnu ? null : wine.cepageIds?.[0];
+    const cep = cepId ? cepage(cepId) : null;
     return [...new Set([...(app?.accords ?? []), ...(cep?.accords ?? [])])];
   };
 

@@ -92,7 +92,7 @@ const HANDLERS = {
     const wine = {
       nom: '',
       region: null, appellation: null, appellationId: null, sousRegion: null,
-      millesime: null, cepages: [], cepageIds: [],
+      millesime: null, cepages: [], cepageIds: [], cepageDominantInconnu: false,
       prixReference: null, valeur: null,
       gardeDe: null, gardeA: null, apogee: null, gardeExplication: null,
       mets: [], note: null, commentaire: null, archive: false,

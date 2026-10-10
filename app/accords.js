@@ -19,7 +19,8 @@ import { statutVin, facteurAccords, tierEffectif } from './garde.js';
 // ---------------------------------------------------------------------------
 
 export function profilVin(wine, kb) {
-  const cepId = wine.cepageIds?.[0];
+  // D17 : dominant non reconnu → les ids présents sont tous secondaires, aucun ne décrit le vin.
+  const cepId = wine.cepageDominantInconnu ? null : wine.cepageIds?.[0];
   const cep = cepId ? kb.cepage(cepId) : null;
   if (cep && cep.profil) return cep.profil;
   return kb.accords.profilDefautParCouleur?.[wine.couleur] ?? null;
@@ -154,7 +155,7 @@ export function evaluerAccord(wine, bottles, platId, kb, annee = new Date().getF
 
 export function serviceVin(wine, kb) {
   const svc = kb.accords.service;
-  const cepId = wine.cepageIds?.[0];
+  const cepId = wine.cepageDominantInconnu ? null : wine.cepageIds?.[0]; // D17
   const cep = cepId ? kb.cepage(cepId) : null;
   const cepSvc = cep?.service ?? null;
   const parCouleur = svc[wine.couleur] ?? {};
@@ -183,7 +184,8 @@ export function serviceVin(wine, kb) {
 
 export function metsAutomatiques(wine, kb) {
   const app = wine.appellationId ? kb.appellation(wine.appellationId) : null;
-  const cep = wine.cepageIds?.[0] ? kb.cepage(wine.cepageIds[0]) : null;
+  const cepId = wine.cepageDominantInconnu ? null : wine.cepageIds?.[0]; // D17
+  const cep = cepId ? kb.cepage(cepId) : null;
   const union = [...new Set([...(app?.accords ?? []), ...(cep?.accords ?? [])])];
   return union.filter((platId) => !antiRegleActive(wine, platId, kb));
 }

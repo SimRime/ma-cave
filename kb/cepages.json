@@ -1044,6 +1044,45 @@
       "accords": ["gibier", "viandes_rouges_mijotees", "fromages_pate_dure", "truffe"],
       "service": { "tempC": [17, 18], "carafage": "90 min", "verre": "grand ballon" },
       "_note": "Le « Barolo du Sud » — Taurasi, en Campanie. Tanin 5 ET acidité 4 : grande garde, comme le Nebbiolo."
+    },
+    {
+      "id": "galotta",
+      "nom": "Galotta",
+      "synonymes": [],
+      "couleur": "noir",
+      "pays": ["CH"],
+      "profil": { "corps": 4, "tanin": 3, "acidite": 3, "sucre": 0, "aromatique": 3 },
+      "aromes": ["mûre", "cerise noire", "violette", "poivre"],
+      "tierGarde": "moyen",
+      "accords": ["viandes_rouges_grillees", "barbecue", "viandes_rouges_mijotees", "fromages_pate_dure"],
+      "service": { "tempC": [16, 17], "carafage": "30 min", "verre": "ballon" },
+      "_note": "Croisement suisse Ancellotta × Gamay (Agroscope). Couleur très dense, mais tanin modéré : la robe trompe, ce n'est pas un vin de longue garde."
+    },
+    {
+      "id": "petit-verdot",
+      "nom": "Petit Verdot",
+      "synonymes": ["Verdot"],
+      "couleur": "noir",
+      "pays": ["FR"],
+      "profil": { "corps": 5, "tanin": 5, "acidite": 4, "sucre": 0, "aromatique": 4 },
+      "aromes": ["violette", "mûre", "réglisse", "épices"],
+      "tierGarde": "garde",
+      "accords": ["viandes_rouges_grillees", "gibier", "agneau", "viandes_rouges_mijotees"],
+      "service": { "tempC": [16, 18], "carafage": "90 min", "verre": "grand ballon" },
+      "_note": "Cépage d'appoint du Médoc, rarement au-delà de 5 % de l'assemblage. Présent dans la liste des cépages d'une étiquette bordelaise, il n'en est jamais le dominant."
+    },
+    {
+      "id": "tempranillo",
+      "nom": "Tempranillo",
+      "synonymes": ["Tinta del País", "Tinto Fino", "Tinta de Toro", "Cencibel", "Ull de Llebre", "Aragonez", "Tinta Roriz"],
+      "couleur": "noir",
+      "pays": ["XX"],
+      "profil": { "corps": 4, "tanin": 4, "acidite": 3, "sucre": 0, "aromatique": 4 },
+      "aromes": ["cerise", "prune", "cuir", "vanille", "tabac"],
+      "tierGarde": "garde",
+      "accords": ["agneau", "viandes_rouges_grillees", "viandes_rouges_mijotees", "charcuterie", "fromages_pate_dure"],
+      "service": { "tempC": [16, 18], "carafage": "60 min", "verre": "grand ballon" },
+      "_note": "Hors couverture géographique (pays XX, D15) : aucune appellation espagnole n'entre au KB, mais le cépage y entre, car il est le DOMINANT des étiquettes de Rioja, Ribera del Duero, Navarra et Cigales. Sans lui, ces vins se faisaient classer sur leur Merlot d'appoint (D17). Il change de nom à chaque région : d'où la liste de synonymes."
     }
   ]
 }
