@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:59:32.893Z",
-  "updatedBy": "Simon (Claude Code)",
+  "updatedAt": "2026-10-11T07:59:10.871Z",
+  "updatedBy": "Simon",
   "zones": [
     {
       "id": "z1",
@@ -2971,7 +2971,11 @@
       "id": "b_59",
       "wineId": "w_46",
       "format": "magnum",
-      "slot": null,
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "10"
+      },
       "acquisition": {
         "type": "achat",
         "source": null,
