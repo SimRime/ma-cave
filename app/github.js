@@ -207,6 +207,7 @@ const COMMIT_VERBS = {
   DRINK_BOTTLE: (_ids, p) => `boit la bouteille ${p.bottleId}`,
   PLACE_BOTTLE: (_ids, p) => `range la bouteille ${p.bottleId}`,
   MOVE_BOTTLE: (_ids, p) => `déplace la bouteille ${p.bottleId}`,
+  COPY_BOTTLE: (ids, p) => `copie la bouteille ${p.bottleId} en ${ids.bottleId}`,
   UPDATE_WINE: (_ids, p) => `modifie le vin ${p.id}`,
   UPDATE_BOTTLE: (_ids, p) => `modifie la bouteille ${p.id}`,
   UPDATE_TASTING: (_ids, p) => `modifie la dégustation ${p.id}`,

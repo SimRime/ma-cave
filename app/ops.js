@@ -80,7 +80,7 @@ const stripIds = (obj) => {
 };
 
 // ---------------------------------------------------------------------------
-// Les 12 opérations. Chacune reçoit le clone `data` et le mute.
+// Les 13 opérations. Chacune reçoit le clone `data` et le mute.
 // ---------------------------------------------------------------------------
 
 const HANDLERS = {
@@ -140,6 +140,30 @@ const HANDLERS = {
 
   PLACE_BOTTLE: placeBottle,
   MOVE_BOTTLE: placeBottle, // même contrat : la cible doit être libre (l'UI gère l'échange).
+
+  // Copie une bouteille existante (même vin, format, acquisition) sur un casier libre.
+  // Création ET placement dans la MÊME opération : la vérification du casier est rejouée avec
+  // l'allocation de l'id, donc un rejeu après 409 ne peut pas poser deux bouteilles au même endroit
+  // (invariant 2) — c'est ce qui la distingue d'ADD_BOTTLES, qui crée toujours en `slot: null`.
+  COPY_BOTTLE(data, payload) {
+    const src = data.bottles.find((x) => x.id === payload.bottleId);
+    if (!src) {
+      throw new OpAbortError('La bouteille à copier n’existe plus (bue entre-temps ?).', {
+        code: 'BOTTLE_GONE',
+      });
+    }
+    const slot = payload.slot;
+    assertFreeSlot(data, slot, null);
+    const id = `b_${nextNum(data.bottles, 'b_')}`;
+    data.bottles.push({
+      id,
+      wineId: src.wineId,
+      format: src.format,
+      slot: { zone: slot.zone, row: slot.row, col: slot.col },
+      acquisition: structuredClone(src.acquisition),
+    });
+    return { data, ids: { bottleId: id } };
+  },
 
   // — Boire : suppression de l'objet bouteille (invariant 1), idempotent ——————
 
@@ -241,11 +265,9 @@ const HANDLERS = {
   },
 };
 
-// PLACE_BOTTLE et MOVE_BOTTLE partagent ce corps : poser la bouteille sur un casier libre.
-function placeBottle(data, payload) {
-  const b = data.bottles.find((x) => x.id === payload.bottleId);
-  if (!b) throw new OpAbortError('Cette bouteille n’existe plus.', { code: 'BOTTLE_GONE' });
-  const slot = payload.slot;
+// Refuse un casier cible inexistant, désactivé ou occupé (invariant 2). `exceptId` : la bouteille
+// qu'on déplace ne s'occupe pas elle-même. Partagé par PLACE, MOVE et COPY : mêmes refus partout.
+function assertFreeSlot(data, slot, exceptId) {
   const z = zoneOf(data, slot.zone);
   if (!z) throw new OpAbortError('La zone n’existe plus.', { code: 'ZONE_GONE' });
   if (!inBounds(z, slot)) {
@@ -258,13 +280,21 @@ function placeBottle(data, payload) {
       code: 'SLOT_DISABLED',
     });
   }
-  const occ = occupant(data, slot, b.id);
+  const occ = occupant(data, slot, exceptId);
   if (occ) {
     throw new OpAbortError(`Le casier ${slot.row}${slot.col} vient d’être occupé.`, {
       code: 'SLOT_OCCUPIED',
       details: { bottleId: occ.id },
     });
   }
+}
+
+// PLACE_BOTTLE et MOVE_BOTTLE partagent ce corps : poser la bouteille sur un casier libre.
+function placeBottle(data, payload) {
+  const b = data.bottles.find((x) => x.id === payload.bottleId);
+  if (!b) throw new OpAbortError('Cette bouteille n’existe plus.', { code: 'BOTTLE_GONE' });
+  const slot = payload.slot;
+  assertFreeSlot(data, slot, b.id);
   b.slot = { zone: slot.zone, row: slot.row, col: slot.col };
   return { data, ids: {} };
 }
