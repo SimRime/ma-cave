@@ -2,3 +2,4 @@ inbox/
 node_modules/
 .DS_Store
 photos/
+*.docx
