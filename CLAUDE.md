@@ -91,6 +91,7 @@ Le retry ne rejoue pas aveuglément. Chaque opération déclare son comportement
 |---|---|---|
 | `DRINK_BOTTLE` | la bouteille n'existe plus | **no-op idempotent** + « déjà bue par Bob » |
 | `MOVE_BOTTLE` · `PLACE_BOTTLE` | le casier cible est occupé | **abandon**, rollback de l'UI, « le casier C4 vient d'être occupé » |
+| `COPY_BOTTLE` | le casier cible est occupé, ou la bouteille source a été bue | **abandon**, rien n'est créé. Création **et** placement dans la même opération : la vérification du casier est rejouée avec l'allocation de l'id |
 | `DELETE_WINE` | le vin a de nouveau des bouteilles | abandon + message (invariant 5) |
 | `DELETE_ZONE` | la zone contient des bouteilles | abandon + message (invariant 5) |
 | `UPDATE_WINE` · `UPDATE_BOTTLE` · `UPDATE_TASTING` · `UPSERT_ZONE` | l'objet a changé entre-temps | le payload ne porte que **les champs édités** → dernier écrivain gagne, champ par champ |

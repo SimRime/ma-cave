@@ -4,7 +4,7 @@
 // Sont normatifs : dimensions, 6 états visuels du casier, geste tap → feuille, bascule Plan↔Adresse,
 // persistance de la recherche. Le CSS/DOM du prototype est indicatif — ceci est du code de production.
 //
-// Aucune logique métier ici : toute mutation passe par ctx.store.dispatch → ops.js (les 12 opérations).
+// Aucune logique métier ici : toute mutation passe par ctx.store.dispatch → ops.js (les 13 opérations).
 // Aucun barème de garde n'est calculé (c'est le lot L3) : le statut affiché LIT les champs déjà stockés.
 
 import { slotKey, slotLabel, wineLabel, matchWine, normalise } from '../format.js';
@@ -21,6 +21,9 @@ const ui = { query: '', mode: 'plan', zoneId: null, colorFilter: null, placing: 
 
 // Overlay (feuille) monté sur document.body pour survivre à un re-rendu de #view.
 let overlayEl = null;
+// Un seul placement en vol : un double tap ne doit pas lancer deux écritures sur le même casier.
+// Au niveau du module : un re-rendu pendant l'écriture ne doit pas remettre le verrou à zéro.
+let placingBusy = false;
 let navHooked = false;
 
 // ---------------------------------------------------------------------------
@@ -230,10 +233,17 @@ export function renderPlan(container, ctx) {
       el('span', { class: 'muted', text: `${freeCount(data, zone)} place(s) libre(s)` })));
 
     if (ui.placing) {
-      const w = wineById.get(ui.placing.wineId);
+      const p = ui.placing;
+      const w = wineById.get(p.wineId);
+      const label = w ? wineLabel(w) : 'la bouteille';
+      // Copie : le mode reste actif après chaque casier, on en remplit autant qu'on veut.
+      const text = p.type === 'COPY_BOTTLE'
+        ? `Copier ${label} : touchez un ou plusieurs casiers libres.${p.copies ? ` ${p.copies} copie(s) ajoutée(s).` : ''}`
+        : `Placer ${label} : touchez un casier libre.`;
+      const done = p.type === 'COPY_BOTTLE' && p.copies ? 'Terminer' : 'Annuler';
       contentEl.append(el('div', { class: 'placing' },
-        el('span', { text: `Placer ${w ? wineLabel(w) : 'la bouteille'} : touchez un casier libre.` }),
-        el('button', { class: 'btn', onclick: () => { ui.placing = null; renderContent(); }, text: 'Annuler' })));
+        el('span', { text }),
+        el('button', { class: 'btn', onclick: () => { ui.placing = null; renderContent(); }, text: done })));
     }
 
     const rows = rowLabels(zone);
@@ -416,10 +426,10 @@ export function renderPlan(container, ctx) {
   const syncSizer = () => { sizer.style.display = ui.mode === 'plan' ? '' : 'none'; };
 
   // — Placement (Déplacer / Ranger) ——————————————————————————————————————————
-  function startPlacing(bottle) {
+  function startPlacing(bottle, type = bottle.slot ? 'MOVE_BOTTLE' : 'PLACE_BOTTLE') {
     if (!canWrite) return;
     closeOverlay();
-    ui.placing = { bottleId: bottle.id, wineId: bottle.wineId, type: bottle.slot ? 'MOVE_BOTTLE' : 'PLACE_BOTTLE' };
+    ui.placing = { bottleId: bottle.id, wineId: bottle.wineId, type, copies: 0 };
     ui.mode = 'plan';
     renderContent();
     syncSizer();
@@ -427,13 +437,23 @@ export function renderPlan(container, ctx) {
 
   async function doPlaceHere(zoneId, row, col) {
     const p = ui.placing;
-    if (!p) return;
+    if (!p || placingBusy) return;
+    placingBusy = true;
     try {
       await store.dispatch({ type: p.type, payload: { bottleId: p.bottleId, slot: { zone: zoneId, row, col } } });
-      ui.placing = null;
+      if (p.type === 'COPY_BOTTLE') {
+        p.copies += 1;
+        toast(el, `Copiée en ${row}${col}.`);
+      } else {
+        ui.placing = null;
+      }
       refresh();
     } catch (e) {
+      // La source a été bue entre-temps : plus rien à copier.
+      if (p.type === 'COPY_BOTTLE' && e.code === 'BOTTLE_GONE') { ui.placing = null; refresh(); }
       toast(el, e.message || 'Placement impossible.');
+    } finally {
+      placingBusy = false;
     }
   }
 
@@ -470,6 +490,7 @@ export function renderPlan(container, ctx) {
         text: 'Boire',
       }),
       el('button', { class: 'btn sheet__act', disabled: !canWrite, onclick: () => startPlacing(bottle), text: 'Déplacer' }),
+      el('button', { class: 'btn sheet__act', disabled: !canWrite, onclick: () => startPlacing(bottle, 'COPY_BOTTLE'), text: 'Copier' }),
       el('button', { class: 'btn sheet__act', onclick: () => { closeOverlay(); ctx.navigate(`/fiche/${bottle.wineId}`); }, text: 'Fiche' }),
     );
 

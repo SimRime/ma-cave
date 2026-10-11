@@ -131,3 +131,73 @@ test('applyOp ne mute pas le document d’entrée (rejeu propre)', () => {
   applyOp(data, { type: 'ADD_WINE', payload: { producteur: 'A', nom: 'x', pays: 'FR', couleur: 'Rouge' } });
   assert.equal(JSON.stringify(data), before);
 });
+
+// --- COPY_BOTTLE : création + placement atomiques ------------------------------------------
+// Dérive de la graine (la vraie cave) une bouteille rangée et un casier libre de sa zone.
+function copyFixture() {
+  const data = seed();
+  const src = data.bottles.find((b) => b.slot);
+  const z = data.zones.find((zz) => zz.id === src.slot.zone);
+  const rows = z.rowLabels ?? Array.from({ length: z.rows }, (_, i) => String.fromCharCode(65 + i));
+  const cols = z.colLabels ?? Array.from({ length: z.cols }, (_, i) => String(i + 1));
+  const taken = (row, col) => data.bottles.some((b) => b.slot?.zone === z.id && b.slot.row === row && b.slot.col === col);
+  const disabled = (row, col) => (z.disabledSlots ?? []).includes(`${row}|${col}`);
+  let free = null;
+  for (const row of rows) for (const col of cols) if (!free && !taken(row, col) && !disabled(row, col)) free = { zone: z.id, row, col };
+  return { data, src, free };
+}
+
+test('COPY_BOTTLE : nouvelle bouteille du même vin, posée sur le casier, id alloué par l’op', () => {
+  const { data, src, free } = copyFixture();
+  const n = data.bottles.filter((b) => b.wineId === src.wineId).length;
+  const res = applyOp(data, { type: 'COPY_BOTTLE', payload: { bottleId: src.id, slot: free } });
+  const copy = res.data.bottles.find((b) => b.id === res.ids.bottleId);
+  assert.notEqual(copy.id, src.id);
+  assert.equal(copy.wineId, src.wineId);
+  assert.equal(copy.format, src.format);
+  assert.deepEqual(copy.acquisition, src.acquisition);
+  assert.deepEqual(copy.slot, free);
+  assert.equal(res.data.bottles.filter((b) => b.wineId === src.wineId).length, n + 1, 'stock dérivé +1 (invariant 1)');
+});
+
+test('COPY_BOTTLE sur un casier occupé : OpAbortError, rien n’est créé (invariant 2)', () => {
+  const { data, src } = copyFixture();
+  assert.throws(
+    () => applyOp(data, { type: 'COPY_BOTTLE', payload: { bottleId: src.id, slot: src.slot } }),
+    (e) => e instanceof OpAbortError && e.code === 'SLOT_OCCUPIED',
+  );
+});
+
+test('COPY_BOTTLE rejoué après 409 : le casier pris par Bob entre-temps → abandon, pas de doublon', async () => {
+  const { data, src, free } = copyFixture();
+  const other = data.bottles.find((b) => b.id !== src.id && b.slot);
+  const fake = makeFakeGitHub(data);
+  // Premier PUT : Bob a posé une autre bouteille sur le casier visé → 409, rejeu, abandon.
+  let first = true;
+  const fetchImpl = async (url, init = {}) => {
+    if ((init.method || 'GET') === 'PUT' && first) {
+      first = false;
+      const bob = applyOp(JSON.parse(fake.server.json), { type: 'MOVE_BOTTLE', payload: { bottleId: other.id, slot: free } });
+      fake.server.json = JSON.stringify(bob.data);
+      fake.server.sha = 'sha-bob';
+    }
+    return fake.fetchImpl(url, init);
+  };
+  github.configure({ token: 'tok', user: 'Alice', backoffMs: 0, fetchImpl });
+  await assert.rejects(
+    github.pushOperation({ type: 'COPY_BOTTLE', payload: { bottleId: src.id, slot: free } }),
+    (e) => e instanceof OpAbortError && e.code === 'SLOT_OCCUPIED',
+  );
+  const final = JSON.parse(fake.server.json);
+  const onFree = final.bottles.filter((b) => b.slot?.zone === free.zone && b.slot.row === free.row && b.slot.col === free.col);
+  assert.equal(onFree.length, 1, 'une seule bouteille sur le casier : celle de Bob');
+  assert.equal(onFree[0].id, other.id);
+});
+
+test('COPY_BOTTLE d’une bouteille bue entre-temps : abandon BOTTLE_GONE', () => {
+  const { data, free } = copyFixture();
+  assert.throws(
+    () => applyOp(data, { type: 'COPY_BOTTLE', payload: { bottleId: 'b_inexistante', slot: free } }),
+    (e) => e instanceof OpAbortError && e.code === 'BOTTLE_GONE',
+  );
+});

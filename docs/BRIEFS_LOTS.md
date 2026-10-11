@@ -24,7 +24,7 @@ métier.
 index.html · manifest.json · assets/styles.css · package.json (devDependencies: ajv)
 app/main.js      routeur par hash (#/plan, #/vins, #/reglages), coquilles vides
 app/store.js     état en mémoire, application des opérations, abonnements
-app/ops.js       DRINK_BOTTLE, MOVE_BOTTLE, PLACE_BOTTLE, ADD_WINE, ADD_BOTTLES,
+app/ops.js       DRINK_BOTTLE, MOVE_BOTTLE, PLACE_BOTTLE, COPY_BOTTLE, ADD_WINE, ADD_BOTTLES,
                  UPDATE_WINE, UPDATE_BOTTLE, DELETE_WINE, ADD_TASTING, UPDATE_TASTING,
                  UPSERT_ZONE, DELETE_ZONE
                  + ALLOCATION DES ids ET DES ref (voir CLAUDE.md § Écriture)
