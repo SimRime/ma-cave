@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:44:25.721Z",
+  "updatedAt": "2026-10-11T06:44:30.778Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -2722,7 +2722,11 @@
       "id": "b_58",
       "wineId": "w_45",
       "format": "demi",
-      "slot": null,
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "4"
+      },
       "acquisition": {
         "type": "achat",
         "source": "Philippe & Jérémy Gay",
