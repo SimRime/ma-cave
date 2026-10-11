@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T07:59:46.249Z",
+  "updatedAt": "2026-10-11T08:00:00.316Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -3039,7 +3039,11 @@
       "id": "b_63",
       "wineId": "w_50",
       "format": "standard",
-      "slot": null,
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "9"
+      },
       "acquisition": {
         "type": "achat",
         "source": null,
