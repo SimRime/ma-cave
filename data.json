@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:42:12.905Z",
+  "updatedAt": "2026-10-11T06:43:53.289Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -1705,6 +1705,44 @@
       "metsSource": "auto",
       "id": "w_44",
       "ref": 44
+    },
+    {
+      "nom": "Syrah",
+      "region": "Valais",
+      "appellation": "Syrah du Valais",
+      "appellationId": "ch-valais-syrah",
+      "sousRegion": null,
+      "millesime": 2019,
+      "cepages": [
+        "Syrah"
+      ],
+      "cepageIds": [
+        "syrah"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 17,
+      "valeur": 17,
+      "gardeDe": 2021,
+      "gardeA": 2025,
+      "apogee": 2022,
+      "gardeExplication": "Appellation Syrah du Valais (vin de garde), abaissé d'un cran (prix 17 CHF) + millésime 2019",
+      "mets": [
+        "viandes_rouges_grillees",
+        "gibier",
+        "agneau",
+        "barbecue",
+        "viandes_rouges_mijotees"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cave de la tulipe",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_45",
+      "ref": 45
     }
   ],
   "bottles": [
