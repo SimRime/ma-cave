@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:21:09.297Z",
+  "updatedAt": "2026-10-11T06:23:37.780Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -1724,24 +1724,6 @@
         "date": "2022-04-12",
         "prix": 65,
         "note": null
-      }
-    },
-    {
-      "id": "b_2",
-      "wineId": "w_1",
-      "format": "magnum",
-      "slot": {
-        "zone": "z1",
-        "row": "G",
-        "col": "1"
-      },
-      "acquisition": {
-        "type": "cadeau",
-        "source": "Marc Dupraz",
-        "occasion": "Anniversaire 40 ans",
-        "date": "2024-03-12",
-        "prix": null,
-        "note": "Rapporté de son voyage dans les Grisons."
       }
     },
     {
