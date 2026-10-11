@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:20:53.034Z",
+  "updatedAt": "2026-10-11T06:20:58.710Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -1177,10 +1177,10 @@
       "cepageDominantInconnu": false,
       "prixReference": null,
       "valeur": null,
-      "gardeDe": 2029,
-      "gardeA": 2038,
-      "apogee": 2033,
-      "gardeExplication": "Cépage Pinot Noir (vin de garde), fenêtre estimée depuis l'achat 2026 (vin non millésimé) — appellation Lavaux, trop large pour fixer une garde",
+      "gardeDe": 2020,
+      "gardeA": 2029,
+      "apogee": 2024,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde) + millésime 2017 — appellation Lavaux, trop large pour fixer une garde",
       "mets": [
         "volaille_rotie",
         "champignons",
