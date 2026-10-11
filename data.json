@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:43:54.726Z",
+  "updatedAt": "2026-10-11T06:44:25.721Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -2446,24 +2446,6 @@
         "date": "2026-10-10",
         "prix": null,
         "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
-      }
-    },
-    {
-      "id": "b_42",
-      "wineId": "w_40",
-      "format": "demi",
-      "slot": {
-        "zone": "z1",
-        "row": "A",
-        "col": "4"
-      },
-      "acquisition": {
-        "type": "achat",
-        "source": null,
-        "occasion": null,
-        "date": "2026-10-10",
-        "prix": null,
-        "note": "Bouteille de 37,5 cl — enregistrée en demi (50 cl), le format fillette n’existe pas au schéma. Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
       }
     },
     {
