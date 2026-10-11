@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:23:37.780Z",
+  "updatedAt": "2026-10-11T06:23:40.965Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -2548,6 +2548,17 @@
       "note": 17,
       "commentaire": "Encore un peu fermé, à attendre deux ans.",
       "par": "graine"
+    },
+    {
+      "bottleId": "b_2",
+      "avecQui": null,
+      "occasion": null,
+      "note": null,
+      "commentaire": null,
+      "par": "Simon",
+      "wineId": "w_1",
+      "date": "2026-10-11",
+      "id": "t_2"
     }
   ]
 }
