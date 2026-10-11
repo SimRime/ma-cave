@@ -12,13 +12,13 @@
 //
 // La copie servie par GitHub Pages n'est JAMAIS utilisée comme source (D8) : l'app ne la fetch pas.
 
-const VERSION = 'v2'; // à changer seulement si la liste PRECACHE ou la stratégie change.
+const VERSION = 'v3'; // à changer seulement si la liste PRECACHE ou la stratégie change.
 const SHELL = `macave-shell-${VERSION}`;
 const DATA = `macave-data-${VERSION}`;
 
 // App-shell + KB effectivement chargés à l'exécution (pas les *.seed.json, jamais fetchés).
 const PRECACHE = [
-  './', './index.html', './manifest.json', './assets/styles.css', './assets/icon.svg',
+  './', './index.html', './manifest.json', './assets/styles.css', './assets/icon.svg', './assets/apple-touch-icon.png',
   './app/main.js', './app/store.js', './app/github.js', './app/ops.js', './app/kb.js',
   './app/garde.js', './app/accords.js', './app/format.js', './app/stats.js',
   './app/views/plan.js', './app/views/vins.js', './app/views/fiche.js', './app/views/a-boire.js',
