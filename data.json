@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:17:19.630Z",
+  "updatedAt": "2026-10-11T06:20:53.034Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -1167,7 +1167,7 @@
       "appellation": "AOC Lavaux",
       "appellationId": "ch-vaud-lavaux-rouge",
       "sousRegion": "Lavaux",
-      "millesime": null,
+      "millesime": 2017,
       "cepages": [
         "Pinot Noir"
       ],
@@ -1189,7 +1189,7 @@
         "fromages_pate_molle"
       ],
       "note": null,
-      "commentaire": "MILLÉSIME À CONFIRMER : illisible sur la photo, probablement sur la capsule.",
+      "commentaire": null,
       "archive": false,
       "producteur": "Les Fils Rogivue",
       "pays": "CH",
