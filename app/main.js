@@ -175,6 +175,16 @@ function registerServiceWorker() {
   // Servi à la racine de l'app (scope « ./ ») : chemin résolu relativement au document.
   // Best-effort — sans SW, l'app fonctionne normalement, sans cache hors-ligne.
   navigator.serviceWorker.register('sw.js').catch(() => {});
+  // Un nouveau SW (nouvelle version déployée) prend la main → recharger une fois pour exécuter le
+  // nouveau code. Pas au tout premier enregistrement : il n'y avait alors aucun contrôleur.
+  if (navigator.serviceWorker.controller) {
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (reloaded) return;
+      reloaded = true;
+      location.reload();
+    });
+  }
 }
 
 function boot() {

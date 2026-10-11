@@ -6,11 +6,13 @@
 //
 // Stratégies :
 //   • data.json (GET api.github.com/.../contents/…) → network-first, repli sur le dernier cache.
-//   • app-shell + kb/*.json + navigations (même origine) → cache-first (precache), repli réseau.
+//   • app-shell + kb/*.json + navigations (même origine) → network-first, repli sur le cache.
+//     Surtout pas cache-first : sans étape de build, aucun nom de fichier ne change au déploiement,
+//     et un cache-first resservirait indéfiniment l'ancienne version de l'app.
 //
 // La copie servie par GitHub Pages n'est JAMAIS utilisée comme source (D8) : l'app ne la fetch pas.
 
-const VERSION = 'v1';
+const VERSION = 'v2'; // à changer seulement si la liste PRECACHE ou la stratégie change.
 const SHELL = `macave-shell-${VERSION}`;
 const DATA = `macave-data-${VERSION}`;
 
@@ -54,37 +56,24 @@ self.addEventListener('fetch', (event) => {
   if (url.origin === self.location.origin) {
     // Une navigation hors-ligne sert la coquille : l'app se recharge depuis le cache.
     if (req.mode === 'navigate') {
-      event.respondWith(caches.match('./index.html').then((r) => r || fetch(req)));
+      event.respondWith(networkFirst(req, SHELL, './index.html'));
       return;
     }
-    event.respondWith(cacheFirst(req));
+    event.respondWith(networkFirst(req, SHELL));
   }
 });
 
-async function networkFirst(req) {
-  const cache = await caches.open(DATA);
+// Réseau d'abord, copie en cache à chaque succès ; hors-ligne, le dernier instantané (ou `fallback`).
+// Même origine : `no-cache` revalide auprès de Pages (304 si inchangé) au lieu de lire le cache HTTP.
+async function networkFirst(req, cacheName = DATA, fallback = null) {
+  const cache = await caches.open(cacheName);
+  const sameOrigin = new URL(req.url).origin === self.location.origin;
   try {
-    const res = await fetch(req);
+    const res = sameOrigin ? await fetch(req.url, { cache: 'no-cache' }) : await fetch(req);
     if (res && res.ok) cache.put(req, res.clone());
     return res;
   } catch (err) {
-    const cached = await cache.match(req);
-    if (cached) return cached;
-    throw err;
-  }
-}
-
-async function cacheFirst(req) {
-  const cached = await caches.match(req);
-  if (cached) return cached;
-  try {
-    const res = await fetch(req);
-    if (res && res.ok && res.type === 'basic') {
-      const cache = await caches.open(SHELL);
-      cache.put(req, res.clone());
-    }
-    return res;
-  } catch (err) {
+    const cached = (await cache.match(req)) || (fallback && (await cache.match(fallback)));
     if (cached) return cached;
     throw err;
   }
