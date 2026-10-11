@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:43:53.289Z",
+  "updatedAt": "2026-10-11T06:43:54.726Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -2734,6 +2734,20 @@
         "date": "2026-10-10",
         "prix": null,
         "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_58",
+      "wineId": "w_45",
+      "format": "demi",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": "Philippe & Jérémy Gay",
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": 17,
+        "note": null
       }
     }
   ],
