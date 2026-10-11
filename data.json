@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:39:02.284Z",
+  "updatedAt": "2026-10-11T06:39:07.203Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -2580,6 +2580,24 @@
         "zone": "z1",
         "row": "E",
         "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_52",
+      "wineId": "w_20",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "4"
       },
       "acquisition": {
         "type": "achat",
