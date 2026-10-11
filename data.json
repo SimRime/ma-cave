@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-11T06:44:30.778Z",
-  "updatedBy": "Simon",
+  "updatedAt": "2026-10-11T06:59:32.893Z",
+  "updatedBy": "Simon (Claude Code)",
   "zones": [
     {
       "id": "z1",
@@ -1743,6 +1743,237 @@
       "metsSource": "auto",
       "id": "w_45",
       "ref": 45
+    },
+    {
+      "nom": "80 Anni — Barbera d'Asti Superiore",
+      "region": "Piémont",
+      "appellation": "Barbera d'Asti DOCG",
+      "appellationId": "it-barbera-dasti",
+      "sousRegion": null,
+      "millesime": 2017,
+      "cepages": [
+        "Barbera"
+      ],
+      "cepageIds": [
+        "barbera"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 54.5,
+      "valeur": 54.5,
+      "gardeDe": 2020,
+      "gardeA": 2029,
+      "apogee": 2024,
+      "gardeExplication": "Appellation Barbera d'Asti (garde moyenne), relevé d'un cran (prix 54.5 CHF) + millésime 2017",
+      "mets": [
+        "pates_tomate",
+        "charcuterie",
+        "pizza",
+        "viandes_blanches"
+      ],
+      "note": null,
+      "commentaire": "Magnum en caisse bois. Cuvée des 80 ans du domaine (1934–2014). 24 mois en fût, 14,5 %. Prix de référence : Rutishauser-Divino (magnum).",
+      "archive": false,
+      "producteur": "Dezzani",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_46",
+      "ref": 46
+    },
+    {
+      "nom": "Piacere",
+      "region": "Suisse",
+      "appellation": "Vin de Pays Suisse",
+      "appellationId": "ch-vdp-suisse-rouge",
+      "sousRegion": null,
+      "millesime": 2021,
+      "cepages": [
+        "Gamay",
+        "Gamaret",
+        "Garanoir"
+      ],
+      "cepageIds": [
+        "gamay",
+        "gamaret",
+        "garanoir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2022,
+      "gardeA": 2025,
+      "apogee": 2023,
+      "gardeExplication": "Cépage Gamay (garde courte) + millésime 2021 — appellation Vin de Pays Suisse, trop large pour fixer une garde",
+      "mets": [
+        "charcuterie",
+        "volaille_rotie",
+        "cuisine_alpine",
+        "viandes_blanches",
+        "pizza"
+      ],
+      "note": null,
+      "commentaire": "Fruité, boisé et finale douce (contre-étiquette). Prix introuvable.",
+      "archive": false,
+      "producteur": "Cave de Jolimont",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_47",
+      "ref": 47
+    },
+    {
+      "nom": "Summa Summarum — Negroamaro",
+      "region": "Pouilles",
+      "appellation": "Puglia IGP",
+      "appellationId": null,
+      "sousRegion": null,
+      "millesime": 2021,
+      "cepages": [
+        "Negroamaro"
+      ],
+      "cepageIds": [
+        "negroamaro"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 10.5,
+      "valeur": 10.5,
+      "gardeDe": 2022,
+      "gardeA": 2025,
+      "apogee": 2023,
+      "gardeExplication": "Cépage Negroamaro (garde moyenne), abaissé d'un cran (prix 10.5 CHF) + millésime 2021 — appellation inconnue du référentiel",
+      "mets": [
+        "charcuterie",
+        "viandes_rouges_grillees",
+        "pates_tomate",
+        "agneau"
+      ],
+      "note": null,
+      "commentaire": "Prix de référence : Flaschenpost (millésime 2024).",
+      "archive": false,
+      "producteur": "Barisi Dinkel AG",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_48",
+      "ref": 48
+    },
+    {
+      "nom": "Rocca Guicciarda — Chianti Classico Riserva",
+      "region": "Toscane",
+      "appellation": "Chianti Classico DOCG",
+      "appellationId": "it-chianti-classico",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Sangiovese"
+      ],
+      "cepageIds": [
+        "sangiovese"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 23.84,
+      "valeur": 23.84,
+      "gardeDe": 2025,
+      "gardeA": 2034,
+      "apogee": 2029,
+      "gardeExplication": "Appellation Chianti Classico (vin de garde) + millésime 2022",
+      "mets": [
+        "pates_tomate",
+        "viandes_rouges_grillees",
+        "charcuterie",
+        "fromages_pate_dure",
+        "pizza",
+        "gibier"
+      ],
+      "note": null,
+      "commentaire": "Prix de référence : Bottle of Italy (prix conseillé, 2022).",
+      "archive": false,
+      "producteur": "Barone Ricasoli",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_49",
+      "ref": 49
+    },
+    {
+      "nom": "Clos Grandinaz — Pinot Noir de la Tour",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2024,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2027,
+      "gardeA": 2036,
+      "apogee": 2031,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde) + millésime 2024 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Prix introuvable.",
+      "archive": false,
+      "producteur": "Dumoulin Frères",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_50",
+      "ref": 50
+    },
+    {
+      "nom": "Pentes Rôties — Pinot Noir du Valais",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2025,
+      "gardeA": 2034,
+      "apogee": 2029,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde) + millésime 2022 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Prix introuvable.",
+      "archive": false,
+      "producteur": "Cave St-Pierre",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_51",
+      "ref": 51
     }
   ],
   "bottles": [
@@ -2733,6 +2964,90 @@
         "occasion": null,
         "date": "2026-10-11",
         "prix": 17,
+        "note": null
+      }
+    },
+    {
+      "id": "b_59",
+      "wineId": "w_46",
+      "format": "magnum",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": null,
+        "note": null
+      }
+    },
+    {
+      "id": "b_60",
+      "wineId": "w_47",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": null,
+        "note": null
+      }
+    },
+    {
+      "id": "b_61",
+      "wineId": "w_48",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": null,
+        "note": null
+      }
+    },
+    {
+      "id": "b_62",
+      "wineId": "w_49",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": null,
+        "note": null
+      }
+    },
+    {
+      "id": "b_63",
+      "wineId": "w_50",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": null,
+        "note": null
+      }
+    },
+    {
+      "id": "b_64",
+      "wineId": "w_51",
+      "format": "standard",
+      "slot": null,
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-11",
+        "prix": null,
         "note": null
       }
     }
