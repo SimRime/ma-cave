@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-05T15:12:54.020Z",
+  "updatedAt": "2026-10-10T20:19:24.734Z",
   "updatedBy": "Simon",
   "zones": [
     {
@@ -45,11 +45,11 @@
       ],
       "prixReference": 65,
       "valeur": 90,
-      "gardeDe": 2025,
-      "gardeA": 2049,
-      "apogee": 2034,
+      "gardeDe": 2024,
+      "gardeA": 2041,
+      "apogee": 2031,
       "gardeSource": "auto",
-      "gardeExplication": "Cépage Pinot Noir (vin de garde), relevé d'un cran (prix > 40 CHF) + millésime 2019 — appellation inconnue du référentiel",
+      "gardeExplication": "Cépage Pinot Noir (vin de garde), relevé d'un cran (prix 65 CHF) + millésime 2019 — appellation inconnue du référentiel",
       "mets": [
         "volaille_rotie",
         "champignons",
@@ -123,11 +123,11 @@
         "merlot",
         "cabernet-franc"
       ],
-      "prixReference": null,
-      "valeur": null,
-      "gardeDe": 2022,
-      "gardeA": 2033,
-      "apogee": 2026,
+      "prixReference": 26,
+      "valeur": 26,
+      "gardeDe": 2021,
+      "gardeA": 2030,
+      "apogee": 2025,
       "gardeSource": "auto",
       "gardeExplication": "Appellation Haut-Médoc (vin de garde) + millésime 2018",
       "mets": [
@@ -141,6 +141,1572 @@
       "note": null,
       "commentaire": null,
       "archive": false
+    },
+    {
+      "nom": "Les 3 Villages",
+      "region": "Rhône",
+      "appellation": "Ventoux AOP",
+      "appellationId": "fr-ventoux",
+      "sousRegion": "Sud",
+      "millesime": 2022,
+      "cepages": [],
+      "cepageIds": [],
+      "cepageDominantInconnu": false,
+      "prixReference": 10.75,
+      "valeur": 10.75,
+      "gardeDe": 2023,
+      "gardeA": 2026,
+      "apogee": 2024,
+      "gardeExplication": "Appellation Ventoux (garde moyenne), abaissé d'un cran (prix 10.75 CHF) + millésime 2022",
+      "mets": [],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Château La Croix des Pins",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_4",
+      "ref": 4
+    },
+    {
+      "nom": "Dahu Noir",
+      "region": "Suisse",
+      "appellation": "Vin de Pays Suisse",
+      "appellationId": "ch-vdp-suisse-rouge",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [],
+      "cepageIds": [],
+      "cepageDominantInconnu": false,
+      "prixReference": 15.5,
+      "valeur": 15.5,
+      "gardeDe": 2023,
+      "gardeA": 2026,
+      "apogee": 2024,
+      "gardeExplication": "Couleur Rouge (garde moyenne), abaissé d'un cran (prix 15.5 CHF) + millésime 2022 — appellation Vin de Pays Suisse, trop large pour fixer une garde, et cépage inconnu du référentiel",
+      "mets": [],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Les Celliers de Sion",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_5",
+      "ref": 5
+    },
+    {
+      "nom": "Le Terre",
+      "region": "Piémont",
+      "appellation": "Barolo DOCG",
+      "appellationId": "it-barolo",
+      "sousRegion": "Langhe",
+      "millesime": 2019,
+      "cepages": [
+        "Nebbiolo"
+      ],
+      "cepageIds": [
+        "nebbiolo"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 48,
+      "valeur": 48,
+      "gardeDe": 2024,
+      "gardeA": 2041,
+      "apogee": 2031,
+      "gardeExplication": "Appellation Barolo (grande garde) + millésime 2019",
+      "mets": [
+        "gibier",
+        "viandes_rouges_mijotees",
+        "truffe",
+        "fromages_pate_dure",
+        "champignons",
+        "risotto"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Terre del Barolo",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_6",
+      "ref": 6
+    },
+    {
+      "nom": "Cornalin",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Cornalin"
+      ],
+      "cepageIds": [
+        "cornalin"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 14.95,
+      "valeur": 14.95,
+      "gardeDe": 2024,
+      "gardeA": 2028,
+      "apogee": 2025,
+      "gardeExplication": "Cépage Cornalin (vin de garde), abaissé d'un cran (prix 14.95 CHF) + millésime 2022 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "gibier",
+        "agneau",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Frédéric Dumoulin",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_7",
+      "ref": 7
+    },
+    {
+      "nom": "Emma",
+      "region": "Languedoc-Roussillon",
+      "appellation": "Minervois AOP",
+      "appellationId": "fr-minervois",
+      "sousRegion": "Languedoc",
+      "millesime": 2022,
+      "cepages": [
+        "Syrah",
+        "Carignan",
+        "Mourvèdre"
+      ],
+      "cepageIds": [
+        "syrah",
+        "carignan",
+        "mourvedre"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 9.3,
+      "valeur": 9.3,
+      "gardeDe": 2023,
+      "gardeA": 2026,
+      "apogee": 2024,
+      "gardeExplication": "Appellation Minervois (garde moyenne), abaissé d'un cran (prix 9.3 CHF) + millésime 2022",
+      "mets": [
+        "viandes_rouges_grillees",
+        "gibier",
+        "barbecue",
+        "agneau",
+        "viandes_rouges_mijotees"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Domaine Lignères & Lathenay",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_8",
+      "ref": 8
+    },
+    {
+      "nom": "L'AS de Cœur — Assemblage",
+      "region": "Vaud",
+      "appellation": "Côtes de l'Orbe AOC",
+      "appellationId": "ch-vaud-cotes-de-lorbe-rouge",
+      "sousRegion": "Côtes de l'Orbe",
+      "millesime": 2021,
+      "cepages": [
+        "Gamaret",
+        "Garanoir",
+        "Pinot Noir",
+        "Gamay"
+      ],
+      "cepageIds": [
+        "gamaret",
+        "garanoir",
+        "pinot-noir",
+        "gamay"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 14,
+      "valeur": 14,
+      "gardeDe": 2023,
+      "gardeA": 2027,
+      "apogee": 2024,
+      "gardeExplication": "Cépage Gamaret (vin de garde), abaissé d'un cran (prix 14 CHF) + millésime 2021 — appellation Côtes de l'Orbe, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "gibier",
+        "barbecue",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": "Producteur identifié en ligne (Cave de Jolimont, Mont-sur-Rolle) ; illisible sur la photo de contre-étiquette.",
+      "archive": false,
+      "producteur": "Cave de Jolimont",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_9",
+      "ref": 9
+    },
+    {
+      "nom": "Villa Carena — Il Grande",
+      "region": "Piémont",
+      "appellation": "Monferrato Rosso DOC",
+      "appellationId": "it-monferrato",
+      "sousRegion": null,
+      "millesime": 2014,
+      "cepages": [
+        "Barbera",
+        "Cabernet Sauvignon"
+      ],
+      "cepageIds": [
+        "barbera",
+        "cabernet-sauvignon"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 24.5,
+      "valeur": 24.5,
+      "gardeDe": 2016,
+      "gardeA": 2020,
+      "apogee": 2017,
+      "gardeExplication": "Appellation Monferrato (garde moyenne) + millésime 2014",
+      "mets": [
+        "pates_tomate",
+        "charcuterie",
+        "pizza",
+        "viandes_blanches"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cascina Carena",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_10",
+      "ref": 10
+    },
+    {
+      "nom": "Prestige Merlot",
+      "region": "Tessin",
+      "appellation": "Ticino DOC",
+      "appellationId": "ch-ticino-merlot",
+      "sousRegion": null,
+      "millesime": 2021,
+      "cepages": [
+        "Merlot"
+      ],
+      "cepageIds": [
+        "merlot"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 63.95,
+      "valeur": 63.95,
+      "gardeDe": 2026,
+      "gardeA": 2043,
+      "apogee": 2033,
+      "gardeExplication": "Appellation Merlot del Ticino (vin de garde), relevé d'un cran (prix 63.95 CHF) + millésime 2021",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cantina il Cavaliere",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_11",
+      "ref": 11
+    },
+    {
+      "nom": "Amanero",
+      "region": "Sicile",
+      "appellation": "Terre Siciliane IGP",
+      "appellationId": "it-terre-siciliane",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [],
+      "cepageIds": [],
+      "cepageDominantInconnu": false,
+      "prixReference": 32,
+      "valeur": 32,
+      "gardeDe": 2024,
+      "gardeA": 2028,
+      "apogee": 2025,
+      "gardeExplication": "Couleur Rouge (garde moyenne) + millésime 2022 — appellation Terre Siciliane, trop large pour fixer une garde, et cépage inconnu du référentiel",
+      "mets": [],
+      "note": null,
+      "commentaire": "Mis en bouteille par Schuler (Suisse) ; vin italien.",
+      "archive": false,
+      "producteur": "Schuler",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_12",
+      "ref": 12
+    },
+    {
+      "nom": "Les 3 Grappes",
+      "region": "Suisse",
+      "appellation": "Vin de Pays Suisse",
+      "appellationId": "ch-vdp-suisse-rouge",
+      "sousRegion": null,
+      "millesime": 2023,
+      "cepages": [
+        "Garanoir",
+        "Gamaret",
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "garanoir",
+        "gamaret",
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 18,
+      "valeur": 18,
+      "gardeDe": 2024,
+      "gardeA": 2027,
+      "apogee": 2025,
+      "gardeExplication": "Cépage Garanoir (garde moyenne), abaissé d'un cran (prix 18 CHF) + millésime 2023 — appellation Vin de Pays Suisse, trop large pour fixer une garde",
+      "mets": [
+        "charcuterie",
+        "viandes_rouges_grillees",
+        "barbecue",
+        "pizza",
+        "viandes_blanches"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cave et Domaine du Petit Château",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_13",
+      "ref": 13
+    },
+    {
+      "nom": "Tulipe Noire",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": "Fully",
+      "millesime": 2019,
+      "cepages": [
+        "Pinot Noir",
+        "Diolinoir"
+      ],
+      "cepageIds": [
+        "pinot-noir",
+        "diolinoir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 21.6,
+      "valeur": 21.6,
+      "gardeDe": 2022,
+      "gardeA": 2031,
+      "apogee": 2026,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde) + millésime 2019 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Élevé en barrique.",
+      "archive": false,
+      "producteur": "Cave de la Tulipe",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_14",
+      "ref": 14
+    },
+    {
+      "nom": "",
+      "region": "Bordeaux",
+      "appellation": "Saint-Émilion Grand Cru",
+      "appellationId": "fr-saint-emilion",
+      "sousRegion": "Libournais",
+      "millesime": 2019,
+      "cepages": [
+        "Merlot",
+        "Cabernet Sauvignon",
+        "Cabernet Franc"
+      ],
+      "cepageIds": [
+        "merlot",
+        "cabernet-sauvignon",
+        "cabernet-franc"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 18.2,
+      "valeur": 18.2,
+      "gardeDe": 2022,
+      "gardeA": 2031,
+      "apogee": 2026,
+      "gardeExplication": "Appellation Saint-Émilion (grande garde), abaissé d'un cran (prix 18.2 CHF) + millésime 2019",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "fromages_pate_dure",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Château Haut Plaisance",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_15",
+      "ref": 15
+    },
+    {
+      "nom": "Réserve",
+      "region": "Languedoc-Roussillon",
+      "appellation": "La Clape AOP",
+      "appellationId": "fr-la-clape",
+      "sousRegion": "Languedoc",
+      "millesime": 2017,
+      "cepages": [
+        "Syrah",
+        "Grenache",
+        "Mourvèdre"
+      ],
+      "cepageIds": [
+        "syrah",
+        "grenache",
+        "mourvedre"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 13.9,
+      "valeur": 13.9,
+      "gardeDe": 2019,
+      "gardeA": 2023,
+      "apogee": 2020,
+      "gardeExplication": "Appellation La Clape (vin de garde), abaissé d'un cran (prix 13.9 CHF) + millésime 2017",
+      "mets": [
+        "viandes_rouges_grillees",
+        "gibier",
+        "barbecue",
+        "agneau",
+        "viandes_rouges_mijotees"
+      ],
+      "note": null,
+      "commentaire": "Vin biologique (AB).",
+      "archive": false,
+      "producteur": "Château Les Bugadelles",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_16",
+      "ref": 16
+    },
+    {
+      "nom": "Fleur du Rhône — Pinot Noir",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2024,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 10.95,
+      "valeur": 10.95,
+      "gardeDe": 2026,
+      "gardeA": 2028,
+      "apogee": 2027,
+      "gardeExplication": "Fenêtre annoncée par le producteur : « le garder sans problème 2-4 ans » (contre-étiquette, millésime 2024)",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Coop",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "manuel",
+      "metsSource": "auto",
+      "id": "w_17",
+      "ref": 17
+    },
+    {
+      "nom": "",
+      "region": "Languedoc-Roussillon",
+      "appellation": "Corbières AOP",
+      "appellationId": "fr-corbieres",
+      "sousRegion": "Languedoc",
+      "millesime": 2020,
+      "cepages": [
+        "Syrah",
+        "Grenache",
+        "Carignan"
+      ],
+      "cepageIds": [
+        "syrah",
+        "grenache",
+        "carignan"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2022,
+      "gardeA": 2026,
+      "apogee": 2023,
+      "gardeExplication": "Appellation Corbières (garde moyenne) + millésime 2020",
+      "mets": [
+        "viandes_rouges_grillees",
+        "gibier",
+        "barbecue",
+        "agneau",
+        "viandes_rouges_mijotees"
+      ],
+      "note": null,
+      "commentaire": "Vin biologique.",
+      "archive": false,
+      "producteur": "Château La Boutignane",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_18",
+      "ref": 18
+    },
+    {
+      "nom": "Les Effeuilleuses — Syrah",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2020,
+      "cepages": [
+        "Syrah"
+      ],
+      "cepageIds": [
+        "syrah"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 17,
+      "valeur": 17,
+      "gardeDe": 2022,
+      "gardeA": 2026,
+      "apogee": 2023,
+      "gardeExplication": "Cépage Syrah (vin de garde), abaissé d'un cran (prix 17 CHF) + millésime 2020 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "gibier",
+        "barbecue",
+        "agneau",
+        "viandes_rouges_mijotees"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Bétrisey & Albrecht Vins",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_19",
+      "ref": 19
+    },
+    {
+      "nom": "va bene — Cuvée Rot",
+      "region": "Suisse",
+      "appellation": "Vin de table suisse",
+      "appellationId": "ch-vdp-suisse-rouge",
+      "sousRegion": null,
+      "millesime": 2023,
+      "cepages": [],
+      "cepageIds": [],
+      "cepageDominantInconnu": false,
+      "prixReference": 18,
+      "valeur": 18,
+      "gardeDe": 2024,
+      "gardeA": 2027,
+      "apogee": 2025,
+      "gardeExplication": "Couleur Rouge (garde moyenne), abaissé d'un cran (prix 18 CHF) + millésime 2023 — appellation Vin de Pays Suisse, trop large pour fixer une garde, et cépage inconnu du référentiel",
+      "mets": [],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Rebbau Spiez",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_20",
+      "ref": 20
+    },
+    {
+      "nom": "Réserve des Chasseurs — Humagne Rouge",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Humagne Rouge"
+      ],
+      "cepageIds": [
+        "humagne-rouge"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 17.95,
+      "valeur": 17.95,
+      "gardeDe": 2024,
+      "gardeA": 2028,
+      "apogee": 2025,
+      "gardeExplication": "Cépage Humagne Rouge (vin de garde), abaissé d'un cran (prix 17.95 CHF) + millésime 2022 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "gibier",
+        "viandes_rouges_mijotees",
+        "champignons",
+        "agneau"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Bétrisey & Albrecht Vins",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_21",
+      "ref": 21
+    },
+    {
+      "nom": "Bibacchus — Les Terrasses du Rhône, Cornalin",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2019,
+      "cepages": [
+        "Cornalin"
+      ],
+      "cepageIds": [
+        "cornalin"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 16.95,
+      "valeur": 16.95,
+      "gardeDe": 2021,
+      "gardeA": 2023,
+      "apogee": 2022,
+      "gardeExplication": "Fenêtre annoncée par le producteur : « Maturité optimale : 2-4 » (contre-étiquette, millésime 2019)",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "gibier",
+        "agneau",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Les Celliers de Sion",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "manuel",
+      "metsSource": "auto",
+      "id": "w_22",
+      "ref": 22
+    },
+    {
+      "nom": "Diolinoir — Réserve de la St-Hubert",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2023,
+      "cepages": [
+        "Diolinoir"
+      ],
+      "cepageIds": [
+        "diolinoir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 23.95,
+      "valeur": 23.95,
+      "gardeDe": 2026,
+      "gardeA": 2035,
+      "apogee": 2030,
+      "gardeExplication": "Cépage Diolinoir (vin de garde) + millésime 2023 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "gibier",
+        "agneau"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cave Emery",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_23",
+      "ref": 23
+    },
+    {
+      "nom": "Télégramme",
+      "region": "Rhône",
+      "appellation": "Châteauneuf-du-Pape",
+      "appellationId": "fr-chateauneuf-du-pape-rouge",
+      "sousRegion": "Sud",
+      "millesime": 2020,
+      "cepages": [
+        "Grenache",
+        "Syrah",
+        "Mourvèdre",
+        "Cinsault"
+      ],
+      "cepageIds": [
+        "grenache",
+        "syrah",
+        "mourvedre",
+        "cinsault"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 50,
+      "valeur": 50,
+      "gardeDe": 2025,
+      "gardeA": 2042,
+      "apogee": 2032,
+      "gardeExplication": "Appellation Châteauneuf-du-Pape (grande garde) + millésime 2020",
+      "mets": [
+        "viandes_rouges_mijotees",
+        "gibier",
+        "agneau",
+        "barbecue",
+        "charcuterie",
+        "pizza"
+      ],
+      "note": null,
+      "commentaire": "Second vin du Vieux Télégraphe. Assemblage annoncé : 80 % grenache, 10 % syrah, 6 % mourvèdre, 4 % cinsault.",
+      "archive": false,
+      "producteur": "Famille Brunier",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_24",
+      "ref": 24
+    },
+    {
+      "nom": "La Porte de Novembre",
+      "region": "Suisse",
+      "appellation": "Vin de Pays Suisse",
+      "appellationId": "ch-vdp-suisse-rouge",
+      "sousRegion": null,
+      "millesime": null,
+      "cepages": [
+        "Diolinoir",
+        "Syrah",
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "diolinoir",
+        "syrah",
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 19.9,
+      "valeur": 19.9,
+      "gardeDe": 2028,
+      "gardeA": 2032,
+      "apogee": 2029,
+      "gardeExplication": "Cépage Diolinoir (vin de garde), abaissé d'un cran (prix 19.9 CHF), fenêtre estimée depuis l'achat 2026 (vin non millésimé) — appellation Vin de Pays Suisse, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "gibier",
+        "agneau"
+      ],
+      "note": null,
+      "commentaire": "Assemblage rouge MI-DOUX : la sucrosité n’est pas modélisée par le schéma, les accords proposés le traiteront comme un rouge sec. Vin non millésimé.",
+      "archive": false,
+      "producteur": "Maison Gilliard",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_25",
+      "ref": 25
+    },
+    {
+      "nom": "Le Bec d'Aigle — Pinot Gamay",
+      "region": "Vaud",
+      "appellation": "AOC Chablais",
+      "appellationId": "ch-vaud-chablais-rouge",
+      "sousRegion": "Chablais",
+      "millesime": 2022,
+      "cepages": [
+        "Pinot Noir",
+        "Gamay"
+      ],
+      "cepageIds": [
+        "pinot-noir",
+        "gamay"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 16,
+      "valeur": 16,
+      "gardeDe": 2024,
+      "gardeA": 2028,
+      "apogee": 2025,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde), abaissé d'un cran (prix 16 CHF) + millésime 2022 — appellation Chablais, trop large pour fixer une garde",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Contenance confirmée en ligne : 70 cl, enregistrée en standard. « By Alex » sur l'étiquette = Alexandre Favre.",
+      "archive": false,
+      "producteur": "Cave Borloz (Alexandre Favre)",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_26",
+      "ref": 26
+    },
+    {
+      "nom": "Nez Noir",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Merlot",
+        "Syrah",
+        "Gamaret"
+      ],
+      "cepageIds": [
+        "merlot",
+        "syrah",
+        "gamaret"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 19.95,
+      "valeur": 19.95,
+      "gardeDe": 2025,
+      "gardeA": 2028,
+      "apogee": 2026,
+      "gardeExplication": "Fenêtre annoncée par le producteur : « Temps de garde 3 à 6 ans » (contre-étiquette, millésime 2022)",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Assemblage rouge bio de cépages nobles. Temps de garde annoncé par le domaine : 3 à 6 ans.",
+      "archive": false,
+      "producteur": "Domaines Rouvinez",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "manuel",
+      "metsSource": "auto",
+      "id": "w_27",
+      "ref": 27
+    },
+    {
+      "nom": "GMC20!",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": "Chamoson",
+      "millesime": 2018,
+      "cepages": [],
+      "cepageIds": [],
+      "cepageDominantInconnu": false,
+      "prixReference": 23,
+      "valeur": 23,
+      "gardeDe": 2020,
+      "gardeA": 2024,
+      "apogee": 2021,
+      "gardeExplication": "Couleur Rouge (garde moyenne) + millésime 2018 — appellation Valais, trop large pour fixer une garde, et cépage inconnu du référentiel",
+      "mets": [],
+      "note": null,
+      "commentaire": "Assemblage de cépages rouges, non détaillé sur l’étiquette.",
+      "archive": false,
+      "producteur": "Cave Bertrand Gaillard",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_28",
+      "ref": 28
+    },
+    {
+      "nom": "Pinot Noir",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2022,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 13.95,
+      "valeur": 13.95,
+      "gardeDe": 2023,
+      "gardeA": 2027,
+      "apogee": 2025,
+      "gardeExplication": "Fenêtre annoncée par le producteur : « à son apogée durant les cinq ans suivant la récolte » (contre-étiquette, millésime 2022)",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Domaines des Virets",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "manuel",
+      "metsSource": "auto",
+      "id": "w_29",
+      "ref": 29
+    },
+    {
+      "nom": "Rubro — Merlot Riserva",
+      "region": "Tessin",
+      "appellation": "Ticino DOC",
+      "appellationId": "ch-ticino-merlot",
+      "sousRegion": null,
+      "millesime": 2020,
+      "cepages": [
+        "Merlot"
+      ],
+      "cepageIds": [
+        "merlot"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 42.95,
+      "valeur": 42.95,
+      "gardeDe": 2023,
+      "gardeA": 2032,
+      "apogee": 2027,
+      "gardeExplication": "Appellation Merlot del Ticino (vin de garde) + millésime 2020",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Valsangiacomo",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_30",
+      "ref": 30
+    },
+    {
+      "nom": "Amarante — Pinot Noir de Chardonne",
+      "region": "Vaud",
+      "appellation": "AOC Lavaux",
+      "appellationId": "ch-vaud-lavaux-rouge",
+      "sousRegion": "Lavaux",
+      "millesime": null,
+      "cepages": [
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": null,
+      "valeur": null,
+      "gardeDe": 2029,
+      "gardeA": 2038,
+      "apogee": 2033,
+      "gardeExplication": "Cépage Pinot Noir (vin de garde), fenêtre estimée depuis l'achat 2026 (vin non millésimé) — appellation Lavaux, trop large pour fixer une garde",
+      "mets": [
+        "volaille_rotie",
+        "champignons",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "MILLÉSIME À CONFIRMER : illisible sur la photo, probablement sur la capsule.",
+      "archive": false,
+      "producteur": "Les Fils Rogivue",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_31",
+      "ref": 31
+    },
+    {
+      "nom": "Humagne Rouge",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2019,
+      "cepages": [
+        "Humagne Rouge"
+      ],
+      "cepageIds": [
+        "humagne-rouge"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 27.5,
+      "valeur": 27.5,
+      "gardeDe": 2022,
+      "gardeA": 2031,
+      "apogee": 2026,
+      "gardeExplication": "Cépage Humagne Rouge (vin de garde) + millésime 2019 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "gibier",
+        "viandes_rouges_mijotees",
+        "champignons",
+        "agneau"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cave des Amandiers",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_32",
+      "ref": 32
+    },
+    {
+      "nom": "",
+      "region": "Bordeaux",
+      "appellation": "Saint-Émilion Grand Cru",
+      "appellationId": "fr-saint-emilion",
+      "sousRegion": "Libournais",
+      "millesime": 2016,
+      "cepages": [
+        "Merlot",
+        "Cabernet Franc"
+      ],
+      "cepageIds": [
+        "merlot",
+        "cabernet-franc"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 24.3,
+      "valeur": 24.3,
+      "gardeDe": 2021,
+      "gardeA": 2038,
+      "apogee": 2028,
+      "gardeExplication": "Appellation Saint-Émilion (grande garde) + millésime 2016",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "fromages_pate_dure",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Assemblage annoncé : merlot 69 %, cabernet franc 31 %.",
+      "archive": false,
+      "producteur": "Château Grand Barrail Lamarzelle Figeac",
+      "pays": "FR",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_33",
+      "ref": 33
+    },
+    {
+      "nom": "",
+      "region": "Pouilles",
+      "appellation": "Primitivo di Manduria DOP",
+      "appellationId": "it-primitivo-di-manduria",
+      "sousRegion": "Manduria",
+      "millesime": 2018,
+      "cepages": [
+        "Primitivo"
+      ],
+      "cepageIds": [
+        "primitivo"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 11,
+      "valeur": 11,
+      "gardeDe": 2020,
+      "gardeA": 2024,
+      "apogee": 2021,
+      "gardeExplication": "Appellation Primitivo di Manduria (vin de garde), abaissé d'un cran (prix 11 CHF) + millésime 2018",
+      "mets": [
+        "viandes_rouges_grillees",
+        "barbecue",
+        "fromages_pate_dure",
+        "gibier"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Epicuro",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_34",
+      "ref": 34
+    },
+    {
+      "nom": "Alinda — Merlot",
+      "region": "Tessin",
+      "appellation": "Ticino DOC",
+      "appellationId": "ch-ticino-merlot",
+      "sousRegion": null,
+      "millesime": 2021,
+      "cepages": [
+        "Merlot"
+      ],
+      "cepageIds": [
+        "merlot"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 15.6,
+      "valeur": 15.6,
+      "gardeDe": 2023,
+      "gardeA": 2027,
+      "apogee": 2024,
+      "gardeExplication": "Appellation Merlot del Ticino (vin de garde), abaissé d'un cran (prix 15.6 CHF) + millésime 2021",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Agriloro",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_35",
+      "ref": 35
+    },
+    {
+      "nom": "Loverciano — Riserva dei Conti",
+      "region": "Tessin",
+      "appellation": "Ticino DOC",
+      "appellationId": "ch-ticino-merlot",
+      "sousRegion": null,
+      "millesime": 2020,
+      "cepages": [
+        "Merlot"
+      ],
+      "cepageIds": [
+        "merlot"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 28,
+      "valeur": 28,
+      "gardeDe": 2023,
+      "gardeA": 2032,
+      "apogee": 2027,
+      "gardeExplication": "Appellation Merlot del Ticino (vin de garde) + millésime 2020",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": "Castel San Pietro, vigneto comunale.",
+      "archive": false,
+      "producteur": "Valsangiacomo",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_36",
+      "ref": 36
+    },
+    {
+      "nom": "",
+      "region": "Vénétie",
+      "appellation": "Amarone della Valpolicella DOCG",
+      "appellationId": "it-amarone-della-valpolicella",
+      "sousRegion": "Valpolicella",
+      "millesime": 2013,
+      "cepages": [
+        "Corvina"
+      ],
+      "cepageIds": [
+        "corvina"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 27.5,
+      "valeur": 27.5,
+      "gardeDe": 2018,
+      "gardeA": 2035,
+      "apogee": 2025,
+      "gardeExplication": "Appellation Amarone della Valpolicella (grande garde) + millésime 2013",
+      "mets": [
+        "viandes_rouges_mijotees",
+        "gibier",
+        "fromages_pate_dure",
+        "pates_tomate",
+        "charcuterie",
+        "volaille_rotie",
+        "pizza"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Palazzo Maffei",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_37",
+      "ref": 37
+    },
+    {
+      "nom": "12 e mezzo",
+      "region": "Pouilles",
+      "appellation": "Primitivo di Puglia IGP",
+      "appellationId": "it-primitivo-di-puglia",
+      "sousRegion": null,
+      "millesime": null,
+      "cepages": [
+        "Primitivo"
+      ],
+      "cepageIds": [
+        "primitivo"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 8.9,
+      "valeur": 8.9,
+      "gardeDe": 2027,
+      "gardeA": 2030,
+      "apogee": 2028,
+      "gardeExplication": "Appellation Primitivo di Puglia (garde moyenne), abaissé d'un cran (prix 8.9 CHF), fenêtre estimée depuis l'achat 2026 (vin non millésimé)",
+      "mets": [
+        "viandes_rouges_grillees",
+        "barbecue",
+        "pizza",
+        "gibier",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": "MILLÉSIME À CONFIRMER : non imprimé sur l’étiquette (numéro de lot 2019).",
+      "archive": false,
+      "producteur": "Varvaglione",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_38",
+      "ref": 38
+    },
+    {
+      "nom": "Tinto Clásico",
+      "region": "Navarre",
+      "appellation": "Navarra DO",
+      "appellationId": null,
+      "sousRegion": null,
+      "millesime": 2021,
+      "cepages": [
+        "Tempranillo",
+        "Merlot",
+        "Garnacha",
+        "Syrah"
+      ],
+      "cepageIds": [
+        "tempranillo",
+        "merlot",
+        "grenache",
+        "syrah"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 17.5,
+      "valeur": 17.5,
+      "gardeDe": 2023,
+      "gardeA": 2027,
+      "apogee": 2024,
+      "gardeExplication": "Cépage Tempranillo (vin de garde), abaissé d'un cran (prix 17.5 CHF) + millésime 2021 — appellation inconnue du référentiel",
+      "mets": [
+        "agneau",
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "charcuterie",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": "Espagne — hors couverture du référentiel (D15) : appellation non résolue, garde estimée depuis le cépage dominant.",
+      "archive": false,
+      "producteur": "Don Pascual",
+      "pays": "XX",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_39",
+      "ref": 39
+    },
+    {
+      "nom": "Rouge Moelleux",
+      "region": "Vaud",
+      "appellation": "La Côte AOC",
+      "appellationId": "ch-vaud-la-cote-rouge",
+      "sousRegion": "La Côte",
+      "millesime": 2016,
+      "cepages": [
+        "Galotta",
+        "Pinot Noir"
+      ],
+      "cepageIds": [
+        "galotta",
+        "pinot-noir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 24,
+      "valeur": 24,
+      "gardeDe": 2018,
+      "gardeA": 2022,
+      "apogee": 2019,
+      "gardeExplication": "Cépage Galotta (garde moyenne) + millésime 2016 — appellation La Côte, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "barbecue",
+        "viandes_rouges_mijotees",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": "Rouge MOELLEUX : la sucrosité n’est pas modélisée par le schéma, les accords proposés le traiteront comme un rouge sec.",
+      "archive": false,
+      "producteur": "Cave Albiez & Meylan",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_40",
+      "ref": 40
+    },
+    {
+      "nom": "Piacere",
+      "region": "Suisse",
+      "appellation": "Vin de Pays Suisse",
+      "appellationId": "ch-vdp-suisse-rouge",
+      "sousRegion": null,
+      "millesime": 2017,
+      "cepages": [
+        "Gamay",
+        "Gamaret",
+        "Garanoir"
+      ],
+      "cepageIds": [
+        "gamay",
+        "gamaret",
+        "garanoir"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 13.2,
+      "valeur": 13.2,
+      "gardeDe": 2017,
+      "gardeA": 2019,
+      "apogee": 2018,
+      "gardeExplication": "Cépage Gamay (garde courte), abaissé d'un cran (prix 13.2 CHF) + millésime 2017 — appellation Vin de Pays Suisse, trop large pour fixer une garde",
+      "mets": [
+        "charcuterie",
+        "volaille_rotie",
+        "cuisine_alpine",
+        "viandes_blanches",
+        "pizza"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Cave de Jolimont",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_41",
+      "ref": 41
+    },
+    {
+      "nom": "Oro Reserva",
+      "region": "Castille-et-León",
+      "appellation": "Cigales DO",
+      "appellationId": null,
+      "sousRegion": null,
+      "millesime": 2018,
+      "cepages": [
+        "Tinta del País"
+      ],
+      "cepageIds": [
+        "tempranillo"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 18,
+      "valeur": 18,
+      "gardeDe": 2020,
+      "gardeA": 2024,
+      "apogee": 2021,
+      "gardeExplication": "Cépage Tempranillo (vin de garde), abaissé d'un cran (prix 18 CHF) + millésime 2018 — appellation inconnue du référentiel",
+      "mets": [
+        "agneau",
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "charcuterie",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": "Espagne — hors couverture du référentiel (D15) : appellation non résolue, garde estimée depuis le cépage dominant.",
+      "archive": false,
+      "producteur": "Bodegas Museum",
+      "pays": "XX",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_42",
+      "ref": 42
+    },
+    {
+      "nom": "QVID — Primitivo",
+      "region": "Pouilles",
+      "appellation": "Salento IGT",
+      "appellationId": "it-salento",
+      "sousRegion": "Salento",
+      "millesime": 2024,
+      "cepages": [
+        "Primitivo"
+      ],
+      "cepageIds": [
+        "primitivo"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 14.5,
+      "valeur": 14.5,
+      "gardeDe": 2026,
+      "gardeA": 2030,
+      "apogee": 2027,
+      "gardeExplication": "Cépage Primitivo (vin de garde), abaissé d'un cran (prix 14.5 CHF) + millésime 2024 — appellation Salento, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "barbecue",
+        "gibier",
+        "fromages_pate_dure"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Tenuta Giustini",
+      "pays": "IT",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_43",
+      "ref": 43
+    },
+    {
+      "nom": "Diamanterre — Merlot",
+      "region": "Valais",
+      "appellation": "AOC Valais",
+      "appellationId": "ch-valais-rouge",
+      "sousRegion": null,
+      "millesime": 2023,
+      "cepages": [
+        "Merlot"
+      ],
+      "cepageIds": [
+        "merlot"
+      ],
+      "cepageDominantInconnu": false,
+      "prixReference": 28,
+      "valeur": 28,
+      "gardeDe": 2026,
+      "gardeA": 2035,
+      "apogee": 2030,
+      "gardeExplication": "Cépage Merlot (vin de garde) + millésime 2023 — appellation Valais, trop large pour fixer une garde",
+      "mets": [
+        "viandes_rouges_grillees",
+        "viandes_rouges_mijotees",
+        "viandes_blanches",
+        "charcuterie",
+        "fromages_pate_molle"
+      ],
+      "note": null,
+      "commentaire": null,
+      "archive": false,
+      "producteur": "Frédéric Dumoulin",
+      "pays": "CH",
+      "couleur": "Rouge",
+      "gardeSource": "auto",
+      "metsSource": "auto",
+      "id": "w_44",
+      "ref": 44
     }
   ],
   "bottles": [
@@ -150,7 +1716,7 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "D",
+        "row": "G",
         "col": "2"
       },
       "acquisition": {
@@ -168,8 +1734,8 @@
       "format": "magnum",
       "slot": {
         "zone": "z1",
-        "row": "A",
-        "col": "2"
+        "row": "G",
+        "col": "1"
       },
       "acquisition": {
         "type": "cadeau",
@@ -186,8 +1752,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "C",
-        "col": "6"
+        "row": "D",
+        "col": "5"
       },
       "acquisition": {
         "type": "achat",
@@ -204,8 +1770,8 @@
       "format": "standard",
       "slot": {
         "zone": "z1",
-        "row": "A",
-        "col": "4"
+        "row": "E",
+        "col": "5"
       },
       "acquisition": {
         "type": "cadeau",
@@ -214,6 +1780,780 @@
         "date": "2026-09-05",
         "prix": null,
         "note": null
+      }
+    },
+    {
+      "id": "b_5",
+      "wineId": "w_4",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "5"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_6",
+      "wineId": "w_5",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_7",
+      "wineId": "w_6",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "G",
+        "col": "5"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_8",
+      "wineId": "w_7",
+      "format": "demi",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "5"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Bouteille de 50 cl. Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_9",
+      "wineId": "w_8",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_10",
+      "wineId": "w_9",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "6"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_11",
+      "wineId": "w_10",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "6"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_12",
+      "wineId": "w_11",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "G",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_13",
+      "wineId": "w_12",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "D",
+        "col": "7"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_14",
+      "wineId": "w_13",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_15",
+      "wineId": "w_14",
+      "format": "demi",
+      "slot": {
+        "zone": "z1",
+        "row": "D",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Bouteille de 50 cl. Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_16",
+      "wineId": "w_15",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "6"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_17",
+      "wineId": "w_16",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "5"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_18",
+      "wineId": "w_17",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "D",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_19",
+      "wineId": "w_18",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_20",
+      "wineId": "w_19",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "B",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_21",
+      "wineId": "w_20",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_22",
+      "wineId": "w_21",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "D",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_23",
+      "wineId": "w_22",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_24",
+      "wineId": "w_23",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "F",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_25",
+      "wineId": "w_24",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "G",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_26",
+      "wineId": "w_25",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_27",
+      "wineId": "w_26",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "D",
+        "col": "6"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Contenance non lisible sur la photo — enregistrée en standard. Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_28",
+      "wineId": "w_27",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "D",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_29",
+      "wineId": "w_28",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_30",
+      "wineId": "w_29",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_31",
+      "wineId": "w_30",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_32",
+      "wineId": "w_31",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "F",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Bouteille de 70 cl — enregistrée en standard. Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_33",
+      "wineId": "w_32",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_34",
+      "wineId": "w_33",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "F",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_35",
+      "wineId": "w_34",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "7"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_36",
+      "wineId": "w_35",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_37",
+      "wineId": "w_36",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "3"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_38",
+      "wineId": "w_37",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "F",
+        "col": "5"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_39",
+      "wineId": "w_38",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "9"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_40",
+      "wineId": "w_39",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "7"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_41",
+      "wineId": "w_39",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "C",
+        "col": "8"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_42",
+      "wineId": "w_40",
+      "format": "demi",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "4"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Bouteille de 37,5 cl — enregistrée en demi (50 cl), le format fillette n’existe pas au schéma. Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_43",
+      "wineId": "w_41",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "1"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_44",
+      "wineId": "w_42",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "A",
+        "col": "8"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_45",
+      "wineId": "w_43",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "7"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_46",
+      "wineId": "w_43",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "E",
+        "col": "8"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
+      }
+    },
+    {
+      "id": "b_47",
+      "wineId": "w_44",
+      "format": "standard",
+      "slot": {
+        "zone": "z1",
+        "row": "F",
+        "col": "2"
+      },
+      "acquisition": {
+        "type": "achat",
+        "source": null,
+        "occasion": null,
+        "date": "2026-10-10",
+        "prix": null,
+        "note": "Inventaire photo du 10 octobre 2026 — date d'acquisition et provenance réelles à renseigner."
       }
     }
   ],

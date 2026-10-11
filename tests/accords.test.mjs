@@ -53,10 +53,13 @@ const VECTEURS = [
     plat: 'gibier', score: 81, exclu: false,
   },
   {
-    nom: 'A4 — Barbera (appellation hors KB) / pâtes tomate → 34 (cépage 30 + profil 8, aBoire ×0.9)',
+    // Depuis le recalibrage, un vin `moyen` ne peut JAMAIS être en simple `aBoire` : sa fenêtre de
+    // 5 ans est entièrement couverte par apogee (+2 à +4) puis urgent (+5, +6). Le facteur vaut donc
+    // toujours 1.0 pour ce tier — ce vecteur teste maintenant l'arithmétique à facteur plein.
+    nom: 'A4 — Barbera (appellation hors KB) / pâtes tomate → 38 (cépage 30 + profil 8, urgent ×1.0)',
     wine: { id: 'a4', ref: 4, appellationId: null, cepageIds: ['barbera'], couleur: 'Rouge', millesime: 2020, prixReference: null, note: null, archive: false },
     bottles: [bt('a4', '2022-01-01')],
-    plat: 'pates_tomate', score: 34, exclu: false,
+    plat: 'pates_tomate', score: 38, exclu: false,
   },
   {
     nom: 'A5 — Blanc XX, cépage inconnu, garde inconnue / raclette → 9 (profil défaut Blanc 10, inconnu ×0.85)',
@@ -71,9 +74,12 @@ const VECTEURS = [
     plat: 'raclette', score: 0, exclu: true,
   },
   {
-    nom: 'A7 — Syrah du Valais 2020 / viandes rouges grillées → 81 (50 + 30 + profil 10, aBoire ×0.9)',
-    wine: { id: 'a7', ref: 7, appellationId: 'ch-valais-syrah', cepageIds: ['syrah'], couleur: 'Rouge', millesime: 2020, prixReference: null, note: null, archive: false },
-    bottles: [bt('a7', '2022-01-01')],
+    // Millésime 2022 (et non 2020) depuis le recalibrage : avec garde = +3→+12, apogée +7, un 2020
+    // tombe dans la tolérance d'apogée en 2026. On garde l'INTENTION du vecteur — tester le facteur
+    // aBoire 0.9 — plutôt que son millésime.
+    nom: 'A7 — Syrah du Valais 2022 / viandes rouges grillées → 81 (50 + 30 + profil 10, aBoire ×0.9)',
+    wine: { id: 'a7', ref: 7, appellationId: 'ch-valais-syrah', cepageIds: ['syrah'], couleur: 'Rouge', millesime: 2022, prixReference: null, note: null, archive: false },
+    bottles: [bt('a7', '2023-01-01')],
     plat: 'viandes_rouges_grillees', score: 81, exclu: false,
   },
 ];
@@ -143,8 +149,8 @@ test('Côte de bœuf : rouges structurés triés à l’apogée d’abord', () =
     appellationId: 'ch-valais-syrah', cepageIds: ['syrah'], millesime, prixReference: null, note: null, archive: false,
   });
   const data = {
-    wines: [wineSyrah('wJ', 1, 2020), wineSyrah('wA', 2, 2018)], // 2020 → aBoire (0.9), 2018 → apogée (1.0)
-    bottles: [bt('wJ', '2022-01-01'), bt('wA', '2020-01-01')],
+    wines: [wineSyrah('wJ', 1, 2022), wineSyrah('wA', 2, 2019)], // 2022 → aBoire (0.9), 2019 → apogée (1.0)
+    bottles: [bt('wJ', '2023-01-01'), bt('wA', '2021-01-01')],
   };
   const res = accordsPourPlat(data, 'viandes_rouges_grillees', kb, ANNEE);
   assert.equal(res.etablis.length, 2, 'les deux rouges structurés sont établis');

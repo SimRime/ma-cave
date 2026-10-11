@@ -10,7 +10,7 @@
 // Les agrégats viennent d'app/stats.js (module pur, partagé avec les tests et — plus tard — les
 // skills). L'année d'apogée réutilise le moteur de garde via stats.parApogee (jamais réimplémenté).
 
-import { normalise } from '../format.js';
+import { normalise, fmtCHF } from '../format.js';
 import {
   montantDepense, valeurCave, parRegion, parCouleur, parMillesime,
   parApogee, consommationParMois, provenance,
@@ -34,7 +34,6 @@ function s(tag, attrs = {}, ...children) {
   return node;
 }
 
-const fmtCHF = (n) => `${new Intl.NumberFormat('fr-CH').format(Math.round(n))} CHF`;
 const moisLabel = (mois) => `${mois.slice(5, 7)}.${mois.slice(2, 4)}`; // « 2026-07 » → « 07.26 »
 
 export function renderStats(container, ctx) {

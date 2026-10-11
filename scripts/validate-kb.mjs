@@ -9,7 +9,8 @@
 //   - tout cépage cité par une appellation existe dans cepages.json ;
 //   - tout cépage a un tierGarde ;
 //   - tout id de plat cité (cepage.accords ET appellation.accords) existe dans kb/accords.json ;
-//   - unicité des id de cépage et d'appellation.
+//   - unicité des id de cépage et d'appellation ;
+//   - unicité des CLÉS DE RÉSOLUTION d'appellation — (nom ou synonyme, couleur) — voir D16.
 // Ne vérifie PAS tasting.bottleId : hors périmètre KB (c'est data.json ; CLAUDE.md).
 //
 // ajv/ajv-formats sont des devDependencies Node — jamais servies au navigateur (D12).
@@ -19,6 +20,8 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import Ajv from 'ajv/dist/2020.js'; // les schémas sont en draft 2020-12 (voir leur $schema)
 import addFormats from 'ajv-formats';
+
+import { normKb } from '../app/kb.js'; // la normalisation de résolution, jamais une recopie (D16)
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = async (rel) => JSON.parse(await readFile(path.join(root, rel), 'utf8'));
@@ -69,6 +72,29 @@ uniq(appellations.map((a) => a.id), 'id d\'appellation');
 // --- Tout cépage a un tierGarde (le schéma l'exige ; on le revérifie explicitement) ----------
 for (const c of cepages.cepages) {
   if (!c.tierGarde) fail('cépage', `${c.id} sans tierGarde`);
+}
+
+// --- Unicité des clés de résolution d'appellation (nom ET synonymes) × couleur (D16) ----------
+// app/kb.js indexe sur le couple (libellé normalisé, couleur) et garde la PREMIÈRE entrée : deux
+// prétendants à la même clé, et l'un des deux devient silencieusement irrésolvable. La
+// normalisation doit être la MÊME que celle de kb.js — elle est donc importée, pas recopiée.
+const cleResolution = new Map();
+for (const a of appellations) {
+  for (const label of [a.nom, ...(a.synonymes ?? [])]) {
+    const key = normKb(label);
+    if (!key) {
+      fail('appellation', `${a.id} : libellé vide après normalisation (« ${label} »)`);
+      continue;
+    }
+    for (const couleur of a.couleurs ?? []) {
+      const k = `${key}|${couleur}`;
+      if (cleResolution.has(k)) {
+        fail('résolution', `« ${label} » en ${couleur} est revendiqué par ${cleResolution.get(k)} ET ${a.id}`);
+      } else {
+        cleResolution.set(k, a.id);
+      }
+    }
+  }
 }
 
 // --- Tout cépage cité par une appellation existe ---------------------------------------------

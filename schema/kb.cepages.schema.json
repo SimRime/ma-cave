@@ -63,13 +63,14 @@
           ]
         },
         "pays": {
-          "description": "Pays où il est significativement planté, parmi ceux couverts.",
+          "description": "Pays où il est significativement planté. XX = planté hors de la couverture géographique du KB (un Tempranillo espagnol) : le cépage entre quand même, parce qu'une bouteille en pays XX a tout de même droit à une garde et à des accords — contrairement aux APPELLATIONS, qui restent bornées à FR/CH/IT (D15).",
           "type": "array",
           "items": {
             "enum": [
               "FR",
               "CH",
-              "IT"
+              "IT",
+              "XX"
             ]
           },
           "minItems": 1

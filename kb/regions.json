@@ -1,7 +1,7 @@
 {
   "version": 2,
   "_doc": "Base de connaissances pays/régions/appellations (production). Amorcée depuis kb/regions.seed.json : les régions étalon (ch-valais partiel, it-piemonte, fr-rhone) sont conservées telles quelles. L1-CH étend la Suisse région par région ; L1-FR et L1-IT suivront, en respectant EXACTEMENT cette forme. Ne pas modifier les étalons. Périmètre cible : PRD §5.1. Schéma : schema/kb.regions.schema.json.",
-  "_forme": "Une appellation qui produit plusieurs couleurs dont les gardes divergent donne DEUX entrées, avec le MÊME nom et des couleurs disjointes (voir fr-crozes-hermitage-rouge / -blanc, et ch-valais-petite-arvine / -fletri). Jamais une moyenne : la résolution se fait sur le couple (nom normalisé, couleur du vin).",
+  "_forme": "Une appellation qui produit plusieurs couleurs dont les gardes divergent donne DEUX entrées, avec le MÊME nom et des couleurs disjointes (voir fr-crozes-hermitage-rouge / -blanc, et ch-valais-petite-arvine / -fletri). Jamais une moyenne : la résolution se fait sur le couple (nom normalisé, couleur du vin). Un libellé d'étiquette qui n'est pas le nom canonique (mention cantonale « AOC Valais », « Ticino DOC » ; classement accolé « Saint-Émilion Grand Cru ») s'ajoute en SYNONYME de l'entrée existante, jamais en entrée dupliquée — validate-kb.mjs refuse deux prétendants à la même clé (nom ou synonyme, couleur). Une appellation régionale ou un vin de pays, qui recouvre des gardes allant du simple au quadruple, porte tierGarde: null : la cascade tombe alors sur le cépage, qui en sait davantage. Voir DECISIONS.md D16.",
   "pays": [
     {
       "code": "CH",
@@ -269,6 +269,31 @@
                 "desserts_fruits"
               ],
               "note": "Malvoisie flétrie (surmaturée). MÊME nom que l'entrée sèche, couleur disjointe, grande garde. La résolution se fait sur (nom, couleur du vin)."
+            },
+            {
+              "id": "ch-valais-rouge",
+              "nom": "Valais",
+              "synonymes": [
+                "Wallis",
+                "Vin du Valais"
+              ],
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "gamay",
+                "cornalin",
+                "humagne-rouge",
+                "syrah",
+                "diolinoir",
+                "gamaret",
+                "merlot"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Mention cantonale, portée par la majorité des étiquettes valaisannes en rouge. Elle recouvre le pinot de coopérative comme l'assemblage élevé en barrique : tierGarde null, le cépage décide (D16)."
             }
           ]
         },
@@ -456,6 +481,90 @@
                 "cuisine_alpine"
               ],
               "note": "Rouge vaudois d'assemblage Pinot Noir (dominant) + Gamay — l'équivalent vaudois de la Dôle valaisanne."
+            },
+            {
+              "id": "ch-vaud-rouge",
+              "nom": "Vaud",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay",
+                "pinot-noir",
+                "gamaret",
+                "garanoir"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Mention cantonale. Le Salvagnin, lui, est une dénomination à part entière et garde son tier."
+            },
+            {
+              "id": "ch-vaud-la-cote-rouge",
+              "nom": "La Côte",
+              "sousRegion": "La Côte",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamay",
+                "pinot-noir",
+                "gamaret",
+                "garanoir"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Pendant rouge de ch-vaud-la-cote (blanc). Son absence envoyait les rouges de La Côte sur l'entrée blanche, avec son tier leger et ses accords (D16)."
+            },
+            {
+              "id": "ch-vaud-cotes-de-lorbe-rouge",
+              "nom": "Côtes de l'Orbe",
+              "sousRegion": "Côtes de l'Orbe",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "gamaret",
+                "garanoir",
+                "pinot-noir",
+                "gamay"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Région majoritairement ROUGE, contrairement au reste de Vaud — l'entrée blanche seule était un contresens."
+            },
+            {
+              "id": "ch-vaud-chablais-rouge",
+              "nom": "Chablais",
+              "sousRegion": "Chablais",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "gamay",
+                "gamaret"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Mention régionale du Chablais vaudois. Yvorne et Aigle restent les dénominations communales, en blanc."
+            },
+            {
+              "id": "ch-vaud-lavaux-rouge",
+              "nom": "Lavaux",
+              "sousRegion": "Lavaux",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "gamay",
+                "gamaret",
+                "garanoir"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Mention régionale de Lavaux. Dézaley, Calamin, Epesses, Saint-Saphorin et Villette restent les dénominations communales, en blanc."
             }
           ]
         },
@@ -614,7 +723,12 @@
               ],
               "tierGarde": "garde",
               "accords": [],
-              "note": "Le Merlot fait 90 % du vignoble tessinois. Les meilleurs (Riserva) sont de garde. C'est l'appellation générique « Ticino DOC » en rouge."
+              "note": "Le Merlot fait 90 % du vignoble tessinois. Les meilleurs (Riserva) sont de garde. C'est l'appellation générique « Ticino DOC » en rouge.",
+              "synonymes": [
+                "Ticino",
+                "Tessin",
+                "Merlot Ticino"
+              ]
             },
             {
               "id": "ch-ticino-bianco-di-merlot",
@@ -763,6 +877,37 @@
               "tierGarde": "leger",
               "accords": [],
               "note": null
+            }
+          ]
+        },
+        {
+          "id": "ch-suisse",
+          "nom": "Suisse",
+          "sousRegions": [],
+          "appellations": [
+            {
+              "id": "ch-vdp-suisse-rouge",
+              "nom": "Vin de Pays Suisse",
+              "synonymes": [
+                "VDP Suisse",
+                "Vin de table suisse",
+                "Schweizer Landwein",
+                "Vin suisse"
+              ],
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "pinot-noir",
+                "gamaret",
+                "garanoir",
+                "gamay",
+                "merlot"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "Catégorie sans dénomination d'origine : par construction, elle ne dit rien de la garde (D16). « Vin de table suisse » est juridiquement un cran en dessous, mais produit ici le même effet — aucun tier."
             }
           ]
         }
@@ -973,6 +1118,26 @@
                 "aperitif"
               ],
               "note": "DOCG, rouge doux frizzante. Contrairement à l'Asti/Moscato d'Asti, le cépage brachetto (créé pour ce lot) porte un sucre franc (4) : l'accord dessert n'est pas neutralisé par l'antiRègle. Même famille de vin que l'Asti, traitement différent parce que le cépage n'a pas la même contrainte héritée."
+            },
+            {
+              "id": "it-monferrato",
+              "nom": "Monferrato",
+              "synonymes": [
+                "Monferrato Rosso"
+              ],
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "barbera",
+                "dolcetto",
+                "cabernet-sauvignon",
+                "merlot"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "DOC régionale du Monferrato, Barbera dominante, souvent complétée de cépages internationaux. À ne pas confondre avec Barbera d'Asti ni avec les DOCG voisines."
             }
           ]
         },
@@ -1810,6 +1975,42 @@
                 "pates_tomate"
               ],
               "note": null
+            },
+            {
+              "id": "it-primitivo-di-puglia",
+              "nom": "Primitivo di Puglia",
+              "synonymes": [
+                "Puglia Primitivo"
+              ],
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "primitivo"
+              ],
+              "tierGarde": "moyen",
+              "accords": [
+                "viandes_rouges_grillees",
+                "barbecue",
+                "pizza"
+              ],
+              "note": "IGP régionale, à distinguer du Primitivo di Manduria (DOP, tier garde) : même cépage, rendements et concentration sans comparaison. Le tier moyen est un écart ASSUMÉ avec celui du cépage."
+            },
+            {
+              "id": "it-salento",
+              "nom": "Salento",
+              "sousRegion": "Salento",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "negroamaro",
+                "primitivo"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "IGT de la péninsule salentine, à cheval sur Negroamaro (moyen) et Primitivo (garde) : aucune moyenne ne serait honnête. Salice Salentino reste la DOC qui, elle, discrimine."
             }
           ]
         },
@@ -1855,6 +2056,23 @@
                 "barbecue"
               ],
               "note": "Vin variétal (Sicilia DOC), pas d'appellation géographique unique — s'étiquette le plus souvent par son cépage. Marsala volontairement non couvert par ce lot : aucune couleur du schéma ne le représente sans mentir sur sa garde — même précédent que Porto en L1-FR."
+            },
+            {
+              "id": "it-terre-siciliane",
+              "nom": "Terre Siciliane",
+              "sousRegion": null,
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "nero-d-avola",
+                "nerello-mascalese",
+                "syrah",
+                "merlot"
+              ],
+              "tierGarde": null,
+              "accords": [],
+              "note": "IGP couvrant toute la Sicile et tous les cépages, du vin de négoce à la cuvée ambitieuse. Rien à en déduire sur la garde (D16) : le cépage décide."
             }
           ]
         },
@@ -2251,6 +2469,27 @@
                 "fromages_bleus"
               ],
               "note": "Vin doux naturel (Muscat muté). Modélisé en Liquoreux, faute de catégorie « VDN » dans l'enum des couleurs — décision commanditaire L1-FR. À boire plutôt jeune, sur les desserts."
+            },
+            {
+              "id": "fr-ventoux",
+              "nom": "Ventoux",
+              "synonymes": [
+                "Côtes du Ventoux"
+              ],
+              "sousRegion": "Sud",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "grenache",
+                "syrah",
+                "carignan",
+                "cinsault",
+                "mourvedre"
+              ],
+              "tierGarde": "moyen",
+              "accords": [],
+              "note": "Rhône méridional, altitude et nuits fraîches. Calibré comme Côtes du Rhône et Lirac : fruit et fraîcheur, pas de longue garde."
             }
           ]
         },
@@ -2524,7 +2763,10 @@
                 "viandes_rouges_mijotees",
                 "fromages_pate_dure"
               ],
-              "note": "Rive droite : Merlot dominant, complété du Cabernet Franc. Plus rond et précoce que le Médoc, mais les grands crus classés tiennent la grande garde."
+              "note": "Rive droite : Merlot dominant, complété du Cabernet Franc. Plus rond et précoce que le Médoc, mais les grands crus classés tiennent la grande garde.",
+              "synonymes": [
+                "Saint-Émilion Grand Cru"
+              ]
             },
             {
               "id": "fr-pomerol",
@@ -3374,6 +3616,23 @@
                 "fromages_bleus"
               ],
               "note": "VDN de Muscat, aromatique et fruité, à boire plutôt jeune. Modélisé en Liquoreux (décision L1-FR)."
+            },
+            {
+              "id": "fr-la-clape",
+              "nom": "La Clape",
+              "sousRegion": "Languedoc",
+              "couleurs": [
+                "Rouge"
+              ],
+              "cepages": [
+                "syrah",
+                "grenache",
+                "mourvedre",
+                "carignan"
+              ],
+              "tierGarde": "garde",
+              "accords": [],
+              "note": "Cru du Languedoc depuis 2015, massif calcaire en bord de mer. Rangé avec Faugères, Fitou, Pic Saint-Loup et Collioure, pas avec Corbières ni Minervois."
             }
           ]
         },
